@@ -1,0 +1,110 @@
+/* Following WinUI3 Recomendations */
+
+@font-face {
+    font-family: 'Segoe Fluent Icons';
+    src: url(./SegoeFluentIcons.ttf);
+}
+
+@font-face {
+    font-family: 'Segoe UI Variable';
+    src: url(./SegoeUIVariable.ttf);
+}
+
+/*Segoe Fluent Icons*/
+fluent-icon {
+    font-family: 'Segoe Fluent Icons';
+}
+
+fluent-icon[iconsize="16"] {
+    font-size: 16px;
+    font-family: 'Segoe Fluent Icons';
+}
+
+fluent-icon[iconsize="20"] {
+    font-size: 20px;
+    font-family: 'Segoe Fluent Icons';
+}
+
+fluent-icon[iconsize="24"] {
+    font-size: 24px;
+    font-family: 'Segoe Fluent Icons';
+}
+
+fluent-icon[iconsize="32"] {
+    font-size: 32px;
+    font-family: 'Segoe Fluent Icons';
+}
+
+
+fluent-icon[iconsize="40"] {
+    font-size: 40px;
+    font-family: 'Segoe Fluent Icons';
+}
+
+
+fluent-icon[iconsize="48"] {
+    font-size: 48px;
+    font-family: 'Segoe Fluent Icons';
+}
+
+
+fluent-icon[iconsize="64"] {
+    font-size: 64px;
+    font-family: 'Segoe Fluent Icons';
+}
+
+/* Segoe UI Variable */
+[textType="caption"] {
+    font-size: 12px;
+    line-height: 16px;
+    font-family: 'Segoe UI Variable';
+    font-weight: normal;
+}
+
+[textType="body"] {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: 'Segoe UI Variable';
+    font-weight: normal;
+}
+
+[textType="bodyStrong"] {
+    font-size: 14px;
+    line-height: 20px;
+    font-family: 'Segoe UI Variable';
+    font-weight: 600;
+}
+
+[textType="subtitle"] {
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 'Segoe UI Variable';
+    font-weight: 600;
+}
+
+[textType="title"] {
+    font-size: 28px;
+    line-height: 36px;
+    font-family: 'Segoe UI Variable';
+    font-weight: 600;
+}
+
+[textType="titleLarge"] {
+    font-size: 40px;
+    line-height: 52px;
+    font-family: 'Segoe UI Variable';
+    font-weight: 600;
+}
+
+[textType="display"] {
+    font-size: 68px;
+    line-height: 92px;
+    font-family: 'Segoe UI Variable';
+    font-weight: 600;
+}
+
+[textType="watch"] {
+    font-size: 120px;
+    font-family: 'Segoe UI Variable';
+    font-weight: 600;
+}

@@ -1,0 +1,137 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100dvh;
+    border-radius: 8px;
+    user-select: none;
+}
+
+#hour {
+  -webkit-app-region: no-drag;
+  transition-duration: .3s;
+}
+
+#date {
+  transition-duration: .3s;
+}
+
+.inverted {
+  color: white;
+}
+
+.blink {
+  animation: blinkDots 1s linear infinite;
+}
+
+@keyframes blinkDots {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.closeWindow {
+  position: absolute;
+  right: 0;
+  top: 0px;
+  background-color: #ff000088;
+  opacity: 0;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  transition-duration: .2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  color: white;
+}
+
+.minimizeArea {
+  position: absolute;
+  right: 0;
+  top: 25px;
+  background-color: #f0f0f088;
+  opacity: 0;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  transition-duration: .2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.moveArea {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background-color: #f0f0f088;
+  opacity: 0;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  transition-duration: .2s;
+  -webkit-app-region: drag;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.switchArea {
+  position: absolute;
+  right: 0;
+  top: 75px;
+  background-color: #f0f0f088;
+  opacity: 0;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  transition-duration: .2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+body:hover .moveArea,
+body:hover .closeWindow,
+body:hover .minimizeArea,
+body:hover .switchArea {
+  opacity: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: white
+  }
+
+  .inverted {
+    color: black;
+  }
+
+  .moveArea,
+  .minimizeArea,
+  .switchArea {
+    background-color: #19191988;
+  }
+}
