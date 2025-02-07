@@ -1,0 +1,122 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding: 10px 70px;
+    box-sizing: border-box;
+    user-select: none;
+    background-color: #f9f9f9;
+}
+
+.title {
+    margin-top: 30px;
+}
+
+.appBlock,
+.appSBlock {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 20px 10px;
+    border-radius: 4px;
+    background-color: #fdfdfd;
+    border: 1px solid #eaeaea;
+    position: relative;
+    transition-duration: .2s;
+    padding-right: 50px;
+    font-family: 'Segoe UI Variable'
+  }
+  
+  .appSBlock:hover {
+    background-color: #f9f9f9;
+    border-bottom-color: #d1d1d1;
+  }
+
+  .block-icon-title {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 10px;
+  }
+  
+  .alertExpose {
+    position: absolute;
+    right: 20px;
+    transition-duration: .2s;
+  }
+  
+  .appSBlock:active .alertExpose{
+    margin-top: -5px;
+  }
+  
+  .openExpose {
+    rotate: 180deg;
+  }
+  
+  .appSBlock:active .openExpose {
+    margin-bottom: -5px;
+    margin-top: 0px;
+  }
+
+  .appSubBlock {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0 0 4px 4px;
+    display: none;
+    animation: openSubMenu .2s ease-out;
+  }
+
+  @keyframes openSubMenu {
+    from {
+      opacity: 0;
+      margin-top: -10px;
+    } to {
+      opacity: 1;
+      margin-top: 0;
+    }
+  }
+  
+  .subBlockItem {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fbfcfb;
+    border: 1px solid #e6e4e8;
+    border-bottom: none;
+    font-family: 'Segoe UI Variable';
+    font-size: 14px;
+  }
+
+  .subBlockItemSel {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fbfcfb;
+    border: 1px solid #e6e4e8;
+    border-bottom: none;
+    font-family: 'Segoe UI Variable';
+    font-size: 14px;
+  }
+
+  .lastItem {
+    border-radius: 0 0 4px 4px;
+    border-bottom: 1px solid #e6e4e8;
+  }
+  
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #191919;
+        color: white;
+    }
+}
