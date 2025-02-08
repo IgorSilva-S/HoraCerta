@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configurações Hora Certa</title>
-    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="css/settings/settings.css">
     <link rel="stylesheet" href="font/segoeFont.css">
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
 </head>
 <body>
   <div class="titleBar">
-    <p textType="titleLarge" class="title">Configurações</p>
+    <div class="appIcon"></div>
+    Hora Certa
+  </div>
+  <div class="title">
+    <p textType="titleLarge">Configurações</p>
   </div>
     <br>
   <div class="contentDiv">
-    <div class="appSBlock">
+    <div class="appCBlock">
       <div class="block-icon-title">
           <fluent-icon iconsize="24">&#xE916;</fluent-icon>
           <div>
@@ -21,7 +26,6 @@
             <p textType="caption">Altere configurações relacionadas à hora do relógio</p>
           </div>
 
-          <fluent-icon iconsize="16" class="alertExpose">&#xE70D;</fluent-icon>
         </div>
   </div>
   <div class="appSubBlock" id="clockSB" style='display: block;'>
@@ -29,13 +33,17 @@
         Mostrar Segundos
         <input type="checkbox" name="" id="showSec" class="switchRadio">
       </div>
-      <div class="subBlockItem lastItem">
+      <div class="subBlockItem">
         Usar modelo AM/PM
         <input type="checkbox" name="" id="amPmTime" class="switchRadio">
       </div>
+      <div class="subBlockItem lastItem">
+        User relógio no modelo HH/MM
+        <input type="checkbox" name="" id="stackHour" class="switchRadio">
+      </div>
   </div>
 
-  <div class="appSBlock">
+  <div class="appCBlock">
       <div class="block-icon-title">
           <fluent-icon iconsize="24">&#xE787;</fluent-icon>
           <div>
@@ -43,7 +51,6 @@
             <p textType="caption">Altere configurações relacionadas à data do relógio</p>
           </div>
 
-          <fluent-icon iconsize="16" class="alertExpose">&#xE70D;</fluent-icon>
         </div>
   </div>
   <div class="appSubBlock" id="dateSB" style='display: block;'>
@@ -69,7 +76,7 @@
     </div>
 </div>
 
-  <div class="appSBlock">
+  <div class="appCBlock">
       <div class="block-icon-title">
           <fluent-icon iconsize="24">&#xE775;</fluent-icon>
           <div>
@@ -77,7 +84,6 @@
             <p textType="caption">Escolha o fuso horário que se adapte a sua região</p>
           </div>
 
-          <fluent-icon iconsize="16" class="alertExpose">&#xE70D;</fluent-icon>
         </div>
   </div>
   <div class="appSubBlock" id="gmtSB" style='display: block;'>
@@ -102,7 +108,7 @@
 </div>
 
 
-  <div class="appSBlock">
+  <div class="appCBlock">
       <div class="block-icon-title">
           <fluent-icon iconsize="24">&#xE790;</fluent-icon>
           <div>
@@ -110,18 +116,17 @@
             <p textType="caption">Escolha entre temas para combinar com sua área de trabalho</p>
           </div>
 
-          <fluent-icon iconsize="16" class="alertExpose">&#xE70D;</fluent-icon>
         </div>
   </div>
   <div class="appSubBlock" id="themeSB" style='display: block;'>
     <div class="subBlockItemSel lastItem">
       <div>
         <input type="radio" name="theme" id="w11theme" checked>
-        <label for="w11theme">Windows 11</label>
+        <label for="w11theme">Windows 11 - Fluent UI</label>
       </div>
       <div>
         <input type="radio" name="theme" id="w10theme">
-        <label for="w10theme">Windows 10</label>
+        <label for="w10theme">Windows 10 - Metro UI</label>
       </div>
       <div>
         <input type="radio" name="theme" id="oUItheme">
@@ -129,7 +134,7 @@
       </div>
       <div>
         <input type="radio" name="theme" id="pxtheme">
-        <label for="pxtheme">Pixelado</label>
+        <label for="pxtheme">Pixels - Pixelify</label>
       </div>
       <div>
         <input type="radio" name="theme" id="wiiMtheme">
@@ -138,15 +143,14 @@
     </div>
 </div>
 
-  <div class="appSBlock">
+  <div class="appCBlock">
       <div class="block-icon-title">
           <fluent-icon iconsize="24">&#xE8E3;</fluent-icon>
           <div>
             <p>Alinhamento</p>
-            <p textType="caption">Modifique o alinhamento do relógio para condizer com o espaço posicionado dele</p>
+            <p textType="caption">Modifique o alinhamento do relógio e dos botões para condizer com a posição deles</p>
           </div>
 
-          <fluent-icon iconsize="16" class="alertExpose">&#xE70D;</fluent-icon>
         </div>
   </div>
   <div class="appSubBlock" id="alignSB" style='display: block;'>
@@ -189,7 +193,7 @@
     </div>
 </div>
 
-  <div class="appBlock" style="border-radius: 4px 4px 0 0;">
+  <div class="appCBlock">
       <div class="block-icon-title">
           <fluent-icon iconsize="24">&#xE946;</fluent-icon>
           <div>
@@ -207,6 +211,7 @@
 </div>
   </div>
 
-  <script src="settings.js"></script>
+  <script src="js/settings/settings.js"></script>
+  <script src="js/settings/settingsSetup.js"></script>
 </body>
 </html>

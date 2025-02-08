@@ -1,7 +1,7 @@
 const { app, BrowserWindow, screen, Tray, ipcMain } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
-let tray, isBlur = false
+let tray, settingsOpened = false ,pinned = false, isBlur = false
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
@@ -11,19 +11,16 @@ if (started) {
 const createWindow = () => {
   const { width, height } = screen.getPrimaryDisplay().bounds;
 
-  const windowWidth = 480;
-  const windowHeight = 220;
+  const windowWidth = 600;
+  const windowHeight = 320;
 
   const x = Math.round((width - windowWidth) / 2);
-  const yDiv = Math.round(height / 10)
+  const yDiv = Math.round(height / 12)
 
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: windowWidth,
     height: windowHeight,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-    },
     titleBarStyle: 'hidden',
     transparent: 'true',
     x: x,
@@ -34,7 +31,9 @@ const createWindow = () => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-    }
+    },
+    resizable: false,
+    icon: path.join(__dirname, 'icon/favicon.ico')
   });
 
   // and load the index.html of the app.
@@ -61,12 +60,14 @@ const createWindow = () => {
 
   mainWindow.on('blur', () => {
     isBlur = true
-    tray = new Tray('src/icon/icon.ico')
-    tray.setToolTip('Hora Certa')
-    tray.on('click', () => {
-      mainWindow.focus()
-      mainWindow.restore()
-    })
+    if (!tray) {
+      tray = new Tray(path.join(__dirname, 'icon/favicon.ico'))
+      tray.setToolTip('Hora Certa')
+      tray.on('click', () => {
+        mainWindow.focus()
+        mainWindow.restore()
+      })
+    }
   })
 
   mainWindow.on('focus', () => {
@@ -86,14 +87,29 @@ const createWindow = () => {
   })
 
   ipcMain.on('openSettings', () => {
-    createSettingsWindow()
+    if (!settingsOpened) {
+      createSettingsWindow()
+      settingsOpened = true
+    } else {
+      mainWindow.webContents.send('itsOpened')
+    }
+  })
+
+  ipcMain.on('pinCW', () => {
+    if (!pinned) {
+      mainWindow.setAlwaysOnTop(true)
+      pinned = true
+    } else {
+      mainWindow.setAlwaysOnTop(false)
+      pinned = false
+    }
   })
 };
 
 const createSettingsWindow = () => {
 
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  let mainWindow = new BrowserWindow({
     width: 700,
     height: 600,
     titleBarStyle: 'hidden',
@@ -106,7 +122,8 @@ const createSettingsWindow = () => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-    }
+    },
+    icon: path.join(__dirname, 'icon/favicon.ico')
   });
 
   // and load the index.html of the app.
@@ -115,6 +132,17 @@ const createSettingsWindow = () => {
   // Open the DevTools.
   //mainWindow.webContents.openDevTools();
 
+  ipcMain.on('focusSettings', () => {
+      if (mainWindow) {
+        mainWindow.focus()
+        mainWindow.restore()
+      }
+  })
+
+  mainWindow.on('close', () => {
+    settingsOpened = false
+    mainWindow = null
+  })
 };
 
 // This method will be called when Electron has finished

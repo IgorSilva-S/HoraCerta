@@ -3,29 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hora Certa</title>
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="css/widget/index.css" />
     <link rel="stylesheet" href="font/segoeFont.css">
+    <link rel="stylesheet" href="css/widget/themes.css">
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
   </head>
   <body>
-    <div id="hour" textType="watch"></div>
-    <div id="date" textType="title">Carregando horário...</div>
-    <div id="internetAlert" textType="bodyStrong">Você precisa de conexão à internet para utilizar o Hora Certa</div>
-    <div class="closeWindow" id="closeClock">
-      <fluent-icon>&#xE8BB;</fluent-icon>
-    </div>
-    <div class="minimizeArea" id="minimizeClock">
-      <fluent-icon>&#xE921;</fluent-icon>
-    </div>
-    <div class="moveArea">
-      <fluent-icon>&#xE759;</fluent-icon>
-    </div>
-    <div class="switchArea" id="switchColors">
-      <fluent-icon>&#xF1CB;</fluent-icon>
+    <div id="hour" class="hour"></div>
+    <div class="line" id="line"></div>
+    <div id="date" class="date">Carregando horário...</div>
+    <div id="internetAlert">Você precisa de conexão à internet para utilizar o Hora Certa</div>
+    <div class="buttonsAlignRight" id="bAlign">
+      <div class="closeWindow" id="closeClock">
+        <fluent-icon>&#xE8BB;</fluent-icon>
+      </div>
+      <div class="buttonArea" id="minimizeClock">
+        <fluent-icon>&#xE921;</fluent-icon>
+      </div>
+      <div class="buttonArea" id="pinClock">
+        <fluent-icon>&#xE718;</fluent-icon>
+      </div>
+      <div class="buttonArea moveArea">
+        <fluent-icon>&#xE759;</fluent-icon>
+      </div>
+      <div class="buttonArea" id="openSettings">
+        <fluent-icon>&#xE713;</fluent-icon>
+      </div>
+      <div class="buttonArea" id="switchColors">
+        <fluent-icon>&#xF1CB;</fluent-icon>
+      </div>
     </div>
 
     <div class="context"></div>
 
-    <script src="clock.js"></script>
-    <script src="clockFunctions.js"></script>
+    <script src="js/widget/clock.js"></script>
+    <script src="js/widget/clockFunctions.js"></script>
+    <script src="js/widget/personalization.js"></script>
   </body>
 </html>

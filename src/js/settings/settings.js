@@ -17,6 +17,15 @@ document.getElementById('amPmTime').addEventListener('click', () => {
     }
 })
 
+document.getElementById('stackHour').addEventListener('click', () => {
+    let isChecked = document.getElementById('stackHour').checked
+    if (isChecked) {
+        localStorage.setItem('stackHour', true)
+    } else {
+        localStorage.removeItem('stackHour')
+    }
+})
+
 /*Date settings*/
 document.getElementById('showYear').addEventListener('click', () => {
     let isChecked = document.getElementById('showYear').checked
@@ -82,11 +91,11 @@ document.getElementById('ACT').addEventListener('click', () => {
 
 /*Theme Settings*/
 document.getElementById('w11theme').addEventListener('click', () => {
-    localStorage.setItem('theme', 'w11')
+    localStorage.setItem('theme', 'fUI')
 })
 
 document.getElementById('w10theme').addEventListener('click', () => {
-    localStorage.setItem('theme', 'w10')
+    localStorage.setItem('theme', 'mUI')
 })
 
 document.getElementById('oUItheme').addEventListener('click', () => {

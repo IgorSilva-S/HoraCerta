@@ -13,13 +13,39 @@ body {
 
 .titleBar {
   width: 100vw;
-  height: 100px;
+  height: 50px;
   position: fixed;
   top: 0;
   left: 0;
   -webkit-app-region: drag;
   background-color: #f9f9f9;
   z-index: 999;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  gap: 10px;
+  padding-left: 15px;
+  font-family: 'Segoe UI Variable';
+  font-size: 12px;
+}
+
+.appIcon {
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../../icon/favicon.ico);
+}
+
+.title {
+  width: 100vw;
+  height: 140px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f9f9f9;
+  z-index: 10;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -32,15 +58,25 @@ body {
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: calc(100dvh - 120px);
+  height: calc(100dvh - 140px);
   overflow-x: hidden;
   overflow-y: auto;
   box-sizing: border-box;
   padding: 10px 70px;
 }
 
+.contentDiv::-webkit-scrollbar {
+  width: 3px;
+}
+
+.contentDiv::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 120px;
+}
+
 .appBlock,
-.appSBlock {
+.appSBlock,
+.appCBlock {
     width: 100%;
     box-sizing: border-box;
     margin-top: 10px;
@@ -57,6 +93,10 @@ body {
   .appSBlock:hover {
     background-color: #f9f9f9;
     border-bottom-color: #d1d1d1;
+  }
+
+  .appCBlock {
+    border-radius: 4px 4px 0 0;
   }
 
   .block-icon-title {
@@ -230,11 +270,16 @@ body {
         color: white;
     }
 
+    .title,
     .titleBar {
       background-color: #191919;
     }
 
-    .appBlock, .appSBlock {
+    .contentDiv::-webkit-scrollbar-thumb {
+      background-color: #999;
+    }
+
+    .appBlock, .appSBlock, .appCBlock {
       background-color: #323232;
       border: 1px solid #232323;
       transition-duration: .2s;

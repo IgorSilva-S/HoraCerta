@@ -1,0 +1,124 @@
+/*Use Hour/Minute*/
+.stackHour .hour {
+    line-height: 90%;
+}
+
+/*Windows 11 - Fluent UI*/
+.hour {
+    font-size: 120px;
+    font-family: 'Segoe UI Variable';
+    font-weight: 600;
+}
+
+.date {
+    font-size: 28px;
+    line-height: 36px;
+    font-family: 'Segoe UI Variable';
+    font-weight: 600;
+}
+
+/*Windows 10 - Metro UI*/
+.mUI .hour {
+    font-size: 180px;
+    font-family: 'Segoe UI';
+    font-weight: 300;
+}
+
+.mUI .date {
+    font-size: 48px;
+    line-height: 36px;
+    font-family: 'Segoe UI';
+    font-weight: 300;
+}
+
+.stackHour.mUI .hour {
+    font-size: 150px;
+}
+
+/*One UI*/
+@font-face {
+    font-family: 'One UI Sans';
+    src: url(../../font/OneUISans.ttf);
+}
+
+.oUI .hour {
+    font-size: 120px;
+    font-family: 'One UI Sans';
+    font-weight: 600;
+}
+
+.oUI .date {
+    font-size: 28px;
+    font-family: 'One UI Sans';
+    font-weight: 200;
+}
+
+/*Pixels - Pixelify*/
+@font-face {
+    font-family: 'Pixelify';
+    src: url(../../font/pixelifySans.ttf);
+}
+
+.px .hour {
+    font-size: 90px;
+    font-family: 'Pixelify';
+    font-weight: 200;
+}
+
+.px .date {
+    font-size: 28px;
+    font-family: 'Pixelify';
+}
+
+.px .line {
+    width: 80%;
+    height: 0px;
+    border-bottom: 3px dotted black;
+    transition-duration: .2s;
+}
+
+.px .lineInverted {
+    width: 80%;
+    height: 0px;
+    border-bottom: 3px dotted white;
+    transition-duration: .2s;
+}
+
+@media (prefers-color-scheme: dark) {
+    .px .line {
+        border-bottom: 3px dotted white;
+    }
+    
+    .px .lineInverted {
+        border-bottom: 3px dotted black;
+    }
+}
+
+/*Wii Menu*/
+@font-face {
+    font-family: 'DS-Digital';
+    src: url(../../font/dsDigital.TTF);
+}
+
+.wiiM .hour {
+    font-size: 90px;
+    font-family: 'DS-Digital';
+    font-weight: 200;
+}
+
+.wiiM .line,
+.wiiM .lineInverted {
+    width: 100%;
+    height: 3px;
+    background-color: #34c2ec;
+    box-shadow: 0 0 10px 1px #34c2ec;
+    border-radius: 1px;
+    transition-duration: .2s;
+}
+
+.wiiM .date {
+    color: #717071;
+    background-color: #d0d3da;
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+}
