@@ -4,14 +4,39 @@
 }
 
 body {
-    padding: 10px 70px;
     box-sizing: border-box;
     user-select: none;
     background-color: #f9f9f9;
+    margin-top: 60px;
+    overflow: hidden;
 }
 
-.title {
-    margin-top: 30px;
+.titleBar {
+  width: 100vw;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-app-region: drag;
+  background-color: #f9f9f9;
+  z-index: 999;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 30px;
+}
+
+.contentDiv {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(100dvh - 120px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 10px 70px;
 }
 
 .appBlock,
@@ -100,7 +125,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     background-color: #fbfcfb;
     border: 1px solid #e6e4e8;
     border-bottom: none;
@@ -108,15 +133,157 @@ body {
     font-size: 14px;
   }
 
+  .subBlockItemSel div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
   .lastItem {
     border-radius: 0 0 4px 4px;
     border-bottom: 1px solid #e6e4e8;
   }
   
+  .switchRadio {
+    width: 50px;
+    height: 25px;
+    appearance: none;
+    border-radius: 120px;
+    background-color: transparent;
+    position: relative;
+    transition-duration: .2s;
+    box-sizing: border-box;
+    border: 1px solid #bbb;
+  }
+
+  .switchRadio:hover {
+    background-color: #19191911;
+  }
+
+  .switchRadio::after {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background-color: #bbb;
+    border-radius: 120px;
+    content: '';
+    top: 4px;
+    left: 5px;
+    transition-duration: .2s;
+  }
+
+  .switchRadio:hover::after {
+    width: 17px;
+    height: 17px;
+    top: 3px;
+  }
+
+  .switchRadio:active::after {
+    width: 23px;
+    height: 17px;
+    top: 3px;
+  }
+
+  .switchRadio:checked {
+    background-color: #0078d4;
+    border-color: #0078d4;
+  }
+
+  .switchRadio:checked:hover {
+    background-color: #006abb;
+    border-color: #006abb;
+  }
+
+  .switchRadio:checked::after {
+    left: 27px;
+    background-color: white;
+  }
+
+  .switchRadio:checked:active::after {
+    left: 19px;
+  }
+
+  input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+    background-color: #fff7;
+    border: 1px solid #bbb;
+    border-radius: 120px;
+    transition-duration: .2s;
+  }
+
+  input[type="radio"]:checked {
+    border: 5px solid #0078d4;
+    background-color: white;
+  }
+
+  input[type="radio"]:checked:hover {
+    border: 4px solid #006abb
+  }
 
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #191919;
         color: white;
     }
+
+    .titleBar {
+      background-color: #191919;
+    }
+
+    .appBlock, .appSBlock {
+      background-color: #323232;
+      border: 1px solid #232323;
+      transition-duration: .2s;
+    }
+
+    .appSBlock:hover {
+      border-color: transparent;
+      background-color: #343434;
+      border-top-color: #3b3b3b;
+    }
+  
+
+    .subBlockItem,
+    .subBlockItemSel {
+      background-color: #323232;
+      border-color: #232323;
+    }
+
+    .switchRadio:hover {
+      background-color: #fff1;
+    }
+  
+    .switchRadio:checked {
+      background-color: #5bb8ff;
+      border-color: #5bb8ff;
+    }
+  
+    .switchRadio:checked:hover {
+      background-color: #55acee;
+      border-color: #55acee;
+    }
+
+    .switchRadio:checked::after {
+      left: 27px;
+      background-color: black;
+    }
+
+    
+  input[type="radio"] {
+    border: 1px solid #252525;
+    background-color: #19191977;
+  }
+
+  input[type="radio"]:checked {
+    border: 5px solid #5bb8ff;
+    background-color: black;
+  }
+
+  input[type="radio"]:checked:hover {
+    border: 4px solid #55acee
+  }
 }

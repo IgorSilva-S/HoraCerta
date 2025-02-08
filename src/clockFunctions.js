@@ -20,5 +20,5 @@ document.getElementById('minimizeClock').addEventListener('click', () => {
 })
 
 document.getElementById('closeClock').addEventListener('click', () => {
-    ipcRenderer.send('closeCW')
+    ipcRenderer.send('openSettings')
 })

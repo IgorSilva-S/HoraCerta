@@ -1,7 +1,7 @@
 const { app, BrowserWindow, screen, Tray, ipcMain } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
-let tray
+let tray, isBlur = false
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
@@ -9,14 +9,11 @@ if (started) {
 }
 
 const createWindow = () => {
-
-  // Pegando as dimensões da tela principal
   const { width, height } = screen.getPrimaryDisplay().bounds;
 
   const windowWidth = 480;
   const windowHeight = 220;
 
-  // Calculando a posição central
   const x = Math.round((width - windowWidth) / 2);
   const yDiv = Math.round(height / 10)
 
@@ -47,22 +44,33 @@ const createWindow = () => {
   //mainWindow.webContents.openDevTools();
   mainWindow.on('minimize', () => {
     mainWindow.setSkipTaskbar(false)
+    if (tray) {
+      tray.destroy()
+      tray = null
+    }
   })
 
 
   mainWindow.on('restore', () => {
     mainWindow.setSkipTaskbar(true)
+    if (tray) {
+      tray.destroy()
+      tray = null
+    }
   })
 
   mainWindow.on('blur', () => {
+    isBlur = true
     tray = new Tray('src/icon/icon.ico')
     tray.setToolTip('Hora Certa')
     tray.on('click', () => {
       mainWindow.focus()
+      mainWindow.restore()
     })
   })
 
   mainWindow.on('focus', () => {
+    isBlur = false
     if (tray) {
       tray.destroy()
       tray = null
@@ -76,6 +84,37 @@ const createWindow = () => {
   ipcMain.on('closeCW', () => {
     app.quit()
   })
+
+  ipcMain.on('openSettings', () => {
+    createSettingsWindow()
+  })
+};
+
+const createSettingsWindow = () => {
+
+  // Create the browser window.
+  const mainWindow = new BrowserWindow({
+    width: 700,
+    height: 600,
+    titleBarStyle: 'hidden',
+    titleBarOverlay: {
+      color: '#00000000',
+      symbolColor: '#74b1be',
+      height: 40
+    },
+    autoHideMenuBar: 'true',
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    }
+  });
+
+  // and load the index.html of the app.
+  mainWindow.loadFile(path.join(__dirname, 'settings.html'));
+
+  // Open the DevTools.
+  //mainWindow.webContents.openDevTools();
+
 };
 
 // This method will be called when Electron has finished
