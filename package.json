@@ -1,7 +1,6 @@
 {
-  "name": "Hora Certa",
+  "name": "HoraCerta",
   "productName": "Hora Certa",
-  "appId": "com.igorsilvas.horacerta",
   "version": "1.0.0",
   "description": "Sempre esteja com o horário certo com o widget Hora Certa",
   "main": "src/index.js",
