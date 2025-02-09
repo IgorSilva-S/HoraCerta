@@ -104,6 +104,16 @@ const createWindow = () => {
       pinned = false
     }
   })
+
+  mainWindow.webContents.on('before-input-event', (event, input) => {
+    if (input.control && input.shift && input.key.toLowerCase() === 'i') {
+      event.preventDefault()
+    }
+    if (input.control && input.key.toLowerCase() === 'q') {
+      event.preventDefault()
+      mainWindow.webContents.send('completeCloseApp')
+    }
+  })
 };
 
 const createSettingsWindow = () => {
@@ -143,6 +153,16 @@ const createSettingsWindow = () => {
     settingsOpened = false
     mainWindow = null
   })
+
+  mainWindow.webContents.on('before-input-event', (event, input) => {
+    if (input.control && input.shift && input.key.toLowerCase() === 'i') {
+      event.preventDefault()
+    }
+    if (input.control && input.key.toLowerCase() === 'q') {
+      event.preventDefault()
+      mainWindow.webContents.send('completeCloseApp')
+    }
+  })
 };
 
 // This method will be called when Electron has finished
@@ -159,6 +179,7 @@ app.whenReady().then(() => {
     }
   });
 });
+
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits

@@ -10,7 +10,7 @@
     "make": "electron-forge make",
     "makeWin": "electron-forge make --platform=win32",
     "makeDarwin": "electron-forge make --platform=darwin",
-    "makeLinux": "electron-forge maked --platform=linux",
+    "makeLinux": "electron-forge make --platform=linux",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
   },
