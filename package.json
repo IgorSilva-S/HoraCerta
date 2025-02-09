@@ -28,11 +28,12 @@
   },
   "keywords": [],
   "author": {
-    "name": "Igor Silva Santos",
+    "name": "IgorSilva-S",
     "email": "igor.silva1@aluno.ifsp.edu.br"
   },
   "license": "MIT",
   "dependencies": {
+    "auto-launch": "^5.0.6",
     "electron-squirrel-startup": "^1.0.1"
   }
 }

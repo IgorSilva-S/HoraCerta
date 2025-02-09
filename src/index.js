@@ -174,3 +174,17 @@ app.on('window-all-closed', () => {
 try {
   require('electron-reloader')(module);
 } catch { }
+
+const AutoLaunch = require('auto-launch');
+const appAutoLauncher = new AutoLaunch({
+  name: 'Hora Certa',
+  path: app.getPath('exe'),
+});
+
+appAutoLauncher.isEnabled().then((isEnabled) => {
+  if (!isEnabled) {
+    appAutoLauncher.enable();
+  }
+}).catch((err) => {
+  console.error(err);
+});
