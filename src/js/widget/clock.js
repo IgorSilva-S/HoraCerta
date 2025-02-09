@@ -170,9 +170,9 @@ async function getTimeAndDate() {
                     }
                 } else {
                     if (!showYear) {
-                        document.getElementById('date').innerHTML = `${extMonth[month]} ${addZero(day)}`
+                        document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)}`
                     } else {
-                        document.getElementById('date').innerHTML = `${extMonth[month]} ${addZero(day)}, ${year}`
+                        document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)} de ${year}`
                     }
                 }
             } else {
@@ -180,13 +180,13 @@ async function getTimeAndDate() {
                     if (!showYear) {
                         document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}`
                     } else {
-                        document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ${year}`
+                        document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ano de ${year}`
                     }
                 } else {
                     if (!showYear) {
-                        document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ${extMonth[month]} ${addZero(day)}`
+                        document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ${extMonth[month]}, dia ${addZero(day)}`
                     } else {
-                        document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ${extMonth[month]} ${addZero(day)}, ${year}`
+                        document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ${extMonth[month]}, dia ${addZero(day)} de ${year}`
                     }
                 }
             }
