@@ -1,13 +1,17 @@
 {
   "name": "Hora Certa",
   "productName": "Hora Certa",
+  "appId": "com.igorsilvas.horacerta",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Sempre esteja com o horário certo com o widget Hora Certa",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
+    "makeWin": "electron-forge make --platform=win32",
+    "makeDarwin": "electron-forge make --platform=darwin",
+    "makeLinux": "electron-forge maked --platform=linux",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
   },
