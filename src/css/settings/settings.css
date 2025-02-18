@@ -252,7 +252,8 @@ body {
     background-color: #fff7;
     border: 1px solid #bbb;
     border-radius: 120px;
-    transition-duration: .2s;
+    transition-duration: .1s;
+    transition-timing-function: linear;
   }
 
   input[type="radio"]:checked {
