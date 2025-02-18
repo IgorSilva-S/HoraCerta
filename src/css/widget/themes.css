@@ -19,7 +19,7 @@
 
 /*Windows 10 - Metro UI*/
 .mUI .hour {
-    font-size: 180px;
+    font-size: 140px;
     font-family: 'Segoe UI';
     font-weight: 300;
 }
@@ -31,9 +31,6 @@
     font-weight: 300;
 }
 
-.stackHour.mUI .hour {
-    font-size: 140px;
-}
 
 /*One UI*/
 @font-face {

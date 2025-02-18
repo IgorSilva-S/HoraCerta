@@ -1,7 +1,8 @@
-const { app, BrowserWindow, screen, Tray, ipcMain } = require('electron');
+const { app, BrowserWindow, screen, Tray, Notification, ipcMain } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
 let tray, settingsOpened = false ,pinned = false, isBlur = false
+const isDevelopment = true
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
@@ -11,11 +12,11 @@ if (started) {
 const createWindow = () => {
   const { width, height } = screen.getPrimaryDisplay().bounds;
 
-  const windowWidth = 600;
+  const windowWidth = 500;
   const windowHeight = 320;
 
   const x = Math.round((width - windowWidth) / 2);
-  const yDiv = Math.round(height / 12)
+  const yDiv = Math.round(height / 14)
 
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -105,13 +106,17 @@ const createWindow = () => {
     }
   })
 
+  ipcMain.on('alertLocal', () => {
+    new Notification({ title: "Erro ao pegar a hora", body: "Houve um erro ao pegar o horário correto na internet. O horário apresentado agora é o horário local da máquina." }).show()
+  })
+
+  ipcMain.on('alertOnline', () => {
+    new Notification({ title: "Hora sincronizada", body: "O horário conseguiu se sincronizar com sucesso" }).show()
+  })
+
   mainWindow.webContents.on('before-input-event', (event, input) => {
-    if (input.control && input.shift && input.key.toLowerCase() === 'i') {
+    if (input.control && input.shift && input.key.toLowerCase() === 'i' && !isDevelopment) {
       event.preventDefault()
-    }
-    if (input.control && input.key.toLowerCase() === 'q') {
-      event.preventDefault()
-      mainWindow.webContents.send('completeCloseApp')
     }
   })
 };
@@ -155,12 +160,8 @@ const createSettingsWindow = () => {
   })
 
   mainWindow.webContents.on('before-input-event', (event, input) => {
-    if (input.control && input.shift && input.key.toLowerCase() === 'i') {
+    if (input.control && input.shift && input.key.toLowerCase() === 'i' && !isDevelopment) {
       event.preventDefault()
-    }
-    if (input.control && input.key.toLowerCase() === 'q') {
-      event.preventDefault()
-      mainWindow.webContents.send('completeCloseApp')
     }
   })
 };
@@ -196,16 +197,8 @@ try {
   require('electron-reloader')(module);
 } catch { }
 
-const AutoLaunch = require('auto-launch');
-const appAutoLauncher = new AutoLaunch({
-  name: 'Hora Certa',
-  path: app.getPath('exe'),
-});
-
-appAutoLauncher.isEnabled().then((isEnabled) => {
-  if (!isEnabled) {
-    appAutoLauncher.enable();
-  }
-}).catch((err) => {
-  console.error(err);
-});
+const exeName = path.basename(process.execPath)
+app.setLoginItemSettings({
+  openAtLogin: true,
+  path: exeName,
+})

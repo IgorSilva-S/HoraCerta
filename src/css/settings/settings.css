@@ -62,7 +62,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   box-sizing: border-box;
-  padding: 10px 70px;
+  padding: 10px 70px 30px 70px;
 }
 
 .contentDiv::-webkit-scrollbar {

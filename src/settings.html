@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configurações Hora Certa</title>
-    <link rel="stylesheet" href="css/settings/settings.css">
-    <link rel="stylesheet" href="font/segoeFont.css">
-    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurações Hora Certa</title>
+  <link rel="stylesheet" href="css/settings/settings.css">
+  <link rel="stylesheet" href="font/segoeFont.css">
+  <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
   <div class="titleBar">
     <div class="appIcon"></div>
@@ -16,19 +18,19 @@
   <div class="title">
     <p textType="titleLarge">Configurações</p>
   </div>
-    <br>
+  <br>
   <div class="contentDiv">
-    <div class="appCBlock">
+    <div class="appSBlock" id="hourSButton">
       <div class="block-icon-title">
-          <fluent-icon iconsize="24">&#xE916;</fluent-icon>
-          <div>
-            <p>Hora</p>
-            <p textType="caption">Altere configurações relacionadas à hora do relógio</p>
-          </div>
-
+        <fluent-icon iconsize="24">&#xE916;</fluent-icon>
+        <div>
+          <p>Hora</p>
+          <p textType="caption">Altere configurações relacionadas à hora do relógio</p>
         </div>
-  </div>
-  <div class="appSubBlock" id="clockSB" style='display: block;'>
+        <fluent-icon iconsize="16" class="alertExpose" id="exposeHourSection">&#xE70D;</fluent-icon>
+      </div>
+    </div>
+    <div class="appSubBlock" id="hourSection">
       <div class="subBlockItem">
         Mostrar Segundos
         <input type="checkbox" name="" id="showSec" class="switchRadio">
@@ -38,180 +40,200 @@
         <input type="checkbox" name="" id="amPmTime" class="switchRadio">
       </div>
       <div class="subBlockItem lastItem">
-        User relógio no modelo HH/MM
+        Usar relógio no modelo HH/MM
         <input type="checkbox" name="" id="stackHour" class="switchRadio">
       </div>
-  </div>
+    </div>
 
-  <div class="appCBlock">
+    <div class="appSBlock" id="dateSButton">
       <div class="block-icon-title">
-          <fluent-icon iconsize="24">&#xE787;</fluent-icon>
-          <div>
-            <p>Data</p>
-            <p textType="caption">Altere configurações relacionadas à data do relógio</p>
-          </div>
-
+        <fluent-icon iconsize="24">&#xE787;</fluent-icon>
+        <div>
+          <p>Data</p>
+          <p textType="caption">Altere configurações relacionadas à data do relógio</p>
         </div>
-  </div>
-  <div class="appSubBlock" id="dateSB" style='display: block;'>
-    <div class="subBlockItem">
-      Mostrar ano
-      <input type="checkbox" name="" id="showYear" class="switchRadio">
+        <fluent-icon iconsize="16" class="alertExpose" id="exposeDateSection">&#xE70D;</fluent-icon>
+      </div>
     </div>
-    <div class="subBlockItem">
-      Mostrar dia da semana
-      <input type="checkbox" name="" id="showWeekDay" class="switchRadio" checked>
+    <div class="appSubBlock" id="dateSection">
+      <div class="subBlockItem">
+        Mostrar ano
+        <input type="checkbox" name="" id="showYear" class="switchRadio">
+      </div>
+      <div class="subBlockItem">
+        Mostrar dia da semana
+        <input type="checkbox" name="" id="showWeekDay" class="switchRadio" checked>
+      </div>
+      <div class="subBlockItem">
+        Mostrar dia e mês
+        <input type="checkbox" name="" id="showDayMonth" class="switchRadio" checked>
+      </div>
+      <div class="subBlockItem">
+        Abreviar data
+        <input type="checkbox" name="" id="shortDate" class="switchRadio">
+      </div>
+      <div class="subBlockItem lastItem">
+        Formato de data MM/DD/YYYY
+        <input type="checkbox" name="" id="usDate" class="switchRadio">
+      </div>
     </div>
-    <div class="subBlockItem">
-      Mostrar dia e mês
-      <input type="checkbox" name="" id="showDayMonth" class="switchRadio" checked>
-    </div>
-    <div class="subBlockItem">
-      Abreviar data
-      <input type="checkbox" name="" id="shortDate" class="switchRadio">
-    </div>
-    <div class="subBlockItem lastItem">
-      Formato de data MM/DD/YYYY
-      <input type="checkbox" name="" id="usDate" class="switchRadio">
-    </div>
-</div>
 
-  <div class="appCBlock">
+    <div class="appSBlock" id="webSButton">
       <div class="block-icon-title">
-          <fluent-icon iconsize="24">&#xE775;</fluent-icon>
-          <div>
-            <p>Fuso Horário</p>
-            <p textType="caption">Escolha o fuso horário que se adapte a sua região</p>
-          </div>
-
+        <fluent-icon iconsize="24">&#xEE77;</fluent-icon>
+        <div>
+          <p>Internet e rede</p>
+          <p textType="caption">Altere configurações relacionadas ao uso da internet do Widget</p>
         </div>
-  </div>
-  <div class="appSubBlock" id="gmtSB" style='display: block;'>
-    <div class="subBlockItemSel lastItem">
-      <div>
-        <input type="radio" name="gmtTime" id="BRT" checked>
-        <label for="BRT">Hora de Brasília - BRT (-03:00)</label>
-      </div>
-      <div>
-        <input type="radio" name="gmtTime" id="FNT">
-        <label for="FNT">Hora de Fernando de Noronha - FNT (-02:00)</label>
-      </div>
-      <div>
-        <input type="radio" name="gmtTime" id="AMT">
-        <label for="AMT">Hora do Amazonas - AMT (-04:00)</label>
-      </div>
-      <div>
-        <input type="radio" name="gmtTime" id="ACT">
-        <label for="ACT">Hora do Acre - ACT (-05:00)</label>
+        <fluent-icon iconsize="16" class="alertExpose" id="exposeWebSection">&#xE70D;</fluent-icon>
       </div>
     </div>
-</div>
+    <div class="appSubBlock" id="webSection">
 
+      <div class="subBlockItem lastItem">
+        Usar modo offline (data e hora do sistema)
+        <input type="checkbox" name="" id="usDate" class="switchRadio">
+      </div>
+    </div>
 
-  <div class="appCBlock">
+    <div class="appSBlock" id="GMTSButton">
       <div class="block-icon-title">
-          <fluent-icon iconsize="24">&#xE790;</fluent-icon>
-          <div>
-            <p>Tema</p>
-            <p textType="caption">Escolha entre temas para combinar com sua área de trabalho</p>
-          </div>
-
+        <fluent-icon iconsize="24">&#xE775;</fluent-icon>
+        <div>
+          <p>Fuso Horário</p>
+          <p textType="caption">Escolha o fuso horário que se adapte a sua região</p>
         </div>
-  </div>
-  <div class="appSubBlock" id="themeSB" style='display: block;'>
-    <div class="subBlockItemSel lastItem">
-      <div>
-        <input type="radio" name="theme" id="w11theme" checked>
-        <label for="w11theme">Windows 11 - Fluent UI</label>
-      </div>
-      <div>
-        <input type="radio" name="theme" id="w10theme">
-        <label for="w10theme">Windows 10 - Metro UI</label>
-      </div>
-      <div>
-        <input type="radio" name="theme" id="oUItheme">
-        <label for="oUItheme">One UI</label>
-      </div>
-      <div>
-        <input type="radio" name="theme" id="pxtheme">
-        <label for="pxtheme">Pixels - Pixelify</label>
-      </div>
-      <div>
-        <input type="radio" name="theme" id="wiiMtheme">
-        <label for="wiiMtheme">Wii Menu</label>
+        <fluent-icon iconsize="16" class="alertExpose" id="exposeGMTSection">&#xE70D;</fluent-icon>
       </div>
     </div>
-</div>
+    <div class="appSubBlock" id="GMTSection">
+      <div class="subBlockItemSel lastItem">
+        <div>
+          <input type="radio" name="gmtTime" id="BRT" checked>
+          <label for="BRT">Hora de Brasília - BRT (-03:00)</label>
+        </div>
+        <div>
+          <input type="radio" name="gmtTime" id="FNT">
+          <label for="FNT">Hora de Fernando de Noronha - FNT (-02:00)</label>
+        </div>
+        <div>
+          <input type="radio" name="gmtTime" id="AMT">
+          <label for="AMT">Hora do Amazonas - AMT (-04:00)</label>
+        </div>
+        <div>
+          <input type="radio" name="gmtTime" id="ACT">
+          <label for="ACT">Hora do Acre - ACT (-05:00)</label>
+        </div>
+      </div>
+    </div>
 
-  <div class="appCBlock">
+
+    <div class="appSBlock" id="themeSButton">
       <div class="block-icon-title">
-          <fluent-icon iconsize="24">&#xE8E3;</fluent-icon>
-          <div>
-            <p>Alinhamento</p>
-            <p textType="caption">Modifique o alinhamento do relógio e dos botões para condizer com a posição deles</p>
-          </div>
-
+        <fluent-icon iconsize="24">&#xE790;</fluent-icon>
+        <div>
+          <p>Tema</p>
+          <p textType="caption">Escolha entre temas para combinar com sua área de trabalho</p>
         </div>
-  </div>
-  <div class="appSubBlock" id="alignSB" style='display: block;'>
-    <div class="subBlockItemSel">
-      <p textType="bodyStrong">Alinhamento do Relógio</p>
-      <div>
-        <input type="radio" name="align" id="cnt" checked>
-        <label for="cnt">Centralizado</label>
+        <fluent-icon iconsize="16" class="alertExpose" id="exposeThemeSection">&#xE70D;</fluent-icon>
       </div>
-      <div>
-        <input type="radio" name="align" id="lft">
-        <label for="lft">Esquerda</label>
-      </div>
-      <div>
-        <input type="radio" name="align" id="rgt">
-        <label for="rgt">Direita</label>
-      </div>
-
     </div>
-    <div class="subBlockItemSel lastItem">
-      <p textType="bodyStrong">Alinhamento dos botões</p>
-      <div>
-        <input type="radio" name="bAlign" id="rbutton" checked>
-        <label for="rbutton">Direita</label>
+    <div class="appSubBlock" id="themeSection">
+      <div class="subBlockItemSel lastItem">
+        <div>
+          <input type="radio" name="theme" id="w11theme" checked>
+          <label for="w11theme">Windows 11 - Fluent UI</label>
+        </div>
+        <div>
+          <input type="radio" name="theme" id="w10theme">
+          <label for="w10theme">Windows 10 - Metro UI</label>
+        </div>
+        <div>
+          <input type="radio" name="theme" id="oUItheme">
+          <label for="oUItheme">One UI</label>
+        </div>
+        <div>
+          <input type="radio" name="theme" id="pxtheme">
+          <label for="pxtheme">Pixels - Pixelify</label>
+        </div>
+        <div>
+          <input type="radio" name="theme" id="wiiMtheme">
+          <label for="wiiMtheme">Wii Menu</label>
+        </div>
       </div>
-      <div>
-        <input type="radio" name="bAlign" id="lbutton">
-        <label for="lbutton">Esquerda</label>
-      </div>
-      <div>
-        <input type="radio" name="bAlign" id="tbutton">
-        <label for="tbutton">Cima</label>
-      </div>
-      <div>
-        <input type="radio" name="bAlign" id="bbutton">
-        <label for="bbutton">Baixo</label>
-      </div>
-    
-
     </div>
-</div>
 
-  <div class="appCBlock">
+    <div class="appSBlock" id="alignSButton">
       <div class="block-icon-title">
-          <fluent-icon iconsize="24">&#xE946;</fluent-icon>
-          <div>
-            <p>Sobre</p>
-            <p textType="caption">Veja informações e detalhes sobre o widget Hora Certa</p>
-          </div>
+        <fluent-icon iconsize="24">&#xE8E3;</fluent-icon>
+        <div>
+          <p>Alinhamento</p>
+          <p textType="caption">Modifique o alinhamento do relógio e dos botões para condizer com a posição deles</p>
         </div>
-  </div>
-  <div class="appSubBlock" id="aboutSB" style='display: block;'>
-
-    <div class="subBlockItem lastItem">
-      <p>Versão</p>
-      <p>1.0</p>
+        <fluent-icon iconsize="16" class="alertExpose" id="exposeAlignSection">&#xE70D;</fluent-icon>
+      </div>
     </div>
-</div>
+    <div class="appSubBlock" id="alignSection">
+      <div class="subBlockItemSel">
+        <p textType="bodyStrong">Alinhamento do Relógio</p>
+        <div>
+          <input type="radio" name="align" id="cnt" checked>
+          <label for="cnt">Centralizado</label>
+        </div>
+        <div>
+          <input type="radio" name="align" id="lft">
+          <label for="lft">Esquerda</label>
+        </div>
+        <div>
+          <input type="radio" name="align" id="rgt">
+          <label for="rgt">Direita</label>
+        </div>
+
+      </div>
+      <div class="subBlockItemSel lastItem">
+        <p textType="bodyStrong">Alinhamento dos botões</p>
+        <div>
+          <input type="radio" name="bAlign" id="rbutton" checked>
+          <label for="rbutton">Direita</label>
+        </div>
+        <div>
+          <input type="radio" name="bAlign" id="lbutton">
+          <label for="lbutton">Esquerda</label>
+        </div>
+        <div>
+          <input type="radio" name="bAlign" id="tbutton">
+          <label for="tbutton">Cima</label>
+        </div>
+        <div>
+          <input type="radio" name="bAlign" id="bbutton">
+          <label for="bbutton">Baixo</label>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="appCBlock">
+      <div class="block-icon-title">
+        <fluent-icon iconsize="24">&#xE946;</fluent-icon>
+        <div>
+          <p>Sobre</p>
+          <p textType="caption">Veja informações e detalhes sobre o widget Hora Certa</p>
+        </div>
+      </div>
+    </div>
+    <div class="appSubBlock" id="aboutSB" style='display: block;'>
+
+      <div class="subBlockItem lastItem">
+        <p>Versão</p>
+        <p>1.0</p>
+      </div>
+    </div>
   </div>
 
+  <script src="js/settings/chevron.js"></script>
   <script src="js/settings/settings.js"></script>
   <script src="js/settings/settingsSetup.js"></script>
 </body>
+
 </html>
