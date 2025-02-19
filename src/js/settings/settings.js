@@ -72,6 +72,16 @@ document.getElementById('usDate').addEventListener('click', () => {
     }
 })
 
+/*Web Settings*/
+document.getElementById('offlineMode').addEventListener('click', () => {
+    let isChecked = document.getElementById('offlineMode').checked
+    if (isChecked) {
+        localStorage.setItem('offlineMode', true)
+    } else {
+        localStorage.removeItem('offlineMode')
+    }
+})
+
 /*GMT Settings*/
 document.getElementById('BRT').addEventListener('click', () => {
     localStorage.setItem('gmt', '-03:00')

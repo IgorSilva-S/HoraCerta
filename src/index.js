@@ -107,7 +107,27 @@ const createWindow = () => {
   })
 
   ipcMain.on('alertLocal', () => {
-    new Notification({ title: "Erro ao pegar a hora", body: "Houve um erro ao pegar o horário correto na internet. O horário apresentado agora é o horário local da máquina." }).show()
+    new Notification({
+        toastXml: `
+            <toast activationType="protocol">
+                <visual>
+                    <binding template="ToastGeneric">
+                        <text>Hello world</text>
+                    </binding>
+                </visual>
+                <actions>
+                    <action
+                        content="See more details"
+                        arguments="myapp:action=viewDetails&amp;contentId=351"
+                        activationType="protocol"/>
+
+                    <action
+                        content="Remind me later"
+                        arguments="myapp:action=remindlater&amp;contentId=351"
+                        activationType="protocol"/>
+                </actions>
+            </toast>`
+    }).show()
   })
 
   ipcMain.on('alertOnline', () => {

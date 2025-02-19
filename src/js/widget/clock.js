@@ -27,6 +27,8 @@ if (gmt == '-03:00' || gmt == undefined) {
     IANAList = 'America%2FRio_Branco'
 }
 
+let offlineMode = localStorage.getItem('offlineMode')
+
 async function getTimeAndDate() {
     try {
         const response = await fetch(`https://www.timeapi.io/api/time/current/zone?timeZone=${IANAList}`);
@@ -281,7 +283,7 @@ async function getTimeAndDate() {
         let minute = d.getMinutes()
         let seconds = d.getSeconds()
 
-        let day = d.getDate() + 1
+        let day = d.getDate()
         let month = d.getMonth() + 1
         let year = d.getFullYear()
         let changedHour
@@ -522,6 +524,252 @@ async function getTimeAndDate() {
     }
 }
 
+function justOfflineDate() {
+    let d = new Date
+    let hour = d.getHours()
+    let minute = d.getMinutes()
+    let seconds = d.getSeconds()
+
+    let day = d.getDate()
+    let month = d.getMonth() + 1
+    let year = d.getFullYear()
+    let changedHour
+    let noon
+    if (hour >= 12) {
+        noon = 'PM'
+    } else {
+        noon = 'AM'
+    }
+    let weekDay = d.getDay()
+    
+    const addZero = (n) => {
+        return ('0' + n).slice(-2)
+    }
+
+    const extMonth = [
+        null,
+        "janeiro",
+        "fevereiro",
+        "março",
+        "abril",
+        "maio",
+        "junho",
+        "julho",
+        "agosto",
+        "setembro",
+        "outubro",
+        "novembro",
+        "dezembro"
+    ];
+
+    let daysOfWeek, shortDaysOfWeek
+    switch (weekDay) {
+        case 0:
+            daysOfWeek = "Domingo";
+            shortDaysOfWeek = "Dom";
+            break;
+        case 1:
+            daysOfWeek = "Segunda";
+            shortDaysOfWeek = "Seg";
+            break;
+        case 2:
+            daysOfWeek = "Terça";
+            shortDaysOfWeek = "Ter";
+            break;
+        case 3:
+            daysOfWeek = "Quarta";
+            shortDaysOfWeek = "Qua";
+            break;
+        case 4:
+            daysOfWeek = "Quinta";
+            shortDaysOfWeek = "Qui";
+            break;
+        case 5:
+            daysOfWeek = "Sexta";
+            shortDaysOfWeek = "Sex";
+            break;
+        case 6:
+            daysOfWeek = "Sábado";
+            shortDaysOfWeek = "Sáb";
+            break;
+        default:
+            daysOfWeek = "Dia inválido";
+            shortDaysOfWeek = "D.I."
+    }
+
+
+    let shortYear = year.toString()
+    shortYear = shortYear.slice(2)
+
+     //Time
+     if (ampm) {
+        if (hour > 12) {
+            changedHour = hour - 12
+        } else {
+            changedHour = hour
+        }
+
+        if (stackHour) {
+            if (showSeconds) {
+                document.getElementById('hour').innerHTML = `<span>${addZero(changedHour)}</span><div><span>${addZero(minute)}:</span>${addZero(seconds)}<span textType="subtitle">${noon}</span></div>`;
+            } else {
+                document.getElementById('hour').innerHTML = `<span>${addZero(changedHour)}</span><div><span>${addZero(minute)}</span><span textType="subtitle">${noon}</span></div>`;
+            }
+        } else {
+            if (showSeconds) {
+                document.getElementById('hour').innerHTML = `<div>${addZero(changedHour)}:${addZero(minute)}:${addZero(seconds)}<span textType="subtitle">${noon}</span></div>`;
+            } else {
+                document.getElementById('hour').innerHTML = `<div>${addZero(changedHour)}:${addZero(minute)}<span textType="subtitle">${noon}</span></div>`;
+            }
+        }
+    } else {
+        if (stackHour) {
+            if (showSeconds) {
+                document.getElementById('hour').innerHTML = `<span>${addZero(hour)}</span><div><span>${addZero(minute)}</span>:${addZero(seconds)}</div>`;
+            } else {
+                document.getElementById('hour').innerHTML = `<span>${addZero(hour)}</span>${addZero(minute)}`;
+            }
+        } else {
+            if (showSeconds) {
+                document.getElementById('hour').innerHTML = `${addZero(hour)}:${addZero(minute)}:${addZero(seconds)}`;
+            } else {
+                document.getElementById('hour').innerHTML = `${addZero(hour)}:${addZero(minute)}`;
+            }
+        }
+    }
+
+    //Date
+   if (usDate) {
+    if (shortDate) {
+        if (hideWeekDay) {
+            if (hideDayMonth) {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = ''
+                } else {
+                    document.getElementById('date').innerHTML = `${shortYear}`
+                }
+            } else {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = `${addZero(month)}/${addZero(day)}`
+                } else {
+                    document.getElementById('date').innerHTML = `${addZero(month)}/${addZero(day)}/${shortYear}`
+                }
+            }
+        } else {
+            if (hideDayMonth) {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}`
+                } else {
+                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${shortYear}`
+                }
+            } else {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(month)}/${addZero(day)}`
+                } else {
+                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(month)}/${addZero(day)}/${shortYear}`
+                }
+            }
+        }
+
+    } else {
+        if (hideWeekDay) {
+            if (hideDayMonth) {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = ''
+                } else {
+                    document.getElementById('date').innerHTML = `${year}`
+                }
+            } else {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)}`
+                } else {
+                    document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)} de ${year}`
+                }
+            }
+        } else {
+            if (hideDayMonth) {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = `${daysOfWeek}`
+                } else {
+                    document.getElementById('date').innerHTML = `${daysOfWeek}, ano de ${year}`
+                }
+            } else {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = `${daysOfWeek}, ${extMonth[month]}, dia ${addZero(day)}`
+                } else {
+                    document.getElementById('date').innerHTML = `${daysOfWeek}, ${extMonth[month]}, dia ${addZero(day)} de ${year}`
+                }
+            }
+        }
+
+    }
+   } else {
+    if (shortDate) {
+        if (hideWeekDay) {
+            if (hideDayMonth) {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = ''
+                } else {
+                    document.getElementById('date').innerHTML = `${shortYear}`
+                }
+            } else {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = `${addZero(day)}/${addZero(month)}`
+                } else {
+                    document.getElementById('date').innerHTML = `${addZero(day)}/${addZero(month)}/${shortYear}`
+                }
+            }
+        } else {
+            if (hideDayMonth) {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}`
+                } else {
+                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${shortYear}`
+                }
+            } else {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(day)}/${addZero(month)}`
+                } else {
+                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(day)}/${addZero(month)}/${shortYear}`
+                }
+            }
+        }
+
+    } else {
+        if (hideWeekDay) {
+            if (hideDayMonth) {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = ''
+                } else {
+                    document.getElementById('date').innerHTML = `${year}`
+                }
+            } else {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = `${addZero(day)} de ${extMonth[month]}`
+                } else {
+                    document.getElementById('date').innerHTML = `${addZero(day)} de ${extMonth[month]} de ${year}`
+                }
+            }
+        } else {
+            if (hideDayMonth) {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = `${daysOfWeek}`
+                } else {
+                    document.getElementById('date').innerHTML = `${daysOfWeek}, ${year}`
+                }
+            } else {
+                if (!showYear) {
+                    document.getElementById('date').innerHTML = `${daysOfWeek}, ${addZero(day)} de ${extMonth[month]}`
+                } else {
+                    document.getElementById('date').innerHTML = `${daysOfWeek}, ${addZero(day)} de ${extMonth[month]} de ${year}`
+                }
+            }
+        }
+
+    }
+   }
+}
+
 function getMainSettings() {
     showSeconds = localStorage.getItem('showSeconds')
     ampm = localStorage.getItem('ampm')
@@ -548,9 +796,15 @@ function getMainSettings() {
     } else if (gmt == '-05:00') {
         IANAList = 'America%2FRio_Branco'
     }
+
+    offlineMode = localStorage.getItem('offlineMode')
 }
 
 setInterval(() => {
-    getTimeAndDate()
+    if (!offlineMode) {
+        getTimeAndDate()
+    } else {
+        justOfflineDate()
+    }
     getMainSettings()
 }, 1000);
