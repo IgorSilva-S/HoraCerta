@@ -93,3 +93,19 @@ document.getElementById('alignSButton').addEventListener('click', () => {
         isAlignChevronOpened = false
     }
 })
+
+//About
+let isAboutChevronOpened = false
+document.getElementById('aboutSButton').addEventListener('click', () => {
+    if (!isAboutChevronOpened) {
+        document.getElementById('aboutSection').style.display = 'block'
+        document.getElementById('exposeAboutSection').classList.add('openExpose')
+        document.getElementById('aboutSButton').style.borderRadius = '8px 8px 0 0'
+        isAboutChevronOpened = true
+    } else {
+        document.getElementById('aboutSection').removeAttribute('style')
+        document.getElementById('exposeAboutSection').classList.remove('openExpose')
+        document.getElementById('aboutSButton').removeAttribute('style')
+        isAboutChevronOpened = false
+    }
+})
