@@ -269,10 +269,6 @@ async function getTimeAndDate() {
         }
 
     } catch (err) {
-        console.error('Erro ao obter hora:', err);
-        /*document.getElementById('hour').innerHTML = '';
-        document.getElementById('date').innerHTML = 'Não foi possível carregar a hora'
-        document.getElementById('internetAlert').removeAttribute('style')*/
         if (!usingLocal) {
             usingLocal = true
             ipcRenderer.send('alertLocal')
@@ -298,6 +294,9 @@ async function getTimeAndDate() {
         const addZero = (n) => {
             return ('0' + n).slice(-2)
         }
+
+        console.error('Erro ao obter hora:', err);
+        console.warn(`Erro registado em ${addZero(hour)}:${addZero(minute)}:${addZero(seconds)}`)
 
         const extMonth = [
             null,

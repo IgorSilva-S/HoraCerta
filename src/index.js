@@ -107,35 +107,13 @@ const createWindow = () => {
   })
 
   ipcMain.on('alertLocal', () => {
-    new Notification({
-        toastXml: `
-            <toast activationType="protocol">
-                <visual>
-                    <binding template="ToastGeneric">
-                      <text>Horário dessincronizado por erro</text>
-                      <text>Houve um erro de sincronização do relógio e o horário está sincronizado com o PC local</text>
-                    </binding>
-                </visual>
-                <actions>
-                    <action content='Tentar sincronizar' arguments='horacerta:resync' activationType="protocol"/>
-                    <action content='Manter Offline' arguments='horacerta:offlineMode' activationType="protocol"/>
-                </actions>
-            </toast>`
-    }).show()
+    new Notification({ title: "Horário dessincronizado por erro", body: "Houve um erro de sincronização do relógio e o horário está sincronizado com o PC local. Confira a sua conexão com à internet" }).show()
   })
 
+  // title: "Horário ressincronizado", body: "O relógio conseguiu se conectar à internet e, foi feita a sinconização com o servidor com sucesso"
+
   ipcMain.on('alertOnline', () => {
-    new Notification({
-      toastXml: `
-          <toast activationType="protocol">
-              <visual>
-                  <binding template="ToastGeneric">
-                    <text>Horário ressincronizado</text>
-                    <text>O relógio conseguu se conectar à internet e sincronizar com sucesso</text>
-                  </binding>
-              </visual>
-          </toast>`
-  }).show()
+    new Notification({ title: "Horário ressincronizado", body: "O relógio conseguiu se conectar à internet e, foi feita a sinconização com o servidor com sucesso" }).show()
   })
 
   mainWindow.webContents.on('before-input-event', (event, input) => {

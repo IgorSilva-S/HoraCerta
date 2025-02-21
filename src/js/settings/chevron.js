@@ -4,7 +4,7 @@ document.getElementById('hourSButton').addEventListener('click', () => {
     if (!isHourChevronOpened) {
         document.getElementById('hourSection').style.display = 'block'
         document.getElementById('exposeHourSection').classList.add('openExpose')
-        document.getElementById('hourSButton').style.borderRadius = '8px 8px 0 0'
+        document.getElementById('hourSButton').style.borderRadius = '4px 4px 0 0'
         isHourChevronOpened = true
     } else {
         document.getElementById('hourSection').removeAttribute('style')
@@ -20,7 +20,7 @@ document.getElementById('dateSButton').addEventListener('click', () => {
     if (!isDateChevronOpened) {
         document.getElementById('dateSection').style.display = 'block'
         document.getElementById('exposeDateSection').classList.add('openExpose')
-        document.getElementById('dateSButton').style.borderRadius = '8px 8px 0 0'
+        document.getElementById('dateSButton').style.borderRadius = '4px 4px 0 0'
         isDateChevronOpened = true
     } else {
         document.getElementById('dateSection').removeAttribute('style')
@@ -36,7 +36,7 @@ document.getElementById('webSButton').addEventListener('click', () => {
     if (!isWebChevronOpened) {
         document.getElementById('webSection').style.display = 'block'
         document.getElementById('exposeWebSection').classList.add('openExpose')
-        document.getElementById('webSButton').style.borderRadius = '8px 8px 0 0'
+        document.getElementById('webSButton').style.borderRadius = '4px 4px 0 0'
         isWebChevronOpened = true
     } else {
         document.getElementById('webSection').removeAttribute('style')
@@ -52,7 +52,7 @@ document.getElementById('GMTSButton').addEventListener('click', () => {
     if (!isGMTChevronOpened) {
         document.getElementById('GMTSection').style.display = 'block'
         document.getElementById('exposeGMTSection').classList.add('openExpose')
-        document.getElementById('GMTSButton').style.borderRadius = '8px 8px 0 0'
+        document.getElementById('GMTSButton').style.borderRadius = '4px 4px 0 0'
         isGMTChevronOpened = true
     } else {
         document.getElementById('GMTSection').removeAttribute('style')
@@ -68,7 +68,7 @@ document.getElementById('themeSButton').addEventListener('click', () => {
     if (!isThemeChevronOpened) {
         document.getElementById('themeSection').style.display = 'block'
         document.getElementById('exposeThemeSection').classList.add('openExpose')
-        document.getElementById('themeSButton').style.borderRadius = '8px 8px 0 0'
+        document.getElementById('themeSButton').style.borderRadius = '4px 4px 0 0'
         isThemeChevronOpened = true
     } else {
         document.getElementById('themeSection').removeAttribute('style')
@@ -84,7 +84,7 @@ document.getElementById('alignSButton').addEventListener('click', () => {
     if (!isAlignChevronOpened) {
         document.getElementById('alignSection').style.display = 'block'
         document.getElementById('exposeAlignSection').classList.add('openExpose')
-        document.getElementById('alignSButton').style.borderRadius = '8px 8px 0 0'
+        document.getElementById('alignSButton').style.borderRadius = '4px 4px 0 0'
         isAlignChevronOpened = true
     } else {
         document.getElementById('alignSection').removeAttribute('style')
@@ -100,7 +100,7 @@ document.getElementById('aboutSButton').addEventListener('click', () => {
     if (!isAboutChevronOpened) {
         document.getElementById('aboutSection').style.display = 'block'
         document.getElementById('exposeAboutSection').classList.add('openExpose')
-        document.getElementById('aboutSButton').style.borderRadius = '8px 8px 0 0'
+        document.getElementById('aboutSButton').style.borderRadius = '4px 4px 0 0'
         isAboutChevronOpened = true
     } else {
         document.getElementById('aboutSection').removeAttribute('style')

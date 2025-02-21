@@ -75,6 +75,21 @@ body {
   transition-delay: .3s;
 }
 
+.ebRight {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  width: 20px;
+  height: 100dvh;
+  transition-duration: .4s;
+  transition-delay: .3s;
+}
+
 .buttonsAlignLeft {
   position: absolute;
   left: 0;
@@ -91,6 +106,22 @@ body {
   transition-delay: .3s;
 }
 
+.ebLeft {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  width: 20px;
+  height: 100dvh;
+  transition-duration: .4s;
+  transition-delay: .3s;
+}
+
+
 .buttonsAlignTop {
   position: absolute;
   left: 0;
@@ -106,6 +137,20 @@ body {
   transition-delay: .3s;
 }
 
+.ebTop {
+  position: absolute;
+  left: 100px;
+  top: 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  width: 100vw;
+  height: 20px;
+  transition-duration: .4s;
+  transition-delay: .3s;
+}
+
 .buttonsAlignBottom {
   position: absolute;
   left: 0;
@@ -117,6 +162,20 @@ body {
   width: 100vw;
   height: 20px;
   opacity: 0;
+  transition-duration: .4s;
+  transition-delay: .3s;
+}
+
+.ebBottom {
+  position: absolute;
+  left: 100px;
+  bottom: 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  width: 100vw;
+  height: 20px;
   transition-duration: .4s;
   transition-delay: .3s;
 }
