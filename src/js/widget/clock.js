@@ -16,6 +16,7 @@ let usDate = localStorage.getItem('usDate')
 let gmt = localStorage.getItem('gmt')
 let IANAList
 let usingLocal = false
+let triesToUseLocal = 0
 
 if (gmt == '-03:00' || gmt == undefined) {
     IANAList = 'America%2FSao_Paulo'
@@ -262,6 +263,7 @@ async function getTimeAndDate() {
        }
 
         document.getElementById('internetAlert').style.display = 'none'
+        triesToUseLocal = 0
 
         if (usingLocal) {
             usingLocal = false
@@ -269,9 +271,11 @@ async function getTimeAndDate() {
         }
 
     } catch (err) {
-        if (!usingLocal) {
+        if (!usingLocal && triesToUseLocal >= 3) {
             usingLocal = true
             ipcRenderer.send('alertLocal')
+        } else if (!usingLocal && triesToUseLocal < 3) {
+            triesToUseLocal++
         }
 
         let d = new Date

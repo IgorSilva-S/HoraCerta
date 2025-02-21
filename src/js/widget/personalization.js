@@ -37,12 +37,16 @@ function getPersonalizations() {
     document.getElementById('bAlign').removeAttribute('class')
     if (bAlign == 'right' || bAlign == undefined) {
         document.getElementById('bAlign').className = 'buttonsAlignRight'
+        document.getElementById('extraButtons').className = 'ebRight'
     } else if (bAlign == 'left') {
         document.getElementById('bAlign').className = 'buttonsAlignLeft'
+        document.getElementById('extraButtons').className = 'ebLeft'
     } else if (bAlign == 'top') {
         document.getElementById('bAlign').className = 'buttonsAlignTop'
+        document.getElementById('extraButtons').className = 'ebTop'
     } else if (bAlign == 'bottom') {
         document.getElementById('bAlign').className = 'buttonsAlignBottom'
+        document.getElementById('extraButtons').className = 'ebBottom'
     }
 }
 

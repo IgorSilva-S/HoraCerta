@@ -1,5 +1,6 @@
 const { ipcRenderer } = require('electron')
 let isInverted = false
+let isShowingExtra = false
 
 document.getElementById('switchColors').addEventListener('click', () => {
     if (!isInverted) {
@@ -12,6 +13,16 @@ document.getElementById('switchColors').addEventListener('click', () => {
         document.getElementById('date').classList.remove('inverted')
         document.getElementById('line').className = 'line'
         isInverted = false
+    }
+})
+
+document.getElementById('showExtra').addEventListener('click', () => {
+    if (!isShowingExtra) {
+        document.getElementById('extraButtons').style.display = "flex";
+        isShowingExtra = true
+    } else {
+        document.getElementById('extraButtons').removeAttribute('style')
+        isShowingExtra = false
     }
 })
 

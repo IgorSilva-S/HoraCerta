@@ -212,8 +212,20 @@ body {
 body:hover .buttonsAlignRight,
 body:hover .buttonsAlignLeft,
 body:hover .buttonsAlignTop,
-body:hover .buttonsAlignBottom {
+body:hover .buttonsAlignBottom, 
+body:hover .ebRight,
+body:hover .ebTop,
+body:hover .ebLeft,
+body:hover .ebBottom{
   opacity: 1;
+}
+
+.ebRight,
+.ebTop,
+.ebLeft,
+.ebBottom {
+  display: none;
+  opacity: 0;
 }
 
 @media (prefers-color-scheme: dark) {
