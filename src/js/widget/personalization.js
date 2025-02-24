@@ -8,6 +8,7 @@ function getPersonalizations() {
     document.body.classList.remove('oUI')
     document.body.classList.remove('px')
     document.body.classList.remove('wiiM')
+    document.body.classList.remove('s3k')
 
     if (theme == 'mUI') {
         document.body.classList.add('mUI')

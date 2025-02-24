@@ -26,6 +26,12 @@ document.getElementById('showExtra').addEventListener('click', () => {
     }
 })
 
+document.getElementById('pinAndTransp').addEventListener('click', () => {
+    ipcRenderer.send('pinHideCW')
+    document.getElementById('bAlign').style.display = 'none'
+    document.getElementById('extraButtons').style.display = 'none'
+})
+
 document.getElementById('pinClock').addEventListener('click', () => {
     ipcRenderer.send('pinCW')
 })
@@ -45,3 +51,8 @@ document.getElementById('openSettings').addEventListener('click', () => {
 ipcRenderer.on('itsOpened', () => {
     ipcRenderer.send('focusSettings')
 })
+
+ipcRenderer.on('reappearButtons', () => {
+        document.getElementById('bAlign').removeAttribute('style')
+    document.getElementById('extraButtons').removeAttribute('style')
+}) 

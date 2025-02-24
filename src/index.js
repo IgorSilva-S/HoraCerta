@@ -1,7 +1,7 @@
 const { app, BrowserWindow, screen, Tray, Notification, ipcMain } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
-let tray, settingsOpened = false ,pinned = false, isBlur = false
+let tray, settingsOpened = false, pinned = false, pinnedTransparent = false, isBlur = false
 const isDevelopment = true
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -67,6 +67,12 @@ const createWindow = () => {
       tray.on('click', () => {
         mainWindow.focus()
         mainWindow.restore()
+        if (pinnedTransparent) {
+          mainWindow.setIgnoreMouseEvents(false)
+          mainWindow.setAlwaysOnTop(false)
+          pinnedTransparent = false
+          mainWindow.webContents.send('reappearButtons')
+        }
       })
     }
   })
@@ -104,6 +110,12 @@ const createWindow = () => {
       mainWindow.setAlwaysOnTop(false)
       pinned = false
     }
+  })
+
+  ipcMain.on('pinHideCW', () => {
+      mainWindow.setAlwaysOnTop(true)
+      mainWindow.setIgnoreMouseEvents(true)
+      pinnedTransparent = true
   })
 
   ipcMain.on('alertLocal', () => {

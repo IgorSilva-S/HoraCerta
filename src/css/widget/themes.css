@@ -130,20 +130,67 @@
     font-size: 120px;
     font-family: 'Andes';
     font-weight: 200;
+    position: relative;
+}
+
+.s3k .hour::after {
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    background-color: var(--darkWatchColor);
+    left: 0;
+    bottom: 5%;
+}
+
+.s3k .hour.inverted::after {
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    background-color: var(--lightWatchColor);
+    left: 0;
+    bottom: 5%;
 }
 
 .s3k .date {
     font-size: 40px;
     font-family: 'Andes';
+    position: relative;
 }
 
-.s3k .line,
-.s3k .lineInverted {
+.s3k .date::after {
+    width: 100%;
+    height: 50%;
     position: absolute;
     z-index: -1;
-    background-color: rgb(209, 0, 0);
-    width: 120px;
-    height: 100%;
-    top: 0;
-    left: 0%;
+    content: '';
+    background-color: var(--darkWatchColor);
+    left: 0;
+    bottom: -50%;
+}
+
+.s3k .date.inverted::after {
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    background-color: var(--lightWatchColor);
+    left: 0;
+    bottom: -50%;
+}
+
+@media (prefers-color-scheme: dark) {
+    .s3k .date::after,
+    .s3k .hour::after {
+        background-color: var(--lightWatchColor);
+    }
+
+    .s3k .date.inverted::after,
+    .s3k .hour.inverted::after {
+        background-color: var(--darkWatchColor);
+    }
 }
