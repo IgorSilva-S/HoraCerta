@@ -31,6 +31,24 @@
     font-weight: 300;
 }
 
+.mUI .buttonArea,
+.mUI .closeWindow {
+    border-radius: 0px;
+}
+
+.mUI .buttonArea {
+    border: 1px solid #d0d0d088;
+}
+
+.mUI .closeWindow {
+    border: 1px solid #dd000088;
+}
+
+@media (prefers-color-scheme: dark) {
+    .mUI .buttonArea {
+        border: 1px solid #27272788;
+    }
+}
 
 /*One UI*/
 @font-face {
@@ -48,6 +66,12 @@
     font-size: 28px;
     font-family: 'One UI Sans';
     font-weight: 200;
+}
+
+.oUI .buttonArea,
+.oUI .closeWindow {
+    border-radius: 120px;
+    border: none;
 }
 
 /*Pixels - Pixelify*/
@@ -81,6 +105,33 @@
     transition-duration: .2s;
 }
 
+.px .buttonArea,
+.px .closeWindow {
+    border-radius: 0;
+    clip-path: polygon(
+        0px calc(100% - 4px),
+        2px calc(100% - 4px),
+        2px calc(100% - 2px),
+        4px calc(100% - 2px),
+        4px 100%,
+        calc(100% - 4px) 100%,
+        calc(100% - 4px) calc(100% - 2px),
+        calc(100% - 2px) calc(100% - 2px),
+        calc(100% - 2px) calc(100% - 4px),
+        100% calc(100% - 4px),
+        100% 4px,
+        calc(100% - 2px) 4px,
+        calc(100% - 2px) 2px,
+        calc(100% - 4px) 2px,
+        calc(100% - 4px) 0px,
+        4px 0px,
+        4px 2px,
+        2px 2px,
+        2px 4px,
+        0px 4px
+      );
+}
+
 @media (prefers-color-scheme: dark) {
     .px .line {
         border-bottom: 3px dotted white;
@@ -111,6 +162,21 @@
     box-shadow: 0 0 10px 1px #34c2ec;
     border-radius: 1px;
     transition-duration: .2s;
+}
+
+.wiiM .buttonArea {
+    border: 1px solid #34c2ec;
+    box-shadow: 0 0 3px #34c2ec;
+}
+
+.wiiM .closeWindow {
+    border: 1px solid #ec3434;
+    box-shadow: 0 0 3px #ec3434;
+}
+
+.wiiM .buttonArea:hover,
+.wiiM .closeWindow:hover {
+    transform: scale(1.3);
 }
 
 .wiiM .date {
@@ -182,6 +248,33 @@
     left: 0;
     bottom: -50%;
 }
+
+.s3k .buttonArea,
+.s3k .closeWindow {
+    border-radius: 0px;
+    border: none;
+}
+
+.s3k .buttonArea:hover,
+.s3k .closeWindow:hover {
+    animation: hoverS3K .4s steps(1, start) infinite;
+}
+
+@keyframes hoverS3K {
+    0% {
+        border: 2px solid red;
+    }
+
+    50% {
+        border: 2px solid yellow;
+    }
+
+    100% {
+        border: 2px solid red;
+    }
+
+}
+
 
 @media (prefers-color-scheme: dark) {
     .s3k .date::after,

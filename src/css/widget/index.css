@@ -181,7 +181,7 @@ body {
 }
 
 .closeWindow {
-  background-color: #ff000088;
+  background-color: #ee000088;
   border-radius: 4px;
   width: 20px;
   height: 20px;
@@ -191,6 +191,8 @@ body {
   align-items: center;
   font-size: 10px;
   color: white;
+  box-sizing: border-box;
+  border-bottom: 1px solid #dd000088;
 }
 
 .buttonArea {
@@ -203,7 +205,11 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 14px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #d0d0d088;
+  border-top: 1px solid #f9f9f988
 }
+
 
 .moveArea {
   -webkit-app-region: drag;
@@ -224,7 +230,7 @@ body:hover .ebBottom{
 .ebTop,
 .ebLeft,
 .ebBottom {
-  display: none;
+
   opacity: 0;
 }
 
@@ -239,5 +245,7 @@ body:hover .ebBottom{
 
   .buttonArea {
     background-color: #19191988;
+    border-bottom: 1px solid #27272788;
+    border-top: none;
   }
 }
