@@ -1,4 +1,14 @@
 // Setup
+function appTheme() {
+    let appTheme = localStorage.getItem('appTheme')
+    if (appTheme == 'SOB' || appTheme == undefined) {
+        document.getElementById('appTheme').href = 'css/settings/settings.css'
+    } else if (appTheme = 'nonColor') {
+        document.getElementById('appTheme').href = 'css/settings/settingsDC.css'
+    }
+}
+
+appTheme()
 
 //Hour
 let showSec = localStorage.getItem('showSeconds')
@@ -65,6 +75,15 @@ if (themeSelected == 'fUI' || themeSelected == undefined) {
     document.getElementById('pxtheme').checked = true
 } else if (themeSelected == 'wiiM') {
     document.getElementById('wiiMtheme').checked = true
+} else if (themeSelected == 's3k') {
+    document.getElementById('s3kTheme').checked = true
+}
+
+let appThemeSelected = localStorage.getItem('appTheme')
+if (appThemeSelected == 'SOB' || appThemeSelected == undefined) {
+    document.getElementById('shadesOfBlue').checked = true
+} else if (appThemeSelected = 'nonColor') {
+    document.getElementById('nonColor').checked = true
 }
 
 //Alignment

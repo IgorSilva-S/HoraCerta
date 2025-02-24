@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Configurações Hora Certa</title>
-  <link rel="stylesheet" href="css/settings/settings.css">
+  <link rel="stylesheet" href="css/settings/settings.css" id="appTheme">
   <link rel="stylesheet" href="font/segoeFont.css">
   <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
 </head>
@@ -90,16 +90,16 @@
     </div>
     <div class="appSubBlock" id="webSection">
 
-      <div class="subBlockItem">
+      <!--<div class="subBlockItem">
         Inserir autenticação de proxy
         <button>
           Autenticar-se
         </button>
-      </div>
+      </div>-->
 
       <div class="subBlockItem">
-        Detectar conexão do sistema e solicitar ativação do modo correto
-        <input type="checkbox" name="" id="detectOffline" class="switchRadio">
+        Notificar quando há erro na sincronização
+        <input type="checkbox" name="" id="notifyError" class="switchRadio" checked>
       </div>
 
       <div class="subBlockItem lastItem">
@@ -151,7 +151,8 @@
       </div>
     </div>
     <div class="appSubBlock" id="themeSection">
-      <div class="subBlockItemSel lastItem">
+      <div class="subBlockItemSel">
+        <p textType="bodyStrong">Tema do Widget</p>
         <div>
           <input type="radio" name="theme" id="w11theme" checked>
           <label for="w11theme">Windows 11 - Fluent UI</label>
@@ -171,6 +172,53 @@
         <div>
           <input type="radio" name="theme" id="wiiMtheme">
           <label for="wiiMtheme">Wii Menu</label>
+        </div>
+        <div>
+          <input type="radio" name="theme" id="s3kTheme">
+          <label for="s3kTheme">Sonic 3 & Knuckles - Andes</label>
+        </div>
+      </div>
+    <div class="subBlockItemSel" id="customThemeSection" style="display: none;">
+        <p textType="bodyStrong">Opcões do tema customizável</p>
+        <div class="itemsPlus">
+          <label for="gfontsUrl">URL da fonte do Google Fonts</label>
+          <input type="text" name="" id="gfontsUrl">
+        </div>
+        <div class="itemsPlus">
+          <label for="clockSize">Tamanho da fonte do relógio (px)</label>
+          <input type="number" name="" id="clockSize" value="120">
+        </div>
+        <div class="itemsPlus">
+          <label for="dateSize">Tamanho da fonte da data (px)</label>
+          <input type="number" name="" id="dateSize" value="28">
+        </div>
+        <div class="itemsPlus">
+          Cor da fonte (tema claro)
+          <label for="lightFont" class="colorLabel" style="background-color: black;" id="lfColor"></label>
+          <input type="color" name="" id="lightFont" style="display: none;">
+        </div>
+        <div class="itemsPlus">
+          Cor da fonte (tema escuro)
+          <label for="darkFont" class="colorLabel" style="background-color: white;" id="dfColor"></label>
+          <input type="color" name="" id="darkFont" value="#ffffff" style="display: none;">
+        </div>
+        <div class="itemsPlus">
+          <label for="useLine">Usar linha divisória</label>
+          <input type="checkbox" name="" id="useLine" class="switchRadio">
+        </div>
+        <div class="confirmBlock">
+          <button>Salvar alterações</button>
+        </div>
+      </div>
+      <div class="subBlockItemSel lastItem">
+        <p textType="bodyStrong">Tema do aplicativo</p>
+        <div>
+          <input type="radio" name="appTheme" id="shadesOfBlue" checked>
+          <label for="shadesOfBlue">Shades of Blue - Tons de azul</label>
+        </div>
+        <div>
+          <input type="radio" name="appTheme" id="nonColor">
+          <label for="nonColor">Branco/Preto padrão</label>
         </div>
       </div>
     </div>
@@ -240,14 +288,6 @@
       <div class="subBlockItem">
         <p>Versão</p>
         <p>1.1</p>
-      </div>
-
-      <div class="subBlockItem">
-        <p>Desenvolvimento ativado</p>
-      </div>
-
-      <div class="subBlockItem">
-        Verificar por atualizações
       </div>
 
       <div class="subBlockItem lastItem">

@@ -17,6 +17,8 @@ function getPersonalizations() {
         document.body.classList.add('px')
     } else if (theme == 'wiiM') {
         document.body.classList.add('wiiM')
+    }else if (theme == 's3k') {
+        document.body.classList.add('s3k')
     }
 
     //Alignment

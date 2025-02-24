@@ -120,6 +120,20 @@ document.getElementById('wiiMtheme').addEventListener('click', () => {
     localStorage.setItem('theme', 'wiiM')
 })
 
+document.getElementById('s3kTheme').addEventListener('click', () => {
+    localStorage.setItem('theme', 's3k')
+})
+
+document.getElementById('shadesOfBlue').addEventListener('click', () => {
+    localStorage.setItem('appTheme', 'SOB')
+    appTheme()
+})
+
+document.getElementById('nonColor').addEventListener('click', () => {
+    localStorage.setItem('appTheme', 'nonColor')
+    appTheme()
+})
+
 /*Alignment settings*/
 document.getElementById('cnt').addEventListener('click', () => {
     localStorage.setItem('align', 'cnt')

@@ -6,7 +6,7 @@
 body {
     box-sizing: border-box;
     user-select: none;
-    background-color: #e6f3fd;
+    background-color: #f9f9f9;
     margin-top: 60px;
     overflow: hidden;
 }
@@ -18,7 +18,7 @@ body {
   top: 0;
   left: 0;
   -webkit-app-region: drag;
-  background-color: #e6f3fd;
+  background-color: #f9f9f9;
   z-index: 999;
   display: flex;
   justify-content: flex-start;
@@ -44,7 +44,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #e6f3fd;
+  background-color: #f9f9f9;
   z-index: 10;
   display: flex;
   justify-content: flex-start;
@@ -82,8 +82,8 @@ body {
     margin-top: 10px;
     padding: 20px 10px;
     border-radius: 4px;
-    background-color: aliceblue;
-    border: 1px solid #dceaf7;
+    background-color: #fdfdfd;
+    border: 1px solid #eaeaea;
     position: relative;
     transition-duration: .2s;
     padding-right: 50px;
@@ -91,8 +91,8 @@ body {
   }
   
   .appSBlock:hover {
-    background-color: #f8f8ff;
-    border-bottom-color: #d0d0f0;
+    background-color: #f9f9f9;
+    border-bottom-color: #d1d1d1;
   }
 
   .appCBlock {
@@ -150,8 +150,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: aliceblue;
-    border: 1px solid #dceaf7;
+    background-color: #fbfcfb;
+    border: 1px solid #e6e4e8;
     border-bottom: none;
     font-family: 'Segoe UI Variable';
     font-size: 14px;
@@ -166,8 +166,8 @@ body {
     align-items: flex-start;
     flex-direction: column;
     gap: 15px;
-    background-color: aliceblue;
-    border: 1px solid #dceaf7;
+    background-color: #fbfcfb;
+    border: 1px solid #e6e4e8;
     border-bottom: none;
     font-family: 'Segoe UI Variable';
     font-size: 14px;
@@ -198,7 +198,7 @@ body {
 
   .lastItem {
     border-radius: 0 0 4px 4px;
-    border-bottom: 1px solid #dceaf7;
+    border-bottom: 1px solid #e6e4e8;
   }
   
   .switchRadio {
@@ -297,11 +297,11 @@ body {
   button {
     border-radius: 4px;
     border: none;
-    border-bottom: 1px solid #d0d0f0;
+    border-bottom: 1px solid #eaeaea;
     border-top: 1px solid #dceaf7;
     padding: 5px 10px;
     font-size: 14px;
-    background-color: #f8f8ff;
+    background-color: #f9f9f9;
     color: black;
     font-family: 'Segoe UI Variable';
     transition-duration: .1s;
@@ -320,9 +320,9 @@ body {
   input[type="number"] {
     padding: 6px 10px;
     border-radius: 4px;
-    border: 1px solid #dceaf7;
-    border-bottom: 2px solid #d0d0f0;
-    background-color: #f8f8ff;
+    border: 1px solid #eaeaea;
+    border-bottom: 2px solid #d1d1d1;
+    background-color: #f9f9f9;
     box-sizing: border-box;
     transition-duration: .1s;
     font-family:  'Segoe UI Variable';
@@ -348,15 +348,16 @@ body {
     border-radius: 4px;
   }
 
+
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #000512;
+        background-color: #191919;
         color: white;
     }
 
     .title,
     .titleBar {
-      background-color: #000512;
+      background-color: #191919;
     }
 
     .contentDiv::-webkit-scrollbar-thumb {
@@ -364,22 +365,22 @@ body {
     }
 
     .appBlock, .appSBlock, .appCBlock {
-      background-color: #000920;
-      border: 1px solid #000000;
+      background-color: #323232;
+      border: 1px solid #232323;
       transition-duration: .2s;
     }
 
     .appSBlock:hover {
       border-color: transparent;
-      background-color: #000c29;
-      border-top-color: #001036;
+      background-color: #343434;
+      border-top-color: #3b3b3b;
     }
   
 
     .subBlockItem,
     .subBlockItemSel {
-      background-color: #000920;
-      border-color: #000000;
+      background-color: #323232;
+      border-color: #232323;
     }
 
     .switchRadio:hover {
@@ -424,9 +425,9 @@ body {
   }
 
   button {
-    border-top-color: #000c29;
-    border-bottom-color: #001036;
-    background-color: #00133f;
+    border-top-color: #3b3b3b;
+    border-bottom-color: #232323;
+    background-color: #494949;
     color: white;
   }
 
@@ -442,9 +443,9 @@ body {
 
   input[type="text"],
   input[type="number"] {
-    border: 1px solid #000c29;
-    border-bottom: 2px solid #001036;
-    background-color: #00133f;
+    border: 1px solid #232323;
+    border-bottom: 2px solid #3b3b3b;
+    background-color: #494949;
     color: white;
   }
 

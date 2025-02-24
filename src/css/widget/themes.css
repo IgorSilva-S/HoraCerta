@@ -25,7 +25,7 @@
 }
 
 .mUI .date {
-    font-size: 48px;
+    font-size: 40px;
     line-height: 36px;
     font-family: 'Segoe UI';
     font-weight: 300;
@@ -118,4 +118,32 @@
     background-color: #d0d3da;
     width: 100%;
     border-radius: 0 0 8px 8px;
+}
+
+/*Sonic 3 & Knuckles*/
+@font-face {
+    font-family: 'Andes';
+    src: url(../../font/Andes-Regular.otf);
+}
+
+.s3k .hour {
+    font-size: 120px;
+    font-family: 'Andes';
+    font-weight: 200;
+}
+
+.s3k .date {
+    font-size: 40px;
+    font-family: 'Andes';
+}
+
+.s3k .line,
+.s3k .lineInverted {
+    position: absolute;
+    z-index: -1;
+    background-color: rgb(209, 0, 0);
+    width: 120px;
+    height: 100%;
+    top: 0;
+    left: 0%;
 }
