@@ -262,7 +262,6 @@ async function getTimeAndDate() {
         }
        }
 
-        document.getElementById('internetAlert').style.display = 'none'
         triesToUseLocal = 0
 
         if (usingLocal) {

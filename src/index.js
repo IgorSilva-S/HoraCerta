@@ -116,6 +116,19 @@ const createWindow = () => {
       mainWindow.setAlwaysOnTop(true)
       mainWindow.setIgnoreMouseEvents(true)
       pinnedTransparent = true
+      new Notification({
+        toastXml: `
+            <toast activationType="protocol">
+                <visual>
+                    <binding template="ToastGeneric">
+                      <text>Widget fixado e ignorado</text>
+                      <text>O widget foi fixado na tela e começou a ignorar eventos do mouse, para desativar essa função, clique no icone do aplicativo na bandeja do sistema</text>
+                      <image src='ms-appx:///Images/InlineImage.png'/>
+                    </binding>
+                </visual>
+            </toast>`
+    }).show()
+      //new Notification({ title: "Widget fixado e ignorado", body: "O widget foi fixado na tela e começou a ignorar eventos do mouse, para desativar essa função, clique no icone do aplicativo na bandeja do sistema" }).show()
   })
 
   ipcMain.on('alertLocal', () => {
@@ -151,7 +164,14 @@ const createWindow = () => {
   })
 
   ipcMain.on('posiBC', () => {
+    let plusToAlign = Math.round(height / 14)
     let deskY = height - 330
+    deskY = deskY + plusToAlign
+    mainWindow.setPosition(x, deskY)
+  })
+
+  ipcMain.on('posiCC', () => {
+    let deskY = Math.round((height - windowHeight) / 2)
     mainWindow.setPosition(x, deskY)
   })
 

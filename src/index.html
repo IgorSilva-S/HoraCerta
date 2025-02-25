@@ -12,7 +12,6 @@
     <div id="hour" class="hour"></div>
     <div class="line" id="line"></div>
     <div id="date" class="date">Carregando horário...</div>
-    <div id="internetAlert">Você precisa de conexão à internet para utilizar o Hora Certa</div>
     <div class="buttonsAlignRight" id="bAlign">
       <div class="closeWindow" id="closeClock">
         <fluent-icon>&#xE8BB;</fluent-icon>
@@ -45,12 +44,48 @@
       </div>
     </div>
     <div class="snapBar" id="snapBar">
-      <div id="posiStart">Posição Inicial</div>
-      <div id="posiTL">Topo e Esquerda</div>
-      <div id="posiTR">Topo e Direita</div>
-      <div id="posiBL">Fundo e Esquerda</div>
-      <div id="posiBR">Fundo e Direita</div>
-      <div id="posiBC">Fundo e Centro</div>
+      <div class="selButton" id="posiStart">
+        <div class="screenStyle">
+          <div class="windowSimulation defaultWinPosi"></div>
+        </div>
+        Posição Inicial
+      </div>
+      <div class="selButton" id="posiTL">
+        <div class="screenStyle">
+          <div class="windowSimulation tlWinPosi"></div>
+        </div>
+        Topo e Esquerda
+      </div>
+      <div class="selButton" id="posiTR">
+        <div class="screenStyle">
+          <div class="windowSimulation trWinPosi"></div>
+        </div>
+        Topo e Direita
+      </div>
+      <div class="selButton" id="posiBL">
+        <div class="screenStyle">
+          <div class="windowSimulation blWinPosi"></div>
+        </div>
+        Fundo e Esquerda
+      </div>
+      <div class="selButton" id="posiBR">
+        <div class="screenStyle">
+          <div class="windowSimulation brWinPosi"></div>
+        </div>
+        Fundo e Direita
+      </div>
+      <div class="selButton" id="posiBC">
+        <div class="screenStyle">
+          <div class="windowSimulation bcWinPosi"></div>
+        </div>
+        Fundo e Centro
+      </div>
+      <div class="selButton" id="posiCC">
+        <div class="screenStyle">
+          <div class="windowSimulation ccWinPosi"></div>
+        </div>
+        Centralizado
+      </div>
     </div>
 
     <script src="js/widget/clock.js"></script>

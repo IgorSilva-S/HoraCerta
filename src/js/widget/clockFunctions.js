@@ -95,6 +95,12 @@ document.getElementById('posiBC').addEventListener('click', () => {
     document.getElementById('snapBar').removeAttribute('style')
     isShowingSnapBar = false  
 })
+
+document.getElementById('posiCC').addEventListener('click', () => {
+    ipcRenderer.send('posiCC')
+    document.getElementById('snapBar').removeAttribute('style')
+    isShowingSnapBar = false  
+})
 //End Snap
 
 ipcRenderer.on('itsOpened', () => {
