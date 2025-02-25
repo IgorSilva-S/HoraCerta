@@ -51,6 +51,17 @@ if (usDate) {
     document.getElementById('usDate').checked = true
 }
 
+//Web
+let notNotify = localStorage.getItem('notNotify')
+if (notNotify) {
+    document.getElementById('notifyError').checked = false
+}
+
+let offMode = localStorage.getItem('offlineMode')
+if (offMode) {
+    document.getElementById('offlineMode').checked = true
+}
+
 //GMT
 let gmt = localStorage.getItem('gmt')
 if (gmt == '-03:00' || gmt == undefined) {
@@ -77,6 +88,12 @@ if (themeSelected == 'fUI' || themeSelected == undefined) {
     document.getElementById('wiiMtheme').checked = true
 } else if (themeSelected == 's3k') {
     document.getElementById('s3kTheme').checked = true
+} else if (themeSelected == 'lines') {
+    document.getElementById('loveloLineTheme').checked = true
+} else if (themeSelected == 'lines') {
+    document.getElementById('loveloLineTheme').checked = true
+} else if (themeSelected == 'royal') {
+    document.getElementById('royalTheme').checked = true
 }
 
 let appThemeSelected = localStorage.getItem('appTheme')

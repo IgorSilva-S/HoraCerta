@@ -4,11 +4,7 @@ function getPersonalizations() {
     let bAlign = localStorage.getItem('bAlign')
 
     //Theme
-    document.body.classList.remove('mUI')
-    document.body.classList.remove('oUI')
-    document.body.classList.remove('px')
-    document.body.classList.remove('wiiM')
-    document.body.classList.remove('s3k')
+    document.body.removeAttribute('class')
 
     if (theme == 'mUI') {
         document.body.classList.add('mUI')
@@ -18,8 +14,12 @@ function getPersonalizations() {
         document.body.classList.add('px')
     } else if (theme == 'wiiM') {
         document.body.classList.add('wiiM')
-    }else if (theme == 's3k') {
+    } else if (theme == 's3k') {
         document.body.classList.add('s3k')
+    } else if (theme == 'lines') {
+        document.body.classList.add('lines')
+    } else if (theme == 'royal') {
+        document.body.classList.add('royal')
     }
 
     //Alignment

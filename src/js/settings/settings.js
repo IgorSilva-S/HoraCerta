@@ -73,6 +73,15 @@ document.getElementById('usDate').addEventListener('click', () => {
 })
 
 /*Web Settings*/
+document.getElementById('notifyError').addEventListener('click', () => {
+    let isChecked = document.getElementById('notifyError').checked
+    if (!isChecked) {
+        localStorage.setItem('notNotify', true)
+    } else {
+        localStorage.removeItem('notNotify')
+    }
+})
+
 document.getElementById('offlineMode').addEventListener('click', () => {
     let isChecked = document.getElementById('offlineMode').checked
     if (isChecked) {
@@ -122,6 +131,14 @@ document.getElementById('wiiMtheme').addEventListener('click', () => {
 
 document.getElementById('s3kTheme').addEventListener('click', () => {
     localStorage.setItem('theme', 's3k')
+})
+
+document.getElementById('loveloLineTheme').addEventListener('click', () => {
+    localStorage.setItem('theme', 'lines')
+})
+
+document.getElementById('royalTheme').addEventListener('click', () => {
+    localStorage.setItem('theme', 'royal')
 })
 
 document.getElementById('shadesOfBlue').addEventListener('click', () => {

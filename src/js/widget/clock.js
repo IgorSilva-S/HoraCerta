@@ -267,13 +267,19 @@ async function getTimeAndDate() {
 
         if (usingLocal) {
             usingLocal = false
-            ipcRenderer.send('alertOnline')
+            let notNotify = localStorage.getItem('notNotify')
+            if (!notNotify) {
+                ipcRenderer.send('alertOnline')
+            }
         }
 
     } catch (err) {
         if (!usingLocal && triesToUseLocal >= 3) {
             usingLocal = true
-            ipcRenderer.send('alertLocal')
+            let notNotify = localStorage.getItem('notNotify')
+            if (!notNotify) {
+                ipcRenderer.send('alertLocal')
+            }
         } else if (!usingLocal && triesToUseLocal < 3) {
             triesToUseLocal++
         }

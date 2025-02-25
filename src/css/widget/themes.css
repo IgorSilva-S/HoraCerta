@@ -74,21 +74,21 @@
     border: none;
 }
 
-/*Pixels - Pixelify*/
+/*Pixels - Jersey 10*/
 @font-face {
-    font-family: 'Pixelify';
-    src: url(../../font/pixelifySans.ttf);
+    font-family: 'Jersey 10';
+    src: url(../../font/Jersey10.ttf);
 }
 
 .px .hour {
-    font-size: 90px;
-    font-family: 'Pixelify';
+    font-size: 120px;
+    font-family: 'Jersey 10';
     font-weight: 200;
 }
 
 .px .date {
-    font-size: 28px;
-    font-family: 'Pixelify';
+    font-size: 38px;
+    font-family: 'Jersey 10';
 }
 
 .px .line {
@@ -108,35 +108,33 @@
 .px .buttonArea,
 .px .closeWindow {
     border-radius: 0;
-    clip-path: polygon(
-        0px calc(100% - 4px),
-        2px calc(100% - 4px),
-        2px calc(100% - 2px),
-        4px calc(100% - 2px),
-        4px 100%,
-        calc(100% - 4px) 100%,
-        calc(100% - 4px) calc(100% - 2px),
-        calc(100% - 2px) calc(100% - 2px),
-        calc(100% - 2px) calc(100% - 4px),
-        100% calc(100% - 4px),
-        100% 4px,
-        calc(100% - 2px) 4px,
-        calc(100% - 2px) 2px,
-        calc(100% - 4px) 2px,
-        calc(100% - 4px) 0px,
-        4px 0px,
-        4px 2px,
-        2px 2px,
-        2px 4px,
-        0px 4px
-      );
+    clip-path: polygon(0px calc(100% - 4px),
+            2px calc(100% - 4px),
+            2px calc(100% - 2px),
+            4px calc(100% - 2px),
+            4px 100%,
+            calc(100% - 4px) 100%,
+            calc(100% - 4px) calc(100% - 2px),
+            calc(100% - 2px) calc(100% - 2px),
+            calc(100% - 2px) calc(100% - 4px),
+            100% calc(100% - 4px),
+            100% 4px,
+            calc(100% - 2px) 4px,
+            calc(100% - 2px) 2px,
+            calc(100% - 4px) 2px,
+            calc(100% - 4px) 0px,
+            4px 0px,
+            4px 2px,
+            2px 2px,
+            2px 4px,
+            0px 4px);
 }
 
 @media (prefers-color-scheme: dark) {
     .px .line {
         border-bottom: 3px dotted white;
     }
-    
+
     .px .lineInverted {
         border-bottom: 3px dotted black;
     }
@@ -277,6 +275,7 @@
 
 
 @media (prefers-color-scheme: dark) {
+
     .s3k .date::after,
     .s3k .hour::after {
         background-color: var(--lightWatchColor);
@@ -285,5 +284,86 @@
     .s3k .date.inverted::after,
     .s3k .hour.inverted::after {
         background-color: var(--darkWatchColor);
+    }
+}
+
+/*Lines - lovelo*/
+@font-face {
+    font-family: 'Lovelo';
+    src: url(../../font/LoveloLine.otf);
+}
+
+.lines .hour {
+    font-size: 120px;
+    font-family: 'Lovelo';
+    font-weight: 300;
+}
+
+.lines .date {
+    font-size: 28px;
+    font-family: 'Lovelo';
+    font-weight: 300;
+}
+
+.lines .buttonArea {
+    border: 1px solid #d0d0d088;
+    background-color: transparent;
+}
+
+.lines .closeWindow {
+    border: 1px solid #dd000088;
+    background-color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+    .lines .buttonArea {
+        border: 1px solid #27272788;
+        background-color: transparent;
+    }
+}
+
+/*Royal*/
+@font-face {
+    font-family: 'Great Vibes';
+    src: url(../../font/GreatVibes-Regular.ttf);
+}
+
+.royal .hour {
+    font-size: 120px;
+    font-family: 'Great Vibes';
+    filter: drop-shadow(0px 0px 10px var(--lightWatchColor));
+    line-height: 90%;
+}
+
+.royal .date {
+    font-size: 28px;
+    font-family: 'Great Vibes';
+    filter: drop-shadow(0px 0px 10px var(--lightWatchColor));
+}
+
+.royal .hour.inverted,
+.royal .date.inverted {
+    filter: drop-shadow(0px 0px 10px var(--darkWatchColor));
+}
+
+.royal .line,
+.royal .lineInverted {
+    width: 80%;
+    height: 3px;
+    transition-duration: .2s;
+    background-color: orange;
+    box-shadow: 0 0 10px orange;
+}
+
+@media (prefers-color-scheme: dark) {
+
+    .royal .hour,
+    .royal .date {
+        filter: drop-shadow(0px 0px 10px var(--darkWatchColor));
+    }
+
+    .royal .hour.inverted,
+    .royal .date.inverted {
+        filter: drop-shadow(0px 0px 10px var(--lightWatchColor));
     }
 }

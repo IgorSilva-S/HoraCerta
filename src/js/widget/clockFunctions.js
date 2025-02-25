@@ -1,6 +1,7 @@
 const { ipcRenderer } = require('electron')
 let isInverted = false
 let isShowingExtra = false
+let isShowingSnapBar = false
 
 document.getElementById('switchColors').addEventListener('click', () => {
     if (!isInverted) {
@@ -44,9 +45,57 @@ document.getElementById('closeClock').addEventListener('click', () => {
     ipcRenderer.send('closeCW')
 })
 
+document.getElementById('openSnap').addEventListener('click', () => {
+    if (!isShowingSnapBar) {
+        document.getElementById('snapBar').style.right = '0'
+        isShowingSnapBar = true
+    } else {
+        document.getElementById('snapBar').removeAttribute('style')
+        isShowingSnapBar = false  
+    }
+})
+
 document.getElementById('openSettings').addEventListener('click', () => {
     ipcRenderer.send('openSettings')
 })
+
+//Snap
+document.getElementById('posiStart').addEventListener('click', () => {
+    ipcRenderer.send('posiStart')
+    document.getElementById('snapBar').removeAttribute('style')
+    isShowingSnapBar = false  
+})
+
+document.getElementById('posiTL').addEventListener('click', () => {
+    ipcRenderer.send('posiTL')
+    document.getElementById('snapBar').removeAttribute('style')
+    isShowingSnapBar = false  
+})
+
+document.getElementById('posiTR').addEventListener('click', () => {
+    ipcRenderer.send('posiTR')
+    document.getElementById('snapBar').removeAttribute('style')
+    isShowingSnapBar = false  
+})
+
+document.getElementById('posiBL').addEventListener('click', () => {
+    ipcRenderer.send('posiBL')
+    document.getElementById('snapBar').removeAttribute('style')
+    isShowingSnapBar = false  
+})
+
+document.getElementById('posiBR').addEventListener('click', () => {
+    ipcRenderer.send('posiBR')
+    document.getElementById('snapBar').removeAttribute('style')
+    isShowingSnapBar = false  
+})
+
+document.getElementById('posiBC').addEventListener('click', () => {
+    ipcRenderer.send('posiBC')
+    document.getElementById('snapBar').removeAttribute('style')
+    isShowingSnapBar = false  
+})
+//End Snap
 
 ipcRenderer.on('itsOpened', () => {
     ipcRenderer.send('focusSettings')
@@ -55,4 +104,7 @@ ipcRenderer.on('itsOpened', () => {
 ipcRenderer.on('reappearButtons', () => {
         document.getElementById('bAlign').removeAttribute('style')
     document.getElementById('extraButtons').removeAttribute('style')
+    if (isShowingExtra) {
+        document.getElementById('extraButtons').style.display = "flex";
+    }
 }) 

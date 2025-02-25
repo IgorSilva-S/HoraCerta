@@ -122,10 +122,37 @@ const createWindow = () => {
     new Notification({ title: "Horário dessincronizado por erro", body: "Houve um erro de sincronização do relógio e o horário está sincronizado com o PC local. Confira a sua conexão com à internet" }).show()
   })
 
-  // title: "Horário ressincronizado", body: "O relógio conseguiu se conectar à internet e, foi feita a sinconização com o servidor com sucesso"
-
   ipcMain.on('alertOnline', () => {
     new Notification({ title: "Horário ressincronizado", body: "O relógio conseguiu se conectar à internet e, foi feita a sinconização com o servidor com sucesso" }).show()
+  })
+
+  ipcMain.on('posiStart', () => {
+    mainWindow.setPosition(x, yDiv)
+  })
+
+  ipcMain.on('posiTL', () => {
+    mainWindow.setPosition(10, 10)
+  })
+
+  ipcMain.on('posiTR', () => {
+    let deskX = width - 510
+    mainWindow.setPosition(deskX, 10)
+  })
+
+  ipcMain.on('posiBL', () => {
+    let deskY = height - 330
+    mainWindow.setPosition(10, deskY)
+  })
+
+  ipcMain.on('posiBR', () => {
+    let deskX = width - 510
+    let deskY = height - 330
+    mainWindow.setPosition(deskX, deskY)
+  })
+
+  ipcMain.on('posiBC', () => {
+    let deskY = height - 330
+    mainWindow.setPosition(x, deskY)
   })
 
   mainWindow.webContents.on('before-input-event', (event, input) => {
@@ -141,6 +168,8 @@ const createSettingsWindow = () => {
   let mainWindow = new BrowserWindow({
     width: 700,
     height: 600,
+    minWidth: 700,
+    minHeight: 600,
     titleBarStyle: 'hidden',
     titleBarOverlay: {
       color: '#00000000',

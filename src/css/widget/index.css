@@ -226,12 +226,55 @@ body:hover .ebBottom{
   opacity: 1;
 }
 
+.buttonsAlignRight,
+.buttonsAlignLeft,
+.buttonsAlignTop,
+.buttonsAlignBottom, 
+.ebRight,
+.ebTop,
+.ebLeft,
+.ebBottom{
+  z-index: 2;
+}
+
+
 .ebRight,
 .ebTop,
 .ebLeft,
 .ebBottom {
-
+  display: none;
   opacity: 0;
+}
+
+.snapBar {
+  width: 40%;
+  height: 100%;
+  position: absolute;
+  right: -40%;
+  top: 0;
+  background-color: #e6f3fd;
+  border-radius: 8px 0 0 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  transition-duration: .2s;
+  box-sizing: border-box;
+  padding: 10px 0;
+  overflow-y: auto;
+}
+
+.snapBar div {
+  width: 90%;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition-duration: .2s;
+}
+
+.snapBar div:hover {
+  background-color: #19191911;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -247,5 +290,13 @@ body:hover .ebBottom{
     background-color: #19191988;
     border-bottom: 1px solid #27272788;
     border-top: none;
+  }
+  
+  .snapBar {
+    background-color: #000512;
+  }
+
+  .snapBar div:hover {
+    background-color: #fff3;
   }
 }
