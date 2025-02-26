@@ -52,6 +52,11 @@ if (usDate) {
 }
 
 //Web
+let cannotUseLocal = localStorage.getItem('cannotUseLocal')
+if (cannotUseLocal) {
+    document.getElementById('useLocalHour').checked = false
+}
+
 let notNotify = localStorage.getItem('notNotify')
 if (notNotify) {
     document.getElementById('notifyError').checked = false

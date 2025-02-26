@@ -102,6 +102,11 @@
         <input type="checkbox" name="" id="notifyError" class="switchRadio" checked>
       </div>
 
+      <div class="subBlockItem">
+        Utilizar horário local quando acontecer um erro de conexão
+        <input type="checkbox" name="" id="useLocalHour" class="switchRadio" checked>
+      </div>
+
       <div class="subBlockItem lastItem">
         Usar modo offline (data e hora do sistema)
         <input type="checkbox" name="" id="offlineMode" class="switchRadio">
@@ -244,6 +249,7 @@
     <div class="appSubBlock" id="alignSection">
       <div class="subBlockItemSel">
         <p textType="bodyStrong">Alinhamento do Relógio</p>
+        <p textType="caption">Horizontal</p>
         <div>
           <input type="radio" name="align" id="cnt" checked>
           <label for="cnt">Centralizado</label>
@@ -255,6 +261,19 @@
         <div>
           <input type="radio" name="align" id="rgt">
           <label for="rgt">Direita</label>
+        </div>
+        <p textType="caption">Vertical</p>
+        <div>
+          <input type="radio" name="alignV" id="calign" checked>
+          <label for="calign">Centralizado</label>
+        </div>
+        <div>
+          <input type="radio" name="alignV" id="talign">
+          <label for="talign">Topo</label>
+        </div>
+        <div>
+          <input type="radio" name="alignV" id="balign">
+          <label for="balign">Fundo</label>
         </div>
 
       </div>

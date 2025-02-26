@@ -116,22 +116,15 @@ const createWindow = () => {
       mainWindow.setAlwaysOnTop(true)
       mainWindow.setIgnoreMouseEvents(true)
       pinnedTransparent = true
-      new Notification({
-        toastXml: `
-            <toast activationType="protocol">
-                <visual>
-                    <binding template="ToastGeneric">
-                      <text>Widget fixado e ignorado</text>
-                      <text>O widget foi fixado na tela e começou a ignorar eventos do mouse, para desativar essa função, clique no icone do aplicativo na bandeja do sistema</text>
-                    </binding>
-                </visual>
-            </toast>`
-    }).show()
-      //new Notification({ title: "Widget fixado e ignorado", body: "O widget foi fixado na tela e começou a ignorar eventos do mouse, para desativar essa função, clique no icone do aplicativo na bandeja do sistema" }).show()
+      new Notification({ title: "Widget fixado e ignorado", body: "O widget foi fixado na tela e começou a ignorar eventos do mouse, para desativar essa função, clique no icone do aplicativo na bandeja do sistema" }).show()
   })
 
   ipcMain.on('alertLocal', () => {
     new Notification({ title: "Horário dessincronizado por erro", body: "Houve um erro de sincronização do relógio e o horário está sincronizado com o PC local. Confira a sua conexão com à internet" }).show()
+  })
+
+  ipcMain.on('alertNoTime', () => {
+    new Notification({ title: "Horário dessincronizado por erro", body: "Houve um erro de sincronização do relógio, por configuração, o horário não estará disponível até reconectar. Confira a sua conexão com à internet" }).show()
   })
 
   ipcMain.on('alertOnline', () => {

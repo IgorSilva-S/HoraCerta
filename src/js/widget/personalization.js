@@ -5,6 +5,11 @@ function getPersonalizations() {
 
     //Theme
     document.body.removeAttribute('class')
+    if (stackHour) {
+        document.body.classList.add('stackHour')
+    } else {
+        document.body.classList.remove('stackHour')
+    }
 
     if (theme == 'mUI') {
         document.body.classList.add('mUI')

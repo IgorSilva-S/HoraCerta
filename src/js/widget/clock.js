@@ -29,6 +29,7 @@ if (gmt == '-03:00' || gmt == undefined) {
 }
 
 let offlineMode = localStorage.getItem('offlineMode')
+let cannotUseLocal = localStorage.getItem('cannotUseLocal')
 
 async function getTimeAndDate() {
     try {
@@ -132,135 +133,135 @@ async function getTimeAndDate() {
         }
 
         //Date
-       if (usDate) {
-        if (shortDate) {
-            if (hideWeekDay) {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = ''
+        if (usDate) {
+            if (shortDate) {
+                if (hideWeekDay) {
+                    if (hideDayMonth) {
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = ''
+                        } else {
+                            document.getElementById('date').innerHTML = `${shortYear}`
+                        }
                     } else {
-                        document.getElementById('date').innerHTML = `${shortYear}`
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = `${addZero(month)}/${addZero(day)}`
+                        } else {
+                            document.getElementById('date').innerHTML = `${addZero(month)}/${addZero(day)}/${shortYear}`
+                        }
                     }
                 } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${addZero(month)}/${addZero(day)}`
+                    if (hideDayMonth) {
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}`
+                        } else {
+                            document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}, ${shortYear}`
+                        }
                     } else {
-                        document.getElementById('date').innerHTML = `${addZero(month)}/${addZero(day)}/${shortYear}`
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}, ${addZero(month)}/${addZero(day)}`
+                        } else {
+                            document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}, ${addZero(month)}/${addZero(day)}/${shortYear}`
+                        }
                     }
                 }
+
             } else {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}`
+                if (hideWeekDay) {
+                    if (hideDayMonth) {
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = ''
+                        } else {
+                            document.getElementById('date').innerHTML = `${year}`
+                        }
                     } else {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}, ${shortYear}`
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)}`
+                        } else {
+                            document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)} de ${year}`
+                        }
                     }
                 } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}, ${addZero(month)}/${addZero(day)}`
+                    if (hideDayMonth) {
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}`
+                        } else {
+                            document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ano de ${year}`
+                        }
                     } else {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}, ${addZero(month)}/${addZero(day)}/${shortYear}`
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ${extMonth[month]}, dia ${addZero(day)}`
+                        } else {
+                            document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ${extMonth[month]}, dia ${addZero(day)} de ${year}`
+                        }
                     }
                 }
+
             }
-    
         } else {
-            if (hideWeekDay) {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = ''
+            if (shortDate) {
+                if (hideWeekDay) {
+                    if (hideDayMonth) {
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = ''
+                        } else {
+                            document.getElementById('date').innerHTML = `${shortYear}`
+                        }
                     } else {
-                        document.getElementById('date').innerHTML = `${year}`
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = `${addZero(day)}/${addZero(month)}`
+                        } else {
+                            document.getElementById('date').innerHTML = `${addZero(day)}/${addZero(month)}/${shortYear}`
+                        }
                     }
                 } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)}`
+                    if (hideDayMonth) {
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}`
+                        } else {
+                            document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}, ${shortYear}`
+                        }
                     } else {
-                        document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)} de ${year}`
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}, ${addZero(day)}/${addZero(month)}`
+                        } else {
+                            document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}, ${addZero(day)}/${addZero(month)}/${shortYear}`
+                        }
                     }
                 }
+
             } else {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}`
+                if (hideWeekDay) {
+                    if (hideDayMonth) {
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = ''
+                        } else {
+                            document.getElementById('date').innerHTML = `${year}`
+                        }
                     } else {
-                        document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ano de ${year}`
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = `${addZero(day)} de ${extMonth[month]}`
+                        } else {
+                            document.getElementById('date').innerHTML = `${addZero(day)} de ${extMonth[month]} de ${year}`
+                        }
                     }
                 } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ${extMonth[month]}, dia ${addZero(day)}`
+                    if (hideDayMonth) {
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}`
+                        } else {
+                            document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ${year}`
+                        }
                     } else {
-                        document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ${extMonth[month]}, dia ${addZero(day)} de ${year}`
+                        if (!showYear) {
+                            document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ${addZero(day)} de ${extMonth[month]}`
+                        } else {
+                            document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ${addZero(day)} de ${extMonth[month]} de ${year}`
+                        }
                     }
                 }
+
             }
-    
         }
-       } else {
-        if (shortDate) {
-            if (hideWeekDay) {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = ''
-                    } else {
-                        document.getElementById('date').innerHTML = `${shortYear}`
-                    }
-                } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${addZero(day)}/${addZero(month)}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${addZero(day)}/${addZero(month)}/${shortYear}`
-                    }
-                }
-            } else {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}, ${shortYear}`
-                    }
-                } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}, ${addZero(day)}/${addZero(month)}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek[DOW.toLowerCase()]}, ${addZero(day)}/${addZero(month)}/${shortYear}`
-                    }
-                }
-            }
-    
-        } else {
-            if (hideWeekDay) {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = ''
-                    } else {
-                        document.getElementById('date').innerHTML = `${year}`
-                    }
-                } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${addZero(day)} de ${extMonth[month]}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${addZero(day)} de ${extMonth[month]} de ${year}`
-                    }
-                }
-            } else {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ${year}`
-                    }
-                } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ${addZero(day)} de ${extMonth[month]}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${daysOfWeek[DOW.toLowerCase()]}, ${addZero(day)} de ${extMonth[month]} de ${year}`
-                    }
-                }
-            }
-    
-        }
-       }
 
         triesToUseLocal = 0
 
@@ -272,263 +273,284 @@ async function getTimeAndDate() {
             }
         }
 
+        document.getElementById('hour').classList.remove('loading')
+        document.getElementById('date').classList.remove('loading')
+
     } catch (err) {
-        if (!usingLocal && triesToUseLocal >= 3) {
-            usingLocal = true
-            let notNotify = localStorage.getItem('notNotify')
-            if (!notNotify) {
-                ipcRenderer.send('alertLocal')
+        if (!cannotUseLocal) {
+            if (!usingLocal && triesToUseLocal >= 3) {
+                usingLocal = true
+                let notNotify = localStorage.getItem('notNotify')
+                if (!notNotify) {
+                    ipcRenderer.send('alertLocal')
+                }
+            } else if (!usingLocal && triesToUseLocal < 3) {
+                triesToUseLocal++
             }
-        } else if (!usingLocal && triesToUseLocal < 3) {
-            triesToUseLocal++
-        }
 
-        let d = new Date
-        let hour = d.getHours()
-        let minute = d.getMinutes()
-        let seconds = d.getSeconds()
+            let d = new Date
+            let hour = d.getHours()
+            let minute = d.getMinutes()
+            let seconds = d.getSeconds()
 
-        let day = d.getDate()
-        let month = d.getMonth() + 1
-        let year = d.getFullYear()
-        let changedHour
-        let noon
-        if (hour >= 12) {
-            noon = 'PM'
+            let day = d.getDate()
+            let month = d.getMonth() + 1
+            let year = d.getFullYear()
+            let changedHour
+            let noon
+            if (hour >= 12) {
+                noon = 'PM'
+            } else {
+                noon = 'AM'
+            }
+            let weekDay = d.getDay()
+
+            const addZero = (n) => {
+                return ('0' + n).slice(-2)
+            }
+
+            console.error('Erro ao obter hora:', err);
+            console.warn(`Erro registado em ${addZero(hour)}:${addZero(minute)}:${addZero(seconds)}`)
+
+            const extMonth = [
+                null,
+                "janeiro",
+                "fevereiro",
+                "março",
+                "abril",
+                "maio",
+                "junho",
+                "julho",
+                "agosto",
+                "setembro",
+                "outubro",
+                "novembro",
+                "dezembro"
+            ];
+
+            let daysOfWeek, shortDaysOfWeek
+            switch (weekDay) {
+                case 0:
+                    daysOfWeek = "Domingo";
+                    shortDaysOfWeek = "Dom";
+                    break;
+                case 1:
+                    daysOfWeek = "Segunda";
+                    shortDaysOfWeek = "Seg";
+                    break;
+                case 2:
+                    daysOfWeek = "Terça";
+                    shortDaysOfWeek = "Ter";
+                    break;
+                case 3:
+                    daysOfWeek = "Quarta";
+                    shortDaysOfWeek = "Qua";
+                    break;
+                case 4:
+                    daysOfWeek = "Quinta";
+                    shortDaysOfWeek = "Qui";
+                    break;
+                case 5:
+                    daysOfWeek = "Sexta";
+                    shortDaysOfWeek = "Sex";
+                    break;
+                case 6:
+                    daysOfWeek = "Sábado";
+                    shortDaysOfWeek = "Sáb";
+                    break;
+                default:
+                    daysOfWeek = "Dia inválido";
+                    shortDaysOfWeek = "D.I."
+            }
+
+
+            let shortYear = year.toString()
+            shortYear = shortYear.slice(2)
+
+            //Time
+            if (ampm) {
+                if (hour > 12) {
+                    changedHour = hour - 12
+                } else {
+                    changedHour = hour
+                }
+
+                if (stackHour) {
+                    if (showSeconds) {
+                        document.getElementById('hour').innerHTML = `<span>${addZero(changedHour)}</span><div><span>${addZero(minute)}:</span>${addZero(seconds)}<span textType="subtitle">${noon}</span></div>`;
+                    } else {
+                        document.getElementById('hour').innerHTML = `<span>${addZero(changedHour)}</span><div><span>${addZero(minute)}</span><span textType="subtitle">${noon}</span></div>`;
+                    }
+                } else {
+                    if (showSeconds) {
+                        document.getElementById('hour').innerHTML = `<div>${addZero(changedHour)}:${addZero(minute)}:${addZero(seconds)}<span textType="subtitle">${noon}</span></div>`;
+                    } else {
+                        document.getElementById('hour').innerHTML = `<div>${addZero(changedHour)}:${addZero(minute)}<span textType="subtitle">${noon}</span></div>`;
+                    }
+                }
+            } else {
+                if (stackHour) {
+                    if (showSeconds) {
+                        document.getElementById('hour').innerHTML = `<span>${addZero(hour)}</span><div><span>${addZero(minute)}</span>:${addZero(seconds)}</div>`;
+                    } else {
+                        document.getElementById('hour').innerHTML = `<span>${addZero(hour)}</span>${addZero(minute)}`;
+                    }
+                } else {
+                    if (showSeconds) {
+                        document.getElementById('hour').innerHTML = `${addZero(hour)}:${addZero(minute)}:${addZero(seconds)}`;
+                    } else {
+                        document.getElementById('hour').innerHTML = `${addZero(hour)}:${addZero(minute)}`;
+                    }
+                }
+            }
+
+            //Date
+            if (usDate) {
+                if (shortDate) {
+                    if (hideWeekDay) {
+                        if (hideDayMonth) {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = ''
+                            } else {
+                                document.getElementById('date').innerHTML = `${shortYear}`
+                            }
+                        } else {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = `${addZero(month)}/${addZero(day)}`
+                            } else {
+                                document.getElementById('date').innerHTML = `${addZero(month)}/${addZero(day)}/${shortYear}`
+                            }
+                        }
+                    } else {
+                        if (hideDayMonth) {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = `${shortDaysOfWeek}`
+                            } else {
+                                document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${shortYear}`
+                            }
+                        } else {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(month)}/${addZero(day)}`
+                            } else {
+                                document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(month)}/${addZero(day)}/${shortYear}`
+                            }
+                        }
+                    }
+
+                } else {
+                    if (hideWeekDay) {
+                        if (hideDayMonth) {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = ''
+                            } else {
+                                document.getElementById('date').innerHTML = `${year}`
+                            }
+                        } else {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)}`
+                            } else {
+                                document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)} de ${year}`
+                            }
+                        }
+                    } else {
+                        if (hideDayMonth) {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = `${daysOfWeek}`
+                            } else {
+                                document.getElementById('date').innerHTML = `${daysOfWeek}, ano de ${year}`
+                            }
+                        } else {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = `${daysOfWeek}, ${extMonth[month]}, dia ${addZero(day)}`
+                            } else {
+                                document.getElementById('date').innerHTML = `${daysOfWeek}, ${extMonth[month]}, dia ${addZero(day)} de ${year}`
+                            }
+                        }
+                    }
+
+                }
+            } else {
+                if (shortDate) {
+                    if (hideWeekDay) {
+                        if (hideDayMonth) {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = ''
+                            } else {
+                                document.getElementById('date').innerHTML = `${shortYear}`
+                            }
+                        } else {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = `${addZero(day)}/${addZero(month)}`
+                            } else {
+                                document.getElementById('date').innerHTML = `${addZero(day)}/${addZero(month)}/${shortYear}`
+                            }
+                        }
+                    } else {
+                        if (hideDayMonth) {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = `${shortDaysOfWeek}`
+                            } else {
+                                document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${shortYear}`
+                            }
+                        } else {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(day)}/${addZero(month)}`
+                            } else {
+                                document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(day)}/${addZero(month)}/${shortYear}`
+                            }
+                        }
+                    }
+
+                } else {
+                    if (hideWeekDay) {
+                        if (hideDayMonth) {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = ''
+                            } else {
+                                document.getElementById('date').innerHTML = `${year}`
+                            }
+                        } else {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = `${addZero(day)} de ${extMonth[month]}`
+                            } else {
+                                document.getElementById('date').innerHTML = `${addZero(day)} de ${extMonth[month]} de ${year}`
+                            }
+                        }
+                    } else {
+                        if (hideDayMonth) {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = `${daysOfWeek}`
+                            } else {
+                                document.getElementById('date').innerHTML = `${daysOfWeek}, ${year}`
+                            }
+                        } else {
+                            if (!showYear) {
+                                document.getElementById('date').innerHTML = `${daysOfWeek}, ${addZero(day)} de ${extMonth[month]}`
+                            } else {
+                                document.getElementById('date').innerHTML = `${daysOfWeek}, ${addZero(day)} de ${extMonth[month]} de ${year}`
+                            }
+                        }
+                    }
+
+                }
+            }
+
+
+            document.getElementById('hour').classList.remove('loading')
+            document.getElementById('date').classList.remove('loading')
         } else {
-            noon = 'AM'
+            if (!usingLocal) {
+                usingLocal = true
+                let notNotify = localStorage.getItem('notNotify')
+                if (!notNotify) {
+                    ipcRenderer.send('alertNoTime')
+                }
+            }
+            document.getElementById('hour').classList.add('loading')
+            document.getElementById('date').classList.add('loading')
+            document.getElementById('hour').innerHTML = ''
+            document.getElementById('date').innerHTML = ''
         }
-        let weekDay = d.getDay()
-        
-        const addZero = (n) => {
-            return ('0' + n).slice(-2)
-        }
-
-        console.error('Erro ao obter hora:', err);
-        console.warn(`Erro registado em ${addZero(hour)}:${addZero(minute)}:${addZero(seconds)}`)
-
-        const extMonth = [
-            null,
-            "janeiro",
-            "fevereiro",
-            "março",
-            "abril",
-            "maio",
-            "junho",
-            "julho",
-            "agosto",
-            "setembro",
-            "outubro",
-            "novembro",
-            "dezembro"
-        ];
-    
-        let daysOfWeek, shortDaysOfWeek
-        switch (weekDay) {
-            case 0:
-                daysOfWeek = "Domingo";
-                shortDaysOfWeek = "Dom";
-                break;
-            case 1:
-                daysOfWeek = "Segunda";
-                shortDaysOfWeek = "Seg";
-                break;
-            case 2:
-                daysOfWeek = "Terça";
-                shortDaysOfWeek = "Ter";
-                break;
-            case 3:
-                daysOfWeek = "Quarta";
-                shortDaysOfWeek = "Qua";
-                break;
-            case 4:
-                daysOfWeek = "Quinta";
-                shortDaysOfWeek = "Qui";
-                break;
-            case 5:
-                daysOfWeek = "Sexta";
-                shortDaysOfWeek = "Sex";
-                break;
-            case 6:
-                daysOfWeek = "Sábado";
-                shortDaysOfWeek = "Sáb";
-                break;
-            default:
-                daysOfWeek = "Dia inválido";
-                shortDaysOfWeek = "D.I."
-        }
-
-
-        let shortYear = year.toString()
-        shortYear = shortYear.slice(2)
-
-         //Time
-         if (ampm) {
-            if (hour > 12) {
-                changedHour = hour - 12
-            } else {
-                changedHour = hour
-            }
-
-            if (stackHour) {
-                if (showSeconds) {
-                    document.getElementById('hour').innerHTML = `<span>${addZero(changedHour)}</span><div><span>${addZero(minute)}:</span>${addZero(seconds)}<span textType="subtitle">${noon}</span></div>`;
-                } else {
-                    document.getElementById('hour').innerHTML = `<span>${addZero(changedHour)}</span><div><span>${addZero(minute)}</span><span textType="subtitle">${noon}</span></div>`;
-                }
-            } else {
-                if (showSeconds) {
-                    document.getElementById('hour').innerHTML = `<div>${addZero(changedHour)}:${addZero(minute)}:${addZero(seconds)}<span textType="subtitle">${noon}</span></div>`;
-                } else {
-                    document.getElementById('hour').innerHTML = `<div>${addZero(changedHour)}:${addZero(minute)}<span textType="subtitle">${noon}</span></div>`;
-                }
-            }
-        } else {
-            if (stackHour) {
-                if (showSeconds) {
-                    document.getElementById('hour').innerHTML = `<span>${addZero(hour)}</span><div><span>${addZero(minute)}</span>:${addZero(seconds)}</div>`;
-                } else {
-                    document.getElementById('hour').innerHTML = `<span>${addZero(hour)}</span>${addZero(minute)}`;
-                }
-            } else {
-                if (showSeconds) {
-                    document.getElementById('hour').innerHTML = `${addZero(hour)}:${addZero(minute)}:${addZero(seconds)}`;
-                } else {
-                    document.getElementById('hour').innerHTML = `${addZero(hour)}:${addZero(minute)}`;
-                }
-            }
-        }
-
-        //Date
-       if (usDate) {
-        if (shortDate) {
-            if (hideWeekDay) {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = ''
-                    } else {
-                        document.getElementById('date').innerHTML = `${shortYear}`
-                    }
-                } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${addZero(month)}/${addZero(day)}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${addZero(month)}/${addZero(day)}/${shortYear}`
-                    }
-                }
-            } else {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${shortYear}`
-                    }
-                } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(month)}/${addZero(day)}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(month)}/${addZero(day)}/${shortYear}`
-                    }
-                }
-            }
-    
-        } else {
-            if (hideWeekDay) {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = ''
-                    } else {
-                        document.getElementById('date').innerHTML = `${year}`
-                    }
-                } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)} de ${year}`
-                    }
-                }
-            } else {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${daysOfWeek}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${daysOfWeek}, ano de ${year}`
-                    }
-                } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${daysOfWeek}, ${extMonth[month]}, dia ${addZero(day)}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${daysOfWeek}, ${extMonth[month]}, dia ${addZero(day)} de ${year}`
-                    }
-                }
-            }
-    
-        }
-       } else {
-        if (shortDate) {
-            if (hideWeekDay) {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = ''
-                    } else {
-                        document.getElementById('date').innerHTML = `${shortYear}`
-                    }
-                } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${addZero(day)}/${addZero(month)}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${addZero(day)}/${addZero(month)}/${shortYear}`
-                    }
-                }
-            } else {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${shortYear}`
-                    }
-                } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(day)}/${addZero(month)}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(day)}/${addZero(month)}/${shortYear}`
-                    }
-                }
-            }
-    
-        } else {
-            if (hideWeekDay) {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = ''
-                    } else {
-                        document.getElementById('date').innerHTML = `${year}`
-                    }
-                } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${addZero(day)} de ${extMonth[month]}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${addZero(day)} de ${extMonth[month]} de ${year}`
-                    }
-                }
-            } else {
-                if (hideDayMonth) {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${daysOfWeek}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${daysOfWeek}, ${year}`
-                    }
-                } else {
-                    if (!showYear) {
-                        document.getElementById('date').innerHTML = `${daysOfWeek}, ${addZero(day)} de ${extMonth[month]}`
-                    } else {
-                        document.getElementById('date').innerHTML = `${daysOfWeek}, ${addZero(day)} de ${extMonth[month]} de ${year}`
-                    }
-                }
-            }
-    
-        }
-       }
     }
 }
 
@@ -549,7 +571,7 @@ function justOfflineDate() {
         noon = 'AM'
     }
     let weekDay = d.getDay()
-    
+
     const addZero = (n) => {
         return ('0' + n).slice(-2)
     }
@@ -609,8 +631,8 @@ function justOfflineDate() {
     let shortYear = year.toString()
     shortYear = shortYear.slice(2)
 
-     //Time
-     if (ampm) {
+    //Time
+    if (ampm) {
         if (hour > 12) {
             changedHour = hour - 12
         } else {
@@ -647,135 +669,138 @@ function justOfflineDate() {
     }
 
     //Date
-   if (usDate) {
-    if (shortDate) {
-        if (hideWeekDay) {
-            if (hideDayMonth) {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = ''
+    if (usDate) {
+        if (shortDate) {
+            if (hideWeekDay) {
+                if (hideDayMonth) {
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = ''
+                    } else {
+                        document.getElementById('date').innerHTML = `${shortYear}`
+                    }
                 } else {
-                    document.getElementById('date').innerHTML = `${shortYear}`
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = `${addZero(month)}/${addZero(day)}`
+                    } else {
+                        document.getElementById('date').innerHTML = `${addZero(month)}/${addZero(day)}/${shortYear}`
+                    }
                 }
             } else {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = `${addZero(month)}/${addZero(day)}`
+                if (hideDayMonth) {
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}`
+                    } else {
+                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${shortYear}`
+                    }
                 } else {
-                    document.getElementById('date').innerHTML = `${addZero(month)}/${addZero(day)}/${shortYear}`
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(month)}/${addZero(day)}`
+                    } else {
+                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(month)}/${addZero(day)}/${shortYear}`
+                    }
                 }
             }
-        } else {
-            if (hideDayMonth) {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}`
-                } else {
-                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${shortYear}`
-                }
-            } else {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(month)}/${addZero(day)}`
-                } else {
-                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(month)}/${addZero(day)}/${shortYear}`
-                }
-            }
-        }
 
+        } else {
+            if (hideWeekDay) {
+                if (hideDayMonth) {
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = ''
+                    } else {
+                        document.getElementById('date').innerHTML = `${year}`
+                    }
+                } else {
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)}`
+                    } else {
+                        document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)} de ${year}`
+                    }
+                }
+            } else {
+                if (hideDayMonth) {
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = `${daysOfWeek}`
+                    } else {
+                        document.getElementById('date').innerHTML = `${daysOfWeek}, ano de ${year}`
+                    }
+                } else {
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = `${daysOfWeek}, ${extMonth[month]}, dia ${addZero(day)}`
+                    } else {
+                        document.getElementById('date').innerHTML = `${daysOfWeek}, ${extMonth[month]}, dia ${addZero(day)} de ${year}`
+                    }
+                }
+            }
+
+        }
     } else {
-        if (hideWeekDay) {
-            if (hideDayMonth) {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = ''
+        if (shortDate) {
+            if (hideWeekDay) {
+                if (hideDayMonth) {
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = ''
+                    } else {
+                        document.getElementById('date').innerHTML = `${shortYear}`
+                    }
                 } else {
-                    document.getElementById('date').innerHTML = `${year}`
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = `${addZero(day)}/${addZero(month)}`
+                    } else {
+                        document.getElementById('date').innerHTML = `${addZero(day)}/${addZero(month)}/${shortYear}`
+                    }
                 }
             } else {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)}`
+                if (hideDayMonth) {
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}`
+                    } else {
+                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${shortYear}`
+                    }
                 } else {
-                    document.getElementById('date').innerHTML = `${extMonth[month]}, dia ${addZero(day)} de ${year}`
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(day)}/${addZero(month)}`
+                    } else {
+                        document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(day)}/${addZero(month)}/${shortYear}`
+                    }
                 }
             }
-        } else {
-            if (hideDayMonth) {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = `${daysOfWeek}`
-                } else {
-                    document.getElementById('date').innerHTML = `${daysOfWeek}, ano de ${year}`
-                }
-            } else {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = `${daysOfWeek}, ${extMonth[month]}, dia ${addZero(day)}`
-                } else {
-                    document.getElementById('date').innerHTML = `${daysOfWeek}, ${extMonth[month]}, dia ${addZero(day)} de ${year}`
-                }
-            }
-        }
 
+        } else {
+            if (hideWeekDay) {
+                if (hideDayMonth) {
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = ''
+                    } else {
+                        document.getElementById('date').innerHTML = `${year}`
+                    }
+                } else {
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = `${addZero(day)} de ${extMonth[month]}`
+                    } else {
+                        document.getElementById('date').innerHTML = `${addZero(day)} de ${extMonth[month]} de ${year}`
+                    }
+                }
+            } else {
+                if (hideDayMonth) {
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = `${daysOfWeek}`
+                    } else {
+                        document.getElementById('date').innerHTML = `${daysOfWeek}, ${year}`
+                    }
+                } else {
+                    if (!showYear) {
+                        document.getElementById('date').innerHTML = `${daysOfWeek}, ${addZero(day)} de ${extMonth[month]}`
+                    } else {
+                        document.getElementById('date').innerHTML = `${daysOfWeek}, ${addZero(day)} de ${extMonth[month]} de ${year}`
+                    }
+                }
+            }
+
+        }
     }
-   } else {
-    if (shortDate) {
-        if (hideWeekDay) {
-            if (hideDayMonth) {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = ''
-                } else {
-                    document.getElementById('date').innerHTML = `${shortYear}`
-                }
-            } else {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = `${addZero(day)}/${addZero(month)}`
-                } else {
-                    document.getElementById('date').innerHTML = `${addZero(day)}/${addZero(month)}/${shortYear}`
-                }
-            }
-        } else {
-            if (hideDayMonth) {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}`
-                } else {
-                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${shortYear}`
-                }
-            } else {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(day)}/${addZero(month)}`
-                } else {
-                    document.getElementById('date').innerHTML = `${shortDaysOfWeek}, ${addZero(day)}/${addZero(month)}/${shortYear}`
-                }
-            }
-        }
 
-    } else {
-        if (hideWeekDay) {
-            if (hideDayMonth) {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = ''
-                } else {
-                    document.getElementById('date').innerHTML = `${year}`
-                }
-            } else {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = `${addZero(day)} de ${extMonth[month]}`
-                } else {
-                    document.getElementById('date').innerHTML = `${addZero(day)} de ${extMonth[month]} de ${year}`
-                }
-            }
-        } else {
-            if (hideDayMonth) {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = `${daysOfWeek}`
-                } else {
-                    document.getElementById('date').innerHTML = `${daysOfWeek}, ${year}`
-                }
-            } else {
-                if (!showYear) {
-                    document.getElementById('date').innerHTML = `${daysOfWeek}, ${addZero(day)} de ${extMonth[month]}`
-                } else {
-                    document.getElementById('date').innerHTML = `${daysOfWeek}, ${addZero(day)} de ${extMonth[month]} de ${year}`
-                }
-            }
-        }
-
-    }
-   }
+    document.getElementById('hour').classList.remove('loading')
+    document.getElementById('date').classList.remove('loading')
 }
 
 function getMainSettings() {
@@ -806,6 +831,7 @@ function getMainSettings() {
     }
 
     offlineMode = localStorage.getItem('offlineMode')
+    cannotUseLocal = localStorage.getItem('cannotUseLocal')
 }
 
 setInterval(() => {

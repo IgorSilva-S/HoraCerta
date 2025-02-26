@@ -82,6 +82,15 @@ document.getElementById('notifyError').addEventListener('click', () => {
     }
 })
 
+document.getElementById('useLocalHour').addEventListener('click', () => {
+    let isChecked = document.getElementById('useLocalHour').checked
+    if (!isChecked) {
+        localStorage.setItem('cannotUseLocal', true)
+    } else {
+        localStorage.removeItem('cannotUseLocal')
+    }
+})
+
 document.getElementById('offlineMode').addEventListener('click', () => {
     let isChecked = document.getElementById('offlineMode').checked
     if (isChecked) {

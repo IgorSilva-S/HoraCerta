@@ -32,9 +32,48 @@ body {
   text-align: center;
 }
 
+.hour.loading {
+  width: 60%;
+  height: 120px;
+  background-color: #fff3;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hour.loading::after,
+.date.loading::after {
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  left: -20%;
+  top: 0;
+  background-image: linear-gradient(to right, #fff0, #fff8);
+  content: '';
+  animation: loadingAnim 1.2s linear infinite;
+}
+
 #date {
   transition-duration: .3s;
   text-align: center;
+}
+
+.date.loading {
+  width: 60%;
+  height: 38px;
+  background-color: #fff3;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 10px;
+}
+
+@keyframes loadingAnim {
+  from {
+    left: -20%;
+  } to {
+    left: 120%
+  }
 }
 
 .inverted {
@@ -263,6 +302,7 @@ body:hover .ebBottom{
   box-sizing: border-box;
   padding: 10px 0;
   overflow-y: auto;
+  border: 1px solid #dceaf7;
 }
 
 .snapBar .selButton {
@@ -363,6 +403,7 @@ body:hover .ebBottom{
   
   .snapBar {
     background-color: #000512;
+    border: 1px solid #001036;
   }
 
   .snapBar .selButton:hover {
