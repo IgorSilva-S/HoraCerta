@@ -123,7 +123,6 @@ const createWindow = () => {
                     <binding template="ToastGeneric">
                       <text>Widget fixado e ignorado</text>
                       <text>O widget foi fixado na tela e começou a ignorar eventos do mouse, para desativar essa função, clique no icone do aplicativo na bandeja do sistema</text>
-                      <image src='ms-appx:///Images/InlineImage.png'/>
                     </binding>
                 </visual>
             </toast>`
@@ -153,25 +152,20 @@ const createWindow = () => {
   })
 
   ipcMain.on('posiBL', () => {
-    let deskY = height - 330
+    let deskY = height - 380
     mainWindow.setPosition(10, deskY)
   })
 
   ipcMain.on('posiBR', () => {
     let deskX = width - 510
-    let deskY = height - 330
+    let deskY = height - 380
     mainWindow.setPosition(deskX, deskY)
   })
 
   ipcMain.on('posiBC', () => {
     let plusToAlign = Math.round(height / 14)
-    let deskY = height - 330
-    deskY = deskY + plusToAlign
-    mainWindow.setPosition(x, deskY)
-  })
-
-  ipcMain.on('posiCC', () => {
-    let deskY = Math.round((height - windowHeight) / 2)
+    let deskY = height - 380
+    deskY = deskY - plusToAlign
     mainWindow.setPosition(x, deskY)
   })
 

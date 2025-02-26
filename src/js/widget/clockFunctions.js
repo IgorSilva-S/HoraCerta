@@ -47,7 +47,7 @@ document.getElementById('closeClock').addEventListener('click', () => {
 
 document.getElementById('openSnap').addEventListener('click', () => {
     if (!isShowingSnapBar) {
-        document.getElementById('snapBar').style.right = '0'
+        document.getElementById('snapBar').style.right = '23px'
         isShowingSnapBar = true
     } else {
         document.getElementById('snapBar').removeAttribute('style')
@@ -96,11 +96,6 @@ document.getElementById('posiBC').addEventListener('click', () => {
     isShowingSnapBar = false  
 })
 
-document.getElementById('posiCC').addEventListener('click', () => {
-    ipcRenderer.send('posiCC')
-    document.getElementById('snapBar').removeAttribute('style')
-    isShowingSnapBar = false  
-})
 //End Snap
 
 ipcRenderer.on('itsOpened', () => {

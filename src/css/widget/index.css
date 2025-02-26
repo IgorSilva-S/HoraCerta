@@ -253,7 +253,7 @@ body:hover .ebBottom{
   right: -200px;
   top: 0;
   background-color: #e6f3fd;
-  border-radius: 8px 0 0 8px;
+  border-radius: 8px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -334,11 +334,6 @@ body:hover .ebBottom{
 .bcWinPosi {
   left: calc(50% - 20px);
   bottom: 10px;
-}
-
-.ccWinPosi {
-  left: calc(50% - 20px);
-  top: calc(50% - 12px);
 }
 
 .snapBar::-webkit-scrollbar {

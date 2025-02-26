@@ -1,7 +1,7 @@
 {
-  "name": "HoraCerta",
+  "name": "horacerta",
   "productName": "Hora Certa",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Sempre esteja com o horário certo com o widget Hora Certa",
   "main": "src/index.js",
   "scripts": {
