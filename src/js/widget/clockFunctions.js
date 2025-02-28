@@ -64,36 +64,66 @@ document.getElementById('posiStart').addEventListener('click', () => {
     ipcRenderer.send('posiStart')
     document.getElementById('snapBar').removeAttribute('style')
     isShowingSnapBar = false  
+    let alignSnap = localStorage.getItem('alignSnap')
+    if (alignSnap) {
+        localStorage.setItem('align', 'cnt')
+        localStorage.setItem('vAlign', 'cnt')
+    }
 })
 
 document.getElementById('posiTL').addEventListener('click', () => {
     ipcRenderer.send('posiTL')
     document.getElementById('snapBar').removeAttribute('style')
     isShowingSnapBar = false  
+    let alignSnap = localStorage.getItem('alignSnap')
+    if (alignSnap) {
+        localStorage.setItem('align', 'lft')
+        localStorage.setItem('vAlign', 'top')
+    }
 })
 
 document.getElementById('posiTR').addEventListener('click', () => {
     ipcRenderer.send('posiTR')
     document.getElementById('snapBar').removeAttribute('style')
     isShowingSnapBar = false  
+    let alignSnap = localStorage.getItem('alignSnap')
+    if (alignSnap) {
+        localStorage.setItem('align', 'rgt')
+        localStorage.setItem('vAlign', 'top')
+    }
 })
 
 document.getElementById('posiBL').addEventListener('click', () => {
     ipcRenderer.send('posiBL')
     document.getElementById('snapBar').removeAttribute('style')
     isShowingSnapBar = false  
+    let alignSnap = localStorage.getItem('alignSnap')
+    if (alignSnap) {
+        localStorage.setItem('align', 'lft')
+        localStorage.setItem('vAlign', 'btm')
+    }
 })
 
 document.getElementById('posiBR').addEventListener('click', () => {
     ipcRenderer.send('posiBR')
     document.getElementById('snapBar').removeAttribute('style')
     isShowingSnapBar = false  
+    let alignSnap = localStorage.getItem('alignSnap')
+    if (alignSnap) {
+        localStorage.setItem('align', 'rgt')
+        localStorage.setItem('vAlign', 'btm')
+    }
 })
 
 document.getElementById('posiBC').addEventListener('click', () => {
     ipcRenderer.send('posiBC')
     document.getElementById('snapBar').removeAttribute('style')
     isShowingSnapBar = false  
+    let alignSnap = localStorage.getItem('alignSnap')
+    if (alignSnap) {
+        localStorage.setItem('align', 'cnt')
+        localStorage.setItem('vAlign', 'cnt')
+    }
 })
 
 //End Snap

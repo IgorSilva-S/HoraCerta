@@ -1,6 +1,7 @@
 function getPersonalizations() {
     let theme = localStorage.getItem('theme')
     let align = localStorage.getItem('align')
+    let vAlign = localStorage.getItem('vAlign')
     let bAlign = localStorage.getItem('bAlign')
 
     //Theme
@@ -41,6 +42,12 @@ function getPersonalizations() {
         document.getElementById('date').style.textAlign = 'right'
     }
 
+    if (vAlign == 'top') {
+        document.body.style.justifyContent = 'flex-start'
+    } else if (vAlign == 'btm') {
+        document.body.style.justifyContent = 'flex-end'
+    }
+
     //Button Alignment
     document.getElementById('bAlign').removeAttribute('class')
     if (bAlign == 'right' || bAlign == undefined) {
@@ -60,4 +67,4 @@ function getPersonalizations() {
 
 setInterval(() => {
     getPersonalizations()
-}, 1000);
+}, 10);

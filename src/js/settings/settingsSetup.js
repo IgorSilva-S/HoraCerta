@@ -118,6 +118,20 @@ if (alignSetting == 'cnt' || alignSetting == undefined) {
     document.getElementById('rgt').checked = true
 }
 
+let vAlignSetting = localStorage.getItem('vAlign')
+if (vAlignSetting == 'cnt' || vAlignSetting == undefined) {
+    document.getElementById('calign').checked = true
+} else if (vAlignSetting == 'top') {
+    document.getElementById('talign').checked = true
+} else if (vAlignSetting == 'btm') {
+    document.getElementById('balign').checked = true
+}
+
+let alignSnap = localStorage.getItem('alignSnap')
+if (alignSnap) {
+    document.getElementById('alignSnap').checked = true
+}
+
 let bAlignSetting = localStorage.getItem('bAlign')
 if (bAlignSetting == 'right' || bAlignSetting == undefined) {
     document.getElementById('rbutton').checked = true
@@ -128,3 +142,27 @@ if (bAlignSetting == 'right' || bAlignSetting == undefined) {
 } else if (bAlignSetting == 'bottom') {
     document.getElementById('bbutton').checked = true
 }
+
+function checkAutoAlign() {
+    alignSetting = localStorage.getItem('align')
+    if (alignSetting == 'cnt' || alignSetting == undefined) {
+        document.getElementById('cnt').checked = true
+    } else if (alignSetting == 'lft') {
+        document.getElementById('lft').checked = true
+    } else if (alignSetting == 'rgt') {
+        document.getElementById('rgt').checked = true
+    }
+
+    vAlignSetting = localStorage.getItem('vAlign')
+    if (vAlignSetting == 'cnt' || vAlignSetting == undefined) {
+        document.getElementById('calign').checked = true
+    } else if (vAlignSetting == 'top') {
+        document.getElementById('talign').checked = true
+    } else if (vAlignSetting == 'btm') {
+        document.getElementById('balign').checked = true
+    }
+}
+
+setInterval(() => {
+    checkAutoAlign()
+}, 10);

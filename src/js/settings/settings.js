@@ -173,6 +173,27 @@ document.getElementById('rgt').addEventListener('click', () => {
     localStorage.setItem('align', 'rgt')
 })
 
+document.getElementById('calign').addEventListener('click', () => {
+    localStorage.setItem('vAlign', 'cnt')
+})
+
+document.getElementById('talign').addEventListener('click', () => {
+    localStorage.setItem('vAlign', 'top')
+})
+
+document.getElementById('balign').addEventListener('click', () => {
+    localStorage.setItem('vAlign', 'btm')
+})
+
+document.getElementById('alignSnap').addEventListener('click', () => {
+    let isChecked = document.getElementById('alignSnap').checked
+    if (isChecked) {
+        localStorage.setItem('alignSnap', true)
+    } else {
+        localStorage.removeItem('alignSnap')
+    }
+})
+
 document.getElementById('rbutton').addEventListener('click', () => {
     localStorage.setItem('bAlign', 'right')
 })

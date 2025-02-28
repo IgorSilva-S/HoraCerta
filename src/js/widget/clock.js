@@ -840,5 +840,8 @@ setInterval(() => {
     } else {
         justOfflineDate()
     }
-    getMainSettings()
 }, 1000);
+
+setInterval(() => {
+    getMainSettings()
+}, 10);
