@@ -28,6 +28,20 @@ function getPersonalizations() {
         document.body.classList.add('royal')
     }
 
+    let hideButtons = localStorage.getItem('hideButtons')
+    if (hideButtons) {
+        document.getElementById('bAlign').style.display = 'none'
+        document.getElementById('extraButtons').style.display = 'none'
+        document.getElementById('moveArea').style.display = 'flex'
+        isShowingExtra = false
+    } else {
+        document.getElementById('bAlign').removeAttribute('style')
+        if (!isShowingExtra) {
+            document.getElementById('extraButtons').removeAttribute('style')
+        }
+        document.getElementById('moveArea').style.display = 'none'
+    }
+
     //Alignment
     document.body.removeAttribute('style')
     document.getElementById('hour').removeAttribute('style')

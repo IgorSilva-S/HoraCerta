@@ -50,7 +50,7 @@ body {
   top: 0;
   background-image: linear-gradient(to right, #fff0, #fff8);
   content: '';
-  animation: loadingAnim 1.2s linear infinite;
+  animation: loadingAnim 1.6s linear infinite;
 }
 
 #date {
@@ -249,6 +249,14 @@ body {
   border-top: 1px solid #f9f9f988
 }
 
+.hidedButton {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0;
+}
+
 
 .moveArea {
   -webkit-app-region: drag;
@@ -261,7 +269,8 @@ body:hover .buttonsAlignBottom,
 body:hover .ebRight,
 body:hover .ebTop,
 body:hover .ebLeft,
-body:hover .ebBottom{
+body:hover .ebBottom,
+body:hover .hidedButton{
   opacity: 1;
 }
 

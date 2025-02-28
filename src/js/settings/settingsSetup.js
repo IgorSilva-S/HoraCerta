@@ -101,6 +101,11 @@ if (themeSelected == 'fUI' || themeSelected == undefined) {
     document.getElementById('royalTheme').checked = true
 }
 
+let hideButtons = localStorage.getItem('hideButtons')
+if (hideButtons) {
+    document.getElementById('hideButtons').checked = true
+}
+
 let appThemeSelected = localStorage.getItem('appTheme')
 if (appThemeSelected == 'SOB' || appThemeSelected == undefined) {
     document.getElementById('shadesOfBlue').checked = true

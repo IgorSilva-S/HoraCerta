@@ -150,6 +150,15 @@ document.getElementById('royalTheme').addEventListener('click', () => {
     localStorage.setItem('theme', 'royal')
 })
 
+document.getElementById('hideButtons').addEventListener('click', () => {
+    let isChecked = document.getElementById('hideButtons').checked
+    if (isChecked) {
+        localStorage.setItem('hideButtons', true)
+    } else {
+        localStorage.removeItem('hideButtons')
+    }
+})
+
 document.getElementById('shadesOfBlue').addEventListener('click', () => {
     localStorage.setItem('appTheme', 'SOB')
     appTheme()
