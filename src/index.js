@@ -1,4 +1,4 @@
-const { app, BrowserWindow, screen, Tray, Notification, ipcMain } = require('electron');
+const { app, BrowserWindow, screen, Tray, Notification, ipcMain, shell } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
 let tray, settingsOpened = false, pinned = false, pinnedTransparent = false, isBlur = false
@@ -204,6 +204,10 @@ const createSettingsWindow = () => {
       }
   })
 
+  ipcMain.on('openGFHelp', () => {
+    createHelpWindow('helpPages/googleFonts.html')
+})
+
   mainWindow.on('close', () => {
     settingsOpened = false
     mainWindow = null
@@ -215,6 +219,41 @@ const createSettingsWindow = () => {
     }
   })
 };
+
+const createHelpWindow = (file) => {
+  // Create the browser window.
+  let mainWindow = new BrowserWindow({
+    width: 379,
+    height: 600,
+    minWidth: 379,
+    minHeight: 600,
+    titleBarStyle: 'hidden',
+    titleBarOverlay: {
+      color: '#00000000',
+      symbolColor: '#74b1be',
+      height: 40
+    },
+    autoHideMenuBar: 'true',
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
+    icon: path.join(__dirname, 'icon/favicon.ico')
+  });
+
+  // and load the index.html of the app.
+  mainWindow.loadFile(path.join(__dirname, file));
+
+  mainWindow.webContents.on('before-input-event', (event, input) => {
+    if (input.control && input.shift && input.key.toLowerCase() === 'i' && !isDevelopment) {
+      event.preventDefault()
+    }
+  })
+
+  ipcMain.on('openGoogleFonts', () => {
+    shell.openExternal("https://fonts.google.com");
+  })
+}
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

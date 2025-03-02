@@ -272,6 +272,10 @@ body {
     transition-timing-function: linear;
   }
 
+  input[type="radio"]:hover {
+    border: 1px solid #0078d4;
+  }
+
   input[type="radio"]:checked {
     border: 5px solid #0078d4;
     background-color: white;
@@ -407,6 +411,11 @@ body {
     border: 1px solid #252525;
     background-color: #19191977;
   }
+
+  input[type="radio"]:hover {
+    border: 1px solid #5bb8ff;
+  }
+
 
   input[type="radio"]:checked {
     border: 5px solid #5bb8ff;

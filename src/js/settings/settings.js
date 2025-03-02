@@ -1,3 +1,5 @@
+const { ipcRenderer } = require("electron")
+
 /*Hour settings*/
 document.getElementById('showSec').addEventListener('click', () => {
     let isChecked = document.getElementById('showSec').checked
@@ -150,14 +152,61 @@ document.getElementById('royalTheme').addEventListener('click', () => {
     localStorage.setItem('theme', 'royal')
 })
 
-document.getElementById('hideButtons').addEventListener('click', () => {
-    let isChecked = document.getElementById('hideButtons').checked
-    if (isChecked) {
-        localStorage.setItem('hideButtons', true)
-    } else {
-        localStorage.removeItem('hideButtons')
+document.getElementById('customTheme').addEventListener('click', () => {
+    localStorage.setItem('theme', 'custom')
+})
+
+
+// Custom Theme
+
+document.getElementById('gfHelp').addEventListener('click', () => {
+    ipcRenderer.send('openGFHelp')
+})
+
+document.getElementById('lightFont').addEventListener('change', () => {
+    document.getElementById('lfColor').style.backgroundColor = document.getElementById('lightFont').value
+})
+
+document.getElementById('darkFont').addEventListener('change', () => {
+    document.getElementById('dfColor').style.backgroundColor = document.getElementById('darkFont').value
+})
+
+document.getElementById('saveCustomTheme').addEventListener('click', () => {
+    let customThemeJSON = {
+        fontURL: document.getElementById('gfontsUrl').value,
+        fontName: document.getElementById('gfontsName').value,
+        hourSize: document.getElementById('hourSize').value,
+        dateSize: document.getElementById('dateSize').value,
+        lightColor: document.getElementById('lightFont').value,
+        darkColor: document.getElementById('darkFont').value,
+        useLine: document.getElementById('useLine').checked
+    }
+
+    localStorage.setItem('customTheme', JSON.stringify(customThemeJSON))
+
+    let actualTheme = localStorage.getItem('theme')
+    if (actualTheme == 'custom') {
+        let styleTag = document.createElement('style')
+        let displayLine
+        if (customThemeJSON.useLine == true)
+        styleTag.innerHTML = `
+            @import url('${customThemeJSON.fontURL}')
+
+            .custom .hour {
+                font-size: ${customThemeJSON.hourSize}px;
+                font-family: ${customThemeJSON.fontName};
+                color: ${customThemeJSON.lightColor}
+            }
+
+            .custom .date {
+                font-size: ${customThemeJSON.dateSize}px;
+                font-family: ${customThemeJSON.fontName};
+                color: ${customThemeJSON.lightColor}
+            }
+        `
     }
 })
+// End Custom Theme
 
 document.getElementById('shadesOfBlue').addEventListener('click', () => {
     localStorage.setItem('appTheme', 'SOB')

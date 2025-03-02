@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda Hora Certa</title>
+    <link rel="stylesheet" href="css/default.css" id="appTheme">
+    <link rel="stylesheet" href="../font/segoeFont.css">
+    <link rel="shortcut icon" href="../icon/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="titleBar">
+        <div class="appIcon"></div>
+        Hora Certa
+      </div>
+      <div class="title subtitle">
+        <h1 textType="titleLarge">Ajuda</h1>
+        <h2 textType="subtitle">Como usar o Google Fonts</h2>
+      </div>
+      <br>
+      <div class="contentDiv subtitle" textType="body">
+        <h3 textType="subtitle">Introdução</h3>
+        O aplicativo Hora Certa permite que o usuário faça um tema do jeito que ele quiser, com sua própria fonte, cor e aparição da linha. Porém, para ser utilizado, é necessário saber utilizar um pouco o <span class="fakeLink" id="openGF">Google Fonts</span>. Nesta janela, iremos ensinar como você pode selecionar os arquivos do site e utilizá-los no seu Widget da forma que quiser.
+        <br><br>
+        <h3 textType="subtitle">Requisitos</h3>
+        <ol>
+            <li>Sempre manter o widget conectado à internet</li>
+            <li>Paciência</li>
+        </ol>
+        Observação: O tema customizável pode ser utilizado com o horário local ativado, mas não pode ser utilizado sem internet.
+        <br><br>
+        <h3 textType="subtitle">Encontre a fonte que irá utilizar</h3>
+        Acesse o Google Fonts e procure pela fonte que deseja utilizar no widget. Ao escolher, aperte no botão Get Font. Após isso, você será direcionado para uma página com o nome da fonte e dois botões. Ao entrar nessa página, aperte o botão Get Embed Code.
+        <br><br>
+        <h3 textType="subtitle">Embed Code</h3>
+        Pode parecer assustador, mas é super simples passar por essa etapa. Ao apertar o botão, você será direcionado para a página de códigos do site. Na guia Web, selecione a opção com o nome @import. Selecionando, copie o link que está dentro das aspas dentro dos parênteses na seguinte linha:
+        <div class="codeDiv">
+            <div class="TOC css">CSS</div>
+            <span class="commandColor">@import</span> <span class="compColor">url</span><span class="codeBracketColor">(</span><span class="codeLinkColor">'https://fonts.googleapis.com/css2?family=Sigmar&display=swap'</span><span class="codeBracketColor">)</span>;
+            <br><br>
+            /*Esse link é de exemplo para a fonte Sigmar.*/
+        </div>
+        Você vai copiar o link dentro das aspas e colar na caixa de texto que pede a URL da fonte. Após isso, você vai voltar ao site e verá outra parte com texto escrita (usando o exemplo da fonte Sigmar): Sigmar: CSS class, será algo semelhante ao escrito na caixa abaixo:
+        <div class="codeDiv">
+            <div class="TOC css">CSS</div>
+            <span class="classColor">.sigmar-regular</span> <span class="codeBracketColor">{</span><br>
+            <span class="compColor">font-family:</span> "Sigmar", serif;<br>
+            <span class="compColor">font-weight:</span> 400;<br>
+            <span class="compColor">font-style:</span> normal;<br>
+            <span class="codeBracketColor">}</span>
+        </div>
+        Você vai pegar o nome da fonte que está após os dois pontos de font-family, no caso do exemplo, "Sigmar", serif (não copie o ponto e vírgula) e colar na caixa de texto que pede o nome da fonte.
+        <br><br>
+        <h3 textType="subtitle">Alterações</h3>
+        Após esse processo, faça as alterações que quiser e salve o tema. Caso o processo tenha sido feito corretamente, o widget apresentará a fonte escolhida do Google Fonts!
+    </div>
+    
+
+      <script src="js/setup.js"></script>
+      <script src="js/openWeb.js"></script>
+</body>
+</html> 

@@ -53,6 +53,13 @@ body {
   padding-left: 30px;
 }
 
+.title.subtitle {
+  top: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
 .contentDiv {
   position: absolute;
   bottom: 0;
@@ -62,7 +69,11 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   box-sizing: border-box;
-  padding: 10px 70px 30px 70px;
+  padding: 10px 20px 30px 20px;
+}
+
+.contentDiv.subtitle {
+  height: calc(100dvh - 160px);
 }
 
 .contentDiv::-webkit-scrollbar {
@@ -72,6 +83,21 @@ body {
 .contentDiv::-webkit-scrollbar-thumb {
   background-color: #444;
   border-radius: 120px;
+}
+
+.fakeLink {
+  color: #0078d4;
+  cursor: pointer;
+}
+
+a {
+  color: #0078d4;
+ text-decoration: none;
+}
+
+ol {
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
 
 .appBlock,
@@ -352,6 +378,99 @@ body {
     border-radius: 4px;
   }
 
+  .codeDiv {
+    width:100%;
+    box-sizing: border-box;
+    background-color: #000;
+    padding: 5px;
+    padding-top: 30px;
+    padding-left: 10px;
+    font-family: 'Cascadia Code';
+    margin: 5px 0;
+    position: relative;
+    user-select: text;
+    color: white;
+  }
+
+  .codeDiv::selection {
+    background-color: white;
+    color: black;
+  }
+
+  .codeDiv .TOC {
+    position: absolute;
+    height: 25px;
+    top: 0;
+    left: 0;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    border-bottom-right-radius: 4px;
+  }
+
+  .TOC.css {
+    background-color: #639;
+    color: white;
+  }
+
+  .classColor {
+    color: #f9cb85;
+  }
+
+  .classColor::selection {
+    background-color: white;
+    color: #06347a;
+  }
+
+  .commandColor {
+    color: #cb99c3;
+  }
+
+  .commandColor::selection {
+    background-color: white;
+    color: #34663c;
+  }
+
+  .compColor {
+    color: #488ef0;
+  }
+
+  .compColor::selection {
+    background-color: white;
+    color: #b7710f;
+  }
+
+  .codeLinkColor {
+    color: #a6da89
+  }
+
+  .codeLinkColor::selection {
+    background-color: white;
+    color: #592576;
+  }
+
+  .codeBracketColor {
+    color: #e68ba8;
+  }
+
+  .codeBracketColor::selection {
+    color: #197457;
+    background-color: white;
+  }
+
+  .codeDiv br::selection {
+    background-color: #000;
+  }
+
+  /*Code font*/
+  @font-face {
+    font-family: 'Cascadia Code';
+    src: url(../../font/CascadiaCode.ttf);
+}
+
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #000512;
@@ -366,6 +485,16 @@ body {
     .contentDiv::-webkit-scrollbar-thumb {
       background-color: #999;
     }
+
+    .fakeLink {
+      color: #5bb8ff;
+    }
+
+    a {
+      color: #5bb8ff;
+     text-decoration: none;
+    }
+    
 
     .appBlock, .appSBlock, .appCBlock {
       background-color: #000920;

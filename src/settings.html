@@ -16,7 +16,7 @@
     Hora Certa
   </div>
   <div class="title">
-    <p textType="titleLarge">Configurações</p>
+    <h1 textType="titleLarge">Configurações</h1>
   </div>
   <br>
   <div class="contentDiv">
@@ -103,12 +103,12 @@
       </div>
 
       <div class="subBlockItem">
-        Utilizar horário local quando acontecer um erro de conexão
+        Sincronizar com o horário local quando houver erro de conexão
         <input type="checkbox" name="" id="useLocalHour" class="switchRadio" checked>
       </div>
 
       <div class="subBlockItem lastItem">
-        Usar modo offline (data e hora do sistema)
+        Usar horário local ao invés de sincronizar com a internet
         <input type="checkbox" name="" id="offlineMode" class="switchRadio">
       </div>
     </div>
@@ -190,20 +190,28 @@
           <input type="radio" name="theme" id="royalTheme">
           <label for="royalTheme">Royal - Great Vibes</label>
         </div>
-        <div class="itemsPlus">
-         Esconder botões (Exceto o de mover)
-          <input type="checkbox" name="" id="hideButtons" class="switchRadio">
+        <div>
+          <input type="radio" name="theme" id="customTheme">
+          <label for="customTheme">Tema customizável</label>
         </div>
       </div>
-    <div class="subBlockItemSel" id="customThemeSection" style="display: none;">
+    <div class="subBlockItemSel" id="customThemeSection">
         <p textType="bodyStrong">Opcões do tema customizável</p>
+        <div class="itemsPlus">
+          Saiba como pegar as informações do Google Fonts
+          <button id="gfHelp">Ajuda</button>
+        </div>
         <div class="itemsPlus">
           <label for="gfontsUrl">URL da fonte do Google Fonts</label>
           <input type="text" name="" id="gfontsUrl">
         </div>
         <div class="itemsPlus">
-          <label for="clockSize">Tamanho da fonte do relógio (px)</label>
-          <input type="number" name="" id="clockSize" value="120">
+          <label for="gfontsUrl">Nome da fonte do Google Fonts</label>
+          <input type="text" name="" id="gfontsName">
+        </div>
+        <div class="itemsPlus">
+          <label for="hourSize">Tamanho da fonte do relógio (px)</label>
+          <input type="number" name="" id="hourSize" value="120">
         </div>
         <div class="itemsPlus">
           <label for="dateSize">Tamanho da fonte da data (px)</label>
@@ -224,7 +232,8 @@
           <input type="checkbox" name="" id="useLine" class="switchRadio">
         </div>
         <div class="confirmBlock">
-          <button>Salvar alterações</button>
+          <button>Reiniciar e descartar</button>
+          <button type="primary" id="saveCustomTheme">Salvar alterações</button>
         </div>
       </div>
       <div class="subBlockItemSel lastItem">
