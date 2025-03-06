@@ -367,3 +367,12 @@
         filter: drop-shadow(0px 0px 10px black);
     }
 }
+
+/*Custom Theme placeholder*/
+.custom .hour {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.custom .date {
+    font-family: 'Times New Roman', Times, serif;
+}

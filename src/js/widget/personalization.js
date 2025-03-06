@@ -26,6 +26,117 @@ function getPersonalizations() {
         document.body.classList.add('lines')
     } else if (theme == 'royal') {
         document.body.classList.add('royal')
+    } else if (theme == 'custom') {
+        let customThemeJSON = localStorage.getItem('customTheme')
+        customThemeJSON = JSON.parse(customThemeJSON)
+        if (customThemeJSON != undefined) {
+
+            document.body.classList.add('custom')
+
+            try {
+                document.getElementById('customThemeStyle').remove()
+            } catch { }
+            let styleTag = document.createElement('style')
+            styleTag.setAttribute('id', 'customThemeStyle')
+            if (customThemeJSON.useLine == true) {
+                styleTag.innerHTML = `
+                @import url('${customThemeJSON.fontURL}')
+    
+                .custom .hour {
+                    font-size: ${customThemeJSON.hourSize}px;
+                    font-family: ${customThemeJSON.fontName};
+                    color: ${customThemeJSON.lightColor}
+                }
+    
+                .custom .date {
+                    font-size: ${customThemeJSON.dateSize}px;
+                    font-family: ${customThemeJSON.fontName};
+                    color: ${customThemeJSON.lightColor}
+                }
+    
+                .custom .inverted {
+                    color: ${customThemeJSON.darkColor}
+                }
+    
+                .custom .line {
+                    width: 100%;
+                    height: 3px;
+                    background-color: ${customThemeJSON.lightColor};
+                    border-radius: 120px;
+                    transition-duration: .2s;
+                }
+    
+                .custom .lineInverted {
+                    width: 100%;
+                    height: 3px;
+                    background-color: ${customThemeJSON.darkColor};
+                    border-radius: 120px;
+                    transition-duration: .2s;
+                }
+    
+                @media (prefers-color-scheme: dark) {
+                    .custom .hour {
+                        color: ${customThemeJSON.darkColor}
+                    }
+                
+                    .custom .date {
+                        color: ${customThemeJSON.darkColor}
+                    }
+                
+                    .custom .inverted {
+                        color: ${customThemeJSON.lightColor}
+                    }
+                
+                    .custom .line {
+                        background-color: ${customThemeJSON.darkColor};
+                    }
+                
+                    .custom .lineInverted {
+                        background-color: ${customThemeJSON.lightColor};
+                    }
+                }
+            `
+            } else {
+                styleTag.innerHTML = `
+                @import url('${customThemeJSON.fontURL}')
+    
+                .custom .hour {
+                    font-size: ${customThemeJSON.hourSize}px;
+                    font-family: ${customThemeJSON.fontName};
+                    color: ${customThemeJSON.lightColor}
+                }
+    
+                .custom .date {
+                    font-size: ${customThemeJSON.dateSize}px;
+                    font-family: ${customThemeJSON.fontName};
+                    color: ${customThemeJSON.lightColor}
+                }
+    
+                .custom .inverted {
+                    color: ${customThemeJSON.darkColor}
+                }
+    
+                @media (prefers-color-scheme: dark) {
+                    .custom .hour {
+                        color: ${customThemeJSON.darkColor}
+                    }
+                
+                    .custom .date {
+                        color: ${customThemeJSON.darkColor}
+                    }
+                
+                    .custom .inverted {
+                        color: ${customThemeJSON.lightColor}
+                    }
+                
+                }
+            `
+            }
+
+            document.body.insertAdjacentElement("beforebegin", styleTag);
+        } else {
+            document.body.classList.add('custom')
+        }
     }
 
     //Alignment

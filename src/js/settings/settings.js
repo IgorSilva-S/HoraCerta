@@ -183,28 +183,10 @@ document.getElementById('saveCustomTheme').addEventListener('click', () => {
     }
 
     localStorage.setItem('customTheme', JSON.stringify(customThemeJSON))
+})
 
-    let actualTheme = localStorage.getItem('theme')
-    if (actualTheme == 'custom') {
-        let styleTag = document.createElement('style')
-        let displayLine
-        if (customThemeJSON.useLine == true)
-        styleTag.innerHTML = `
-            @import url('${customThemeJSON.fontURL}')
-
-            .custom .hour {
-                font-size: ${customThemeJSON.hourSize}px;
-                font-family: ${customThemeJSON.fontName};
-                color: ${customThemeJSON.lightColor}
-            }
-
-            .custom .date {
-                font-size: ${customThemeJSON.dateSize}px;
-                font-family: ${customThemeJSON.fontName};
-                color: ${customThemeJSON.lightColor}
-            }
-        `
-    }
+document.getElementById('resetCustomTheme').addEventListener('click', () => {
+    localStorage.removeItem('customTheme')
 })
 // End Custom Theme
 
