@@ -38,9 +38,10 @@ function getPersonalizations() {
             } catch { }
             let styleTag = document.createElement('style')
             styleTag.setAttribute('id', 'customThemeStyle')
+
+            document.getElementById('customFontLink').href = customThemeJSON.fontURL
             if (customThemeJSON.useLine == true) {
                 styleTag.innerHTML = `
-                @import url('${customThemeJSON.fontURL}')
     
                 .custom .hour {
                     font-size: ${customThemeJSON.hourSize}px;
@@ -98,7 +99,6 @@ function getPersonalizations() {
             `
             } else {
                 styleTag.innerHTML = `
-                @import url('${customThemeJSON.fontURL}')
     
                 .custom .hour {
                     font-size: ${customThemeJSON.hourSize}px;

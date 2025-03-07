@@ -122,38 +122,47 @@ document.getElementById('ACT').addEventListener('click', () => {
 /*Theme Settings*/
 document.getElementById('w11theme').addEventListener('click', () => {
     localStorage.setItem('theme', 'fUI')
+    document.getElementById('customThemeSection').style.display = 'none'
 })
 
 document.getElementById('w10theme').addEventListener('click', () => {
     localStorage.setItem('theme', 'mUI')
+    document.getElementById('customThemeSection').style.display = 'none'
 })
 
 document.getElementById('oUItheme').addEventListener('click', () => {
     localStorage.setItem('theme', 'oUI')
+    document.getElementById('customThemeSection').style.display = 'none'
 })
 
 document.getElementById('pxtheme').addEventListener('click', () => {
     localStorage.setItem('theme', 'px')
+    document.getElementById('customThemeSection').style.display = 'none'
 })
 
 document.getElementById('wiiMtheme').addEventListener('click', () => {
     localStorage.setItem('theme', 'wiiM')
+    document.getElementById('customThemeSection').style.display = 'none'
 })
 
 document.getElementById('s3kTheme').addEventListener('click', () => {
     localStorage.setItem('theme', 's3k')
+    document.getElementById('customThemeSection').style.display = 'none'
 })
 
 document.getElementById('loveloLineTheme').addEventListener('click', () => {
     localStorage.setItem('theme', 'lines')
+    document.getElementById('customThemeSection').style.display = 'none'
 })
 
 document.getElementById('royalTheme').addEventListener('click', () => {
     localStorage.setItem('theme', 'royal')
+    document.getElementById('customThemeSection').style.display = 'none'
 })
 
 document.getElementById('customTheme').addEventListener('click', () => {
     localStorage.setItem('theme', 'custom')
+    document.getElementById('customThemeSection').removeAttribute('style')
 })
 
 
@@ -172,9 +181,19 @@ document.getElementById('darkFont').addEventListener('change', () => {
 })
 
 document.getElementById('saveCustomTheme').addEventListener('click', () => {
+    let fontUrlVal = document.getElementById('gfontsUrl').value
+    let fontNameVal = document.getElementById('gfontsName').value
+    if (fontUrlVal == '' || fontUrlVal == " ") {
+        fontUrlVal = "https://fonts.googleapis.com/css2?family=Sigmar&display=swap"
+    }
+
+    if (fontNameVal == '' || fontNameVal == " ") {
+        fontNameVal = "'Times New Roman', Times, serif"
+    }
+
     let customThemeJSON = {
-        fontURL: document.getElementById('gfontsUrl').value,
-        fontName: document.getElementById('gfontsName').value,
+        fontURL: fontUrlVal,
+        fontName: fontNameVal,
         hourSize: document.getElementById('hourSize').value,
         dateSize: document.getElementById('dateSize').value,
         lightColor: document.getElementById('lightFont').value,

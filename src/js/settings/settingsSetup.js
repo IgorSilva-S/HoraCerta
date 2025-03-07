@@ -99,6 +99,9 @@ if (themeSelected == 'fUI' || themeSelected == undefined) {
     document.getElementById('loveloLineTheme').checked = true
 } else if (themeSelected == 'royal') {
     document.getElementById('royalTheme').checked = true
+} else if (themeSelected == 'custom') {
+    document.getElementById('customTheme').checked = true
+    document.getElementById('customThemeSection').removeAttribute('style')
 }
 
 let appThemeSelected = localStorage.getItem('appTheme')
