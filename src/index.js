@@ -113,10 +113,10 @@ const createWindow = () => {
   })
 
   ipcMain.on('pinHideCW', () => {
-      mainWindow.setAlwaysOnTop(true)
-      mainWindow.setIgnoreMouseEvents(true)
-      pinnedTransparent = true
-      new Notification({ title: "Widget fixado e ignorado", body: "O widget foi fixado na tela e começou a ignorar eventos do mouse, para desativar essa função, clique no icone do aplicativo na bandeja do sistema" }).show()
+    mainWindow.setAlwaysOnTop(true)
+    mainWindow.setIgnoreMouseEvents(true)
+    pinnedTransparent = true
+    new Notification({ title: "Widget fixado e ignorado", body: "O widget foi fixado na tela e começou a ignorar eventos do mouse, para desativar essa função, clique no icone do aplicativo na bandeja do sistema" }).show()
   })
 
   ipcMain.on('alertLocal', () => {
@@ -198,15 +198,19 @@ const createSettingsWindow = () => {
   //mainWindow.webContents.openDevTools();
 
   ipcMain.on('focusSettings', () => {
-      if (mainWindow) {
-        mainWindow.focus()
-        mainWindow.restore()
-      }
+    if (mainWindow) {
+      mainWindow.focus()
+      mainWindow.restore()
+    }
   })
 
   ipcMain.on('openGFHelp', () => {
     createHelpWindow('helpPages/googleFonts.html')
-})
+  })
+
+  ipcMain.on('openGitHub', () => {
+    shell.openExternal("https://github.com/IgorSilva-S/HoraCerta");
+  })
 
   mainWindow.on('close', () => {
     settingsOpened = false

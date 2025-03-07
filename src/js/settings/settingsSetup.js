@@ -104,6 +104,18 @@ if (themeSelected == 'fUI' || themeSelected == undefined) {
     document.getElementById('customThemeSection').removeAttribute('style')
 }
 
+let customThemeSettings = localStorage.getItem('customTheme')
+customThemeSettings = JSON.parse(customThemeSettings)
+document.getElementById('gfontsUrl').value = customThemeSettings.fontURL
+document.getElementById('gfontsName').value = customThemeSettings.fontName
+document.getElementById('hourSize').value = customThemeSettings.hourSize
+document.getElementById('dateSize').value = customThemeSettings.dateSize
+document.getElementById('lightFont').value = customThemeSettings.lightColor
+document.getElementById('lfColor').style.backgroundColor = customThemeSettings.lightColor
+document.getElementById('darkFont').value = customThemeSettings.darkColor
+document.getElementById('dfColor').style.backgroundColor = customThemeSettings.darkColor
+document.getElementById('useLine').checked = customThemeSettings.useLine
+
 let appThemeSelected = localStorage.getItem('appTheme')
 if (appThemeSelected == 'SOB' || appThemeSelected == undefined) {
     document.getElementById('shadesOfBlue').checked = true

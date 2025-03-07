@@ -185,6 +185,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+  }
+
+  .subBlockItemSel .itemsPlus input[type=color] {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
   }
 
   .subBlockItemSel .confirmBlock {
@@ -347,9 +357,13 @@ body {
   }
 
   .colorLabel {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 4px;
+  }
+
+  .colorLabel:hover {
+    outline: 1px solid #0078d4
   }
 
 @media (prefers-color-scheme: dark) {
@@ -466,5 +480,10 @@ body {
   input[type="number"]:focus {
     border-bottom: 2px solid #5bb8ff;
     filter: none;
+  }
+
+  
+  .colorLabel:hover {
+    outline: 1px solid #5bb8ff;
   }
 }

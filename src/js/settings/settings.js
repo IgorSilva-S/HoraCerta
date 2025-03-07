@@ -207,6 +207,7 @@ document.getElementById('saveCustomTheme').addEventListener('click', () => {
 document.getElementById('resetCustomTheme').addEventListener('click', () => {
     localStorage.removeItem('customTheme')
 })
+
 // End Custom Theme
 
 document.getElementById('shadesOfBlue').addEventListener('click', () => {
@@ -267,4 +268,9 @@ document.getElementById('tbutton').addEventListener('click', () => {
 
 document.getElementById('bbutton').addEventListener('click', () => {
     localStorage.setItem('bAlign', 'bottom')
+})
+
+/*About settings*/
+document.getElementById('openGitHub').addEventListener('click', () => {
+    ipcRenderer.send('openGitHub')
 })

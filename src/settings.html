@@ -220,16 +220,29 @@
         <div class="itemsPlus">
           Cor da fonte (tema claro)
           <label for="lightFont" class="colorLabel" style="background-color: black;" id="lfColor"></label>
-          <input type="color" name="" id="lightFont" style="display: none;">
+          <input type="color" name="" id="lightFont">
         </div>
         <div class="itemsPlus">
           Cor da fonte (tema escuro)
           <label for="darkFont" class="colorLabel" style="background-color: white;" id="dfColor"></label>
-          <input type="color" name="" id="darkFont" value="#ffffff" style="display: none;">
+          <input type="color" name="" id="darkFont" value="#ffffff">
         </div>
         <div class="itemsPlus">
           <label for="useLine">Usar linha divisória</label>
           <input type="checkbox" name="" id="useLine" class="switchRadio">
+        </div>
+        <div class="itemsPlus">
+          <label for="lineSize">Tamanho da linha (%)</label>
+          <input type="number" name="" id="lineSize" value="100" max="100" min="0">
+        </div>
+        <div class="itemsPlus">
+          <label for="useCustomLineColor">Usar cor diferente na linha</label>
+          <input type="checkbox" name="" id="useCustomLineColor" class="switchRadio">
+        </div>
+        <div class="itemsPlus">
+          Cor da linha (tema claro e escuro)
+          <label for="lineColor" class="colorLabel" style="background-color: white;" id="dfColor"></label>
+          <input type="color" name="" id="lineColor" value="#ffffff">
         </div>
         <div class="confirmBlock">
           <button id="resetCustomTheme">Reiniciar e descartar</button>
@@ -342,6 +355,7 @@
 
       <div class="subBlockItem lastItem">
         GitHub do projeto Hora Certa
+        <fluent-icon iconSize="20" id="openGitHub">&#xE8A7;</fluent-icon>
       </div>
     </div>
   </div>
