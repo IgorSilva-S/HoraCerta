@@ -180,6 +180,10 @@ document.getElementById('darkFont').addEventListener('change', () => {
     document.getElementById('dfColor').style.backgroundColor = document.getElementById('darkFont').value
 })
 
+document.getElementById('lineColor').addEventListener('change', () => {
+    document.getElementById('lColor').style.backgroundColor = document.getElementById('lineColor').value
+})
+
 document.getElementById('saveCustomTheme').addEventListener('click', () => {
     let fontUrlVal = document.getElementById('gfontsUrl').value
     let fontNameVal = document.getElementById('gfontsName').value
@@ -198,7 +202,10 @@ document.getElementById('saveCustomTheme').addEventListener('click', () => {
         dateSize: document.getElementById('dateSize').value,
         lightColor: document.getElementById('lightFont').value,
         darkColor: document.getElementById('darkFont').value,
-        useLine: document.getElementById('useLine').checked
+        useLine: document.getElementById('useLine').checked,
+        lineSize: document.getElementById('lineSize').value,
+        lineColorCheck: document.getElementById('lineColorCheck').checked,
+        lineColor: document.getElementById('lineColor').value
     }
 
     localStorage.setItem('customTheme', JSON.stringify(customThemeJSON))

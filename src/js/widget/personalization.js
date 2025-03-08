@@ -41,7 +41,52 @@ function getPersonalizations() {
 
             document.getElementById('customFontLink').href = customThemeJSON.fontURL
             if (customThemeJSON.useLine == true) {
-                styleTag.innerHTML = `
+                if (customThemeJSON.lineColorCheck == true) {
+                    styleTag.innerHTML = `
+    
+                .custom .hour {
+                    font-size: ${customThemeJSON.hourSize}px;
+                    font-family: ${customThemeJSON.fontName};
+                    color: ${customThemeJSON.lightColor}
+                }
+    
+                .custom .date {
+                    font-size: ${customThemeJSON.dateSize}px;
+                    font-family: ${customThemeJSON.fontName};
+                    color: ${customThemeJSON.lightColor}
+                }
+    
+                .custom .inverted {
+                    color: ${customThemeJSON.darkColor}
+                }
+    
+                .custom .line,
+                .custom .lineInverted {
+                    width: ${customThemeJSON.lineSize}%;
+                    height: 3px;
+                    background-color: ${customThemeJSON.lineColor};
+                    border-radius: 120px;
+                    transition-duration: .2s;
+                }
+    
+    
+                @media (prefers-color-scheme: dark) {
+                    .custom .hour {
+                        color: ${customThemeJSON.darkColor}
+                    }
+                
+                    .custom .date {
+                        color: ${customThemeJSON.darkColor}
+                    }
+                
+                    .custom .inverted {
+                        color: ${customThemeJSON.lightColor}
+                    }
+                
+                }
+            `
+                } else {
+                    styleTag.innerHTML = `
     
                 .custom .hour {
                     font-size: ${customThemeJSON.hourSize}px;
@@ -60,7 +105,7 @@ function getPersonalizations() {
                 }
     
                 .custom .line {
-                    width: 100%;
+                    width: ${customThemeJSON.lineSize}%;
                     height: 3px;
                     background-color: ${customThemeJSON.lightColor};
                     border-radius: 120px;
@@ -68,7 +113,7 @@ function getPersonalizations() {
                 }
     
                 .custom .lineInverted {
-                    width: 100%;
+                    width: ${customThemeJSON.lineSize}%;
                     height: 3px;
                     background-color: ${customThemeJSON.darkColor};
                     border-radius: 120px;
@@ -97,6 +142,7 @@ function getPersonalizations() {
                     }
                 }
             `
+                }
             } else {
                 styleTag.innerHTML = `
     

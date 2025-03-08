@@ -115,6 +115,10 @@ document.getElementById('lfColor').style.backgroundColor = customThemeSettings.l
 document.getElementById('darkFont').value = customThemeSettings.darkColor
 document.getElementById('dfColor').style.backgroundColor = customThemeSettings.darkColor
 document.getElementById('useLine').checked = customThemeSettings.useLine
+document.getElementById('lineSize').value = customThemeSettings.lineSize
+document.getElementById('lineColorCheck').checked = customThemeSettings.lineColorCheck
+document.getElementById('lineColor').value = customThemeSettings.lineColor
+document.getElementById('lColor').style.backgroundColor = customThemeSettings.lineColor
 
 let appThemeSelected = localStorage.getItem('appTheme')
 if (appThemeSelected == 'SOB' || appThemeSelected == undefined) {
