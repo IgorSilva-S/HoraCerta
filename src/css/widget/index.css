@@ -20,6 +20,10 @@ body {
     padding-bottom: 12px;
 }
 
+.fullMove {
+  -webkit-app-region: drag;
+}
+
 #hour {
   transition-duration: .3s;
   display: flex;
@@ -38,8 +42,8 @@ body {
   position: relative;
 }
 
-.hour.loading::after,
-.date.loading::after {
+.hour.loading::before,
+.date.loading::before {
   width: 20%;
   height: 100%;
   position: absolute;
@@ -251,7 +255,8 @@ body {
   position: absolute;
   right: 0;
   top: 0;
-  opacity: 0;
+  opacity: 1;
+  -webkit-app-region: no-drag;
 }
 
 
@@ -309,6 +314,7 @@ body:hover .hidedButton{
   padding: 10px 0;
   overflow-y: auto;
   border: 1px solid #dceaf7;
+  -webkit-app-region: no-drag;
 }
 
 .snapBar .selButton {
@@ -350,6 +356,7 @@ body:hover .hidedButton{
 
 .snapBar .selButton:hover .windowSimulation {
   background-color: #0078d4;
+  color: white;
 }
 
 .defaultWinPosi {
@@ -380,6 +387,14 @@ body:hover .hidedButton{
 .bcWinPosi {
   left: calc(50% - 20px);
   bottom: 10px;
+}
+
+.custWinPosi {
+  left: calc(50% - 20px);
+  top: calc(50% - 12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .snapBar::-webkit-scrollbar {
@@ -426,5 +441,6 @@ body:hover .hidedButton{
   
   .snapBar .selButton:hover .windowSimulation {
     background-color: #5bb8ff;
+    color: black;
   }
 }

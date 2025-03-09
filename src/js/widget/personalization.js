@@ -3,6 +3,8 @@ function getPersonalizations() {
     let align = localStorage.getItem('align')
     let vAlign = localStorage.getItem('vAlign')
     let bAlign = localStorage.getItem('bAlign')
+    let moveType = localStorage.getItem('moveType')
+    let notUseCustSnap = localStorage.getItem('notUseCustSnap')
 
     //Theme
     document.body.removeAttribute('class')
@@ -26,6 +28,8 @@ function getPersonalizations() {
         document.body.classList.add('lines')
     } else if (theme == 'royal') {
         document.body.classList.add('royal')
+    } else if (theme == 'aero') {
+        document.body.classList.add('aero')
     } else if (theme == 'custom') {
         let customThemeJSON = localStorage.getItem('customTheme')
         customThemeJSON = JSON.parse(customThemeJSON)
@@ -182,6 +186,9 @@ function getPersonalizations() {
             document.body.insertAdjacentElement("beforebegin", styleTag);
         } else {
             document.body.classList.add('custom')
+            try {
+                document.getElementById('customThemeStyle').remove()
+            } catch { }
         }
     }
 
@@ -219,6 +226,27 @@ function getPersonalizations() {
     } else if (bAlign == 'bottom') {
         document.getElementById('bAlign').className = 'buttonsAlignBottom'
         document.getElementById('extraButtons').className = 'ebBottom'
+    }
+
+    //Widget
+    document.getElementById('posiCust').removeAttribute('style')
+    if (isFullMove) {
+        document.body.classList.add('fullMove')
+    }
+
+    if (moveType == undefined) {
+        document.getElementById('moveButton').classList.add('moveArea')
+        moveButtonType = 'move'
+    } else if (moveType == 'advanced') {
+        document.getElementById('moveButton').classList.remove('moveArea')
+        moveButtonType = 'advanced'
+    } else if (moveType == 'simple') {
+        document.getElementById('moveButton').classList.remove('moveArea')
+        moveButtonType = 'simple'
+    }
+
+    if (notUseCustSnap) {
+        document.getElementById('posiCust').style.display = 'none'
     }
 }
 

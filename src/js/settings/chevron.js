@@ -94,6 +94,22 @@ document.getElementById('alignSButton').addEventListener('click', () => {
     }
 })
 
+// Widget
+let isWidgetChevronOpened = false
+document.getElementById('widgetSButton').addEventListener('click', () => {
+    if (!isWidgetChevronOpened) {
+        document.getElementById('widgetSection').style.display = 'block'
+        document.getElementById('exposeWidgetSection').classList.add('openExpose')
+        document.getElementById('widgetSButton').style.borderRadius = '4px 4px 0 0'
+        isWidgetChevronOpened = true
+    } else {
+        document.getElementById('widgetSection').removeAttribute('style')
+        document.getElementById('exposeWidgetSection').classList.remove('openExpose')
+        document.getElementById('widgetSButton').removeAttribute('style')
+        isWidgetChevronOpened = false
+    }
+})
+
 //About
 let isAboutChevronOpened = false
 document.getElementById('aboutSButton').addEventListener('click', () => {

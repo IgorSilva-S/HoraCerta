@@ -99,6 +99,8 @@ if (themeSelected == 'fUI' || themeSelected == undefined) {
     document.getElementById('loveloLineTheme').checked = true
 } else if (themeSelected == 'royal') {
     document.getElementById('royalTheme').checked = true
+} else if (themeSelected == 'aero') {
+    document.getElementById('aeroTheme').checked = true
 } else if (themeSelected == 'custom') {
     document.getElementById('customTheme').checked = true
     document.getElementById('customThemeSection').removeAttribute('style')
@@ -106,19 +108,21 @@ if (themeSelected == 'fUI' || themeSelected == undefined) {
 
 let customThemeSettings = localStorage.getItem('customTheme')
 customThemeSettings = JSON.parse(customThemeSettings)
-document.getElementById('gfontsUrl').value = customThemeSettings.fontURL
-document.getElementById('gfontsName').value = customThemeSettings.fontName
-document.getElementById('hourSize').value = customThemeSettings.hourSize
-document.getElementById('dateSize').value = customThemeSettings.dateSize
-document.getElementById('lightFont').value = customThemeSettings.lightColor
-document.getElementById('lfColor').style.backgroundColor = customThemeSettings.lightColor
-document.getElementById('darkFont').value = customThemeSettings.darkColor
-document.getElementById('dfColor').style.backgroundColor = customThemeSettings.darkColor
-document.getElementById('useLine').checked = customThemeSettings.useLine
-document.getElementById('lineSize').value = customThemeSettings.lineSize
-document.getElementById('lineColorCheck').checked = customThemeSettings.lineColorCheck
-document.getElementById('lineColor').value = customThemeSettings.lineColor
-document.getElementById('lColor').style.backgroundColor = customThemeSettings.lineColor
+try {
+    document.getElementById('gfontsUrl').value = customThemeSettings.fontURL
+    document.getElementById('gfontsName').value = customThemeSettings.fontName
+    document.getElementById('hourSize').value = customThemeSettings.hourSize
+    document.getElementById('dateSize').value = customThemeSettings.dateSize
+    document.getElementById('lightFont').value = customThemeSettings.lightColor
+    document.getElementById('lfColor').style.backgroundColor = customThemeSettings.lightColor
+    document.getElementById('darkFont').value = customThemeSettings.darkColor
+    document.getElementById('dfColor').style.backgroundColor = customThemeSettings.darkColor
+    document.getElementById('useLine').checked = customThemeSettings.useLine
+    document.getElementById('lineSize').value = customThemeSettings.lineSize
+    document.getElementById('lineColorCheck').checked = customThemeSettings.lineColorCheck
+    document.getElementById('lineColor').value = customThemeSettings.lineColor
+    document.getElementById('lColor').style.backgroundColor = customThemeSettings.lineColor
+} catch { }
 
 let appThemeSelected = localStorage.getItem('appTheme')
 if (appThemeSelected == 'SOB' || appThemeSelected == undefined) {
@@ -146,9 +150,9 @@ if (vAlignSetting == 'cnt' || vAlignSetting == undefined) {
     document.getElementById('balign').checked = true
 }
 
-let alignSnap = localStorage.getItem('alignSnap')
-if (alignSnap) {
-    document.getElementById('alignSnap').checked = true
+let notAlignSnap = localStorage.getItem('notAlignSnap')
+if (notAlignSnap) {
+    document.getElementById('alignSnap').checked = false
 }
 
 let bAlignSetting = localStorage.getItem('bAlign')
@@ -185,3 +189,18 @@ function checkAutoAlign() {
 setInterval(() => {
     checkAutoAlign()
 }, 10);
+
+//Widget
+let notUseCustSnap = localStorage.getItem('notUseCustSnap')
+if (notUseCustSnap) {
+    document.getElementById('customSnap').checked = false
+}
+
+let moveType = localStorage.getItem('moveType')
+if (moveType == undefined) {
+    document.getElementById('defaultMove').checked = true
+} else if (moveType == 'advanced') {
+    document.getElementById('advancedModeWidget').checked = true
+} else if (moveType == 'simple') {
+    document.getElementById('simpleMove').checked = true
+}

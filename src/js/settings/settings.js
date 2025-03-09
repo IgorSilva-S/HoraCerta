@@ -160,6 +160,11 @@ document.getElementById('royalTheme').addEventListener('click', () => {
     document.getElementById('customThemeSection').style.display = 'none'
 })
 
+document.getElementById('aeroTheme').addEventListener('click', () => {
+    localStorage.setItem('theme', 'aero')
+    document.getElementById('customThemeSection').style.display = 'none'
+})
+
 document.getElementById('customTheme').addEventListener('click', () => {
     localStorage.setItem('theme', 'custom')
     document.getElementById('customThemeSection').removeAttribute('style')
@@ -213,6 +218,19 @@ document.getElementById('saveCustomTheme').addEventListener('click', () => {
 
 document.getElementById('resetCustomTheme').addEventListener('click', () => {
     localStorage.removeItem('customTheme')
+    document.getElementById('gfontsUrl').value = ''
+    document.getElementById('gfontsName').value = ''
+    document.getElementById('hourSize').value = 120
+    document.getElementById('dateSize').value = 28
+    document.getElementById('lightFont').value = '#000000'
+    document.getElementById('lfColor').style.backgroundColor = '#000'
+    document.getElementById('darkFont').value = '#ffffff'
+    document.getElementById('dfColor').style.backgroundColor = "#fff"
+    document.getElementById('useLine').checked = false
+    document.getElementById('lineSize').value = 100
+    document.getElementById('lineColorCheck').checked = false
+    document.getElementById('lineColor').value = '#ffffff'
+    document.getElementById('lColor').style.backgroundColor = "#fff"
 })
 
 // End Custom Theme
@@ -254,10 +272,10 @@ document.getElementById('balign').addEventListener('click', () => {
 
 document.getElementById('alignSnap').addEventListener('click', () => {
     let isChecked = document.getElementById('alignSnap').checked
-    if (isChecked) {
-        localStorage.setItem('alignSnap', true)
+    if (!isChecked) {
+        localStorage.setItem('notAlignSnap', true)
     } else {
-        localStorage.removeItem('alignSnap')
+        localStorage.removeItem('notAlignSnap')
     }
 })
 
@@ -275,6 +293,32 @@ document.getElementById('tbutton').addEventListener('click', () => {
 
 document.getElementById('bbutton').addEventListener('click', () => {
     localStorage.setItem('bAlign', 'bottom')
+})
+
+/*Widget settings*/
+document.getElementById('openAdvancedMove').addEventListener('click', () => {
+    ipcRenderer.send('openAdvancedMove')
+})
+
+document.getElementById('defaultMove').addEventListener('click', () => {
+    localStorage.removeItem('moveType')
+})
+
+document.getElementById('advancedModeWidget').addEventListener('click', () => {
+    localStorage.setItem('moveType', 'advanced')
+})
+
+document.getElementById('simpleMove').addEventListener('click', () => {
+    localStorage.setItem('moveType', 'simple')
+})
+
+document.getElementById('customSnap').addEventListener('click', () => {
+    let isChecked = document.getElementById('customSnap').checked
+    if (!isChecked) {
+        localStorage.setItem('notUseCustSnap', true)
+    } else {
+        localStorage.removeItem('notUseCustSnap')
+    }
 })
 
 /*About settings*/

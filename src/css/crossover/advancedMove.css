@@ -1,0 +1,203 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.advancedBar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #e6f3fd;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 8px 8px;
+    animation: openBar .2s ease-out;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    font-family: 'Segoe UI Variable';
+}
+
+@keyframes openBar {
+    from {
+        top: -100%;
+    }
+
+    to {
+        top: 0;
+    }
+}
+
+.closingBar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #e6f3fd;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 8px 8px;
+    animation: closingBar .2s ease-out;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    box-sizing: border-box;
+    padding: 0 10px;
+        font-family: 'Segoe UI Variable';
+}
+
+@keyframes closingBar {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: -100%;
+    }
+}
+
+.barButtons {
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 4px;
+    border: none;
+    transition-duration: .2s;
+}
+
+.barButtons:hover {
+    background-color: #19191911;
+}
+
+button[type="primary"] {
+    border-radius: 4px;
+    border: none;
+    border-bottom: 1px solid #005596;
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #006abb;
+    color: white;
+    font-family: 'Segoe UI Variable';
+    transition-duration: .1s;
+}
+
+button {
+    border-radius: 4px;
+    border: none;
+    border-bottom: 1px solid #d0d0f0;
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #f8f8ff;
+    color: black;
+    font-family: 'Segoe UI Variable';
+    transition-duration: .1s;
+}
+
+button:hover {
+    opacity: .8;
+  }
+
+  button:active {
+    opacity: 1;
+    filter: brightness(.9)
+  }
+
+input[type="text"],
+input[type="number"] {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #dceaf7;
+  border-bottom: 2px solid #d0d0f0;
+  background-color: #f8f8ff;
+  box-sizing: border-box;
+  transition-duration: .1s;
+  font-family:  'Segoe UI Variable';
+  font-size: 14px;
+}
+
+input[type="text"]:hover,
+input[type="number"]:hover {
+  opacity: .8;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-bottom: 2px solid #0078d4;
+  opacity: 1;
+  filter: brightness(1.1)
+}
+
+input[type="text"]::selection,
+input[type="number"]::selection {
+    background-color: #0078d4;
+    color: white;
+
+}
+
+@media (prefers-color-scheme: dark) {
+    .advancedBar,
+    .closingBar {
+        background-color: #000512;
+        color: white;
+    }
+
+    .barButtons {
+        color: white;
+    }
+
+    .barButtons:hover {
+        background-color: #fff2;
+    }
+
+    button[type="primary"] {
+        border-top-color: #6cbfff;
+        border-bottom-color: #34a7ff;
+        background-color: #5bb8ff;
+        color: black;
+      }
+    
+      button {
+        border-top-color: #0000;
+        border-bottom-color: #75757533;
+        background-color: #85858533;
+        color: white;
+      }
+    
+      button:hover {
+        filter: brightness(1.1);
+        opacity: 1
+      }
+    
+      button:active {
+        opacity: .8;
+        filter: none;
+      }
+    
+      input[type="text"],
+      input[type="number"] {
+        border: 1px solid #000c29;
+        border-bottom: 2px solid #001036;
+        background-color: #85858533;
+        color: white;
+      }
+    
+      input[type="text"]:hover,
+      input[type="number"]:hover {
+        filter: brightness(1.1);
+        opacity: 1
+      }
+    
+      input[type="text"]:focus,
+      input[type="number"]:focus {
+        border-bottom: 2px solid #5bb8ff;
+        filter: none;
+      }
+}

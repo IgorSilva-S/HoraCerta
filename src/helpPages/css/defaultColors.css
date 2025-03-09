@@ -1,14 +1,14 @@
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    box-sizing: border-box;
-    user-select: none;
-    background-color: #f9f9f9;
-    margin-top: 60px;
-    overflow: hidden;
+  box-sizing: border-box;
+  user-select: none;
+  background-color: #f9f9f9;
+  margin-top: 60px;
+  overflow: hidden;
 }
 
 .titleBar {
@@ -93,506 +93,152 @@ body {
 
 a {
   color: #0078d4;
- text-decoration: none;
+  text-decoration: none;
 }
 
-ol {
+.goUp {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  border-radius: 100%;
+  background-color: #f9f9f9;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ol, ul {
   margin-left: 20px;
   margin-bottom: 10px;
 }
 
-.appBlock,
-.appSBlock,
-.appCBlock {
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: 10px;
-    padding: 20px 10px;
-    border-radius: 4px;
-    background-color: #fdfdfd;
-    border: 1px solid #eaeaea;
-    position: relative;
-    transition-duration: .2s;
-    padding-right: 50px;
-    font-family: 'Segoe UI Variable'
-  }
-  
-  .appSBlock:hover {
-    background-color: #f9f9f9;
-    border-bottom-color: #d1d1d1;
-  }
-
-  .appCBlock {
-    border-radius: 4px 4px 0 0;
-  }
-
-  .block-icon-title {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding-left: 10px;
-  }
-  
-  .alertExpose {
-    position: absolute;
-    right: 20px;
-    transition-duration: .2s;
-  }
-  
-  .appSBlock:active .alertExpose{
-    margin-top: -5px;
-  }
-  
-  .openExpose {
-    rotate: 180deg;
-  }
-  
-  .appSBlock:active .openExpose {
-    margin-bottom: -5px;
-    margin-top: 0px;
-  }
-
-  .appSubBlock {
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 0 0 4px 4px;
-    display: none;
-    animation: openSubMenu .2s ease-out;
-  }
-
-  @keyframes openSubMenu {
-    from {
-      opacity: 0;
-      margin-top: -10px;
-    } to {
-      opacity: 1;
-      margin-top: 0;
-    }
-  }
-  
-  .subBlockItem {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 20px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fbfcfb;
-    border: 1px solid #e6e4e8;
-    border-bottom: none;
-    font-family: 'Segoe UI Variable';
-    font-size: 14px;
-  }
-
-  .subBlockItemSel {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 20px 60px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 15px;
-    background-color: #fbfcfb;
-    border: 1px solid #e6e4e8;
-    border-bottom: none;
-    font-family: 'Segoe UI Variable';
-    font-size: 14px;
-  }
-
-  .subBlockItemSel div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .subBlockItemSel .itemsPlus {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .subBlockItemSel .confirmBlock {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 5px;
-    margin-top: 10px;
-  }
-
-  .lastItem {
-    border-radius: 0 0 4px 4px;
-    border-bottom: 1px solid #e6e4e8;
-  }
-  
-  .switchRadio {
-    width: 50px;
-    height: 25px;
-    appearance: none;
-    border-radius: 120px;
-    background-color: transparent;
-    position: relative;
-    transition-duration: .2s;
-    box-sizing: border-box;
-    border: 1px solid #bbb;
-  }
-
-  .switchRadio:hover {
-    background-color: #19191911;
-  }
-
-  .switchRadio::after {
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    background-color: #bbb;
-    border-radius: 120px;
-    content: '';
-    top: 4px;
-    left: 5px;
-    transition-duration: .2s;
-  }
-
-  .switchRadio:hover::after {
-    width: 17px;
-    height: 17px;
-    top: 3px;
-  }
-
-  .switchRadio:active::after {
-    width: 23px;
-    height: 17px;
-    top: 3px;
-  }
-
-  .switchRadio:checked {
-    background-color: #0078d4;
-    border-color: #0078d4;
-  }
-
-  .switchRadio:checked:hover {
-    background-color: #006abb;
-    border-color: #006abb;
-  }
-
-  .switchRadio:checked::after {
-    left: 27px;
-    background-color: white;
-  }
-
-  .switchRadio:checked:active::after {
-    left: 19px;
-  }
-
-  input[type="radio"] {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    box-sizing: border-box;
-    background-color: #fff7;
-    border: 1px solid #bbb;
-    border-radius: 120px;
-    transition-duration: .1s;
-    transition-timing-function: linear;
-  }
-
-  input[type="radio"]:hover {
-    border: 1px solid #0078d4;
-  }
-
-  input[type="radio"]:checked {
-    border: 5px solid #0078d4;
-    background-color: white;
-  }
-
-  input[type="radio"]:checked:hover {
-    border: 4px solid #006abb
-  }
-
-  button[type="primary"] {
-    border-radius: 4px;
-    border: none;
-    border-bottom: 1px solid #005596;
-    border-top: 1px solid #1298ff;
-    padding: 5px 10px;
-    font-size: 14px;
-    background-color: #006abb;
-    color: white;
-    font-family: 'Segoe UI Variable';
-    transition-duration: .1s;
-  }
-
-  button {
-    border-radius: 4px;
-    border: none;
-    border-bottom: 1px solid #eaeaea;
-    border-top: 1px solid #dceaf7;
-    padding: 5px 10px;
-    font-size: 14px;
-    background-color: #f9f9f9;
-    color: black;
-    font-family: 'Segoe UI Variable';
-    transition-duration: .1s;
-  }
-
-  button:hover {
-    opacity: .8;
-  }
-
-  button:active {
-    opacity: 1;
-    filter: brightness(.9)
-  }
-
-  input[type="text"],
-  input[type="number"] {
-    padding: 6px 10px;
-    border-radius: 4px;
-    border: 1px solid #eaeaea;
-    border-bottom: 2px solid #d1d1d1;
-    background-color: #f9f9f9;
-    box-sizing: border-box;
-    transition-duration: .1s;
-    font-family:  'Segoe UI Variable';
-    font-size: 14px;
-  }
-
-  input[type="text"]:hover,
-  input[type="number"]:hover {
-    opacity: .8;
-  }
-
-  input[type="text"]:focus,
-  input[type="number"]:focus {
-    outline: none;
-    border-bottom: 2px solid #0078d4;
-    opacity: 1;
-    filter: brightness(1.1)
-  }
-
-  .colorLabel {
-    width: 30px;
-    height: 30px;
-    border-radius: 4px;
-  }
-
-  .codeDiv {
-    width:100%;
-    box-sizing: border-box;
-    background-color: #000;
-    padding: 5px;
-    padding-top: 30px;
-    padding-left: 10px;
-    font-family: 'Cascadia Code';
-    margin: 5px 0;
-    position: relative;
-    user-select: text;
-    color: white;
-  }
-
-  .codeDiv::selection {
-    background-color: white;
-    color: black;
-  }
-
-  .codeDiv .TOC {
-    position: absolute;
-    height: 25px;
-    top: 0;
-    left: 0;
-    padding: 0 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    user-select: none;
-    border-bottom-right-radius: 4px;
-  }
-
-  .TOC.css {
-    background-color: #639;
-    color: white;
-  }
-
-  .classColor {
-    color: #f9cb85;
-  }
-
-  .classColor::selection {
-    background-color: white;
-    color: #06347a;
-  }
-
-  .commandColor {
-    color: #cb99c3;
-  }
-
-  .commandColor::selection {
-    background-color: white;
-    color: #34663c;
-  }
-
-  .compColor {
-    color: #488ef0;
-  }
-
-  .compColor::selection {
-    background-color: white;
-    color: #b7710f;
-  }
-
-  .codeLinkColor {
-    color: #a6da89
-  }
-
-  .codeLinkColor::selection {
-    background-color: white;
-    color: #592576;
-  }
-
-  .codeBracketColor {
-    color: #e68ba8;
-  }
-
-  .codeBracketColor::selection {
-    color: #197457;
-    background-color: white;
-  }
-
-  .codeDiv br::selection {
-    background-color: #000;
-  }
-
-  /*Code font*/
-  @font-face {
-    font-family: 'Cascadia Code';
-    src: url(../../font/CascadiaCode.ttf);
+.codeDiv {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #000;
+  padding: 5px;
+  padding-top: 30px;
+  padding-left: 10px;
+  font-family: 'Cascadia Code';
+  margin: 5px 0;
+  position: relative;
+  user-select: text;
+  color: white;
 }
+
+.codeDiv::selection {
+  background-color: white;
+  color: black;
+}
+
+.codeDiv .TOC {
+  position: absolute;
+  height: 25px;
+  top: 0;
+  left: 0;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  border-bottom-right-radius: 4px;
+}
+
+.TOC.css {
+  background-color: #639;
+  color: white;
+}
+
+.classColor {
+  color: #f9cb85;
+}
+
+.classColor::selection {
+  background-color: white;
+  color: #06347a;
+}
+
+.commandColor {
+  color: #cb99c3;
+}
+
+.commandColor::selection {
+  background-color: white;
+  color: #34663c;
+}
+
+.compColor {
+  color: #488ef0;
+}
+
+.compColor::selection {
+  background-color: white;
+  color: #b7710f;
+}
+
+.codeLinkColor {
+  color: #a6da89
+}
+
+.codeLinkColor::selection {
+  background-color: white;
+  color: #592576;
+}
+
+.codeBracketColor {
+  color: #e68ba8;
+}
+
+.codeBracketColor::selection {
+  color: #197457;
+  background-color: white;
+}
+
+.codeDiv br::selection {
+  background-color: #000;
+}
+
+/*Code font*/
+@font-face {
+  font-family: 'Cascadia Code';
+  src: url(../../font/CascadiaCode.ttf);
+}
+
+.buttonsAlign {
+  width: 100%;
+  display: flex;
+  padding: 5px;
+  box-sizing: border-box;
+  gap: 15px;
+}
+
 @media (prefers-color-scheme: dark) {
-    body {
-        background-color: #191919;
-        color: white;
-    }
-
-    .title,
-    .titleBar {
-      background-color: #191919;
-    }
-
-    .contentDiv::-webkit-scrollbar-thumb {
-      background-color: #999;
-    }
-
-    .fakeLink {
-      color: #5bb8ff;
-    }
-
-    a {
-      color: #5bb8ff;
-     text-decoration: none;
-    }
-
-    .appBlock, .appSBlock, .appCBlock {
-      background-color: #323232;
-      border: 1px solid #232323;
-      transition-duration: .2s;
-    }
-
-    .appSBlock:hover {
-      border-color: transparent;
-      background-color: #343434;
-      border-top-color: #3b3b3b;
-    }
-  
-
-    .subBlockItem,
-    .subBlockItemSel {
-      background-color: #323232;
-      border-color: #232323;
-    }
-
-    .switchRadio:hover {
-      background-color: #fff1;
-    }
-  
-    .switchRadio:checked {
-      background-color: #5bb8ff;
-      border-color: #5bb8ff;
-    }
-  
-    .switchRadio:checked:hover {
-      background-color: #55acee;
-      border-color: #55acee;
-    }
-
-    .switchRadio:checked::after {
-      left: 27px;
-      background-color: black;
-    }
-
-    
-  input[type="radio"] {
-    border: 1px solid #252525;
-    background-color: #19191977;
-  }
-
-  input[type="radio"]:hover {
-    border: 1px solid #5bb8ff;
-  }
-
-
-  input[type="radio"]:checked {
-    border: 5px solid #5bb8ff;
-    background-color: black;
-  }
-
-  input[type="radio"]:checked:hover {
-    border: 4px solid #55acee
-  }
-
-  button[type="primary"] {
-    border-top-color: #6cbfff;
-    border-bottom-color: #34a7ff;
-    background-color: #5bb8ff;
-    color: black;
-  }
-
-  button {
-    border-top-color: #3b3b3b;
-    border-bottom-color: #232323;
-    background-color: #494949;
+  body {
+    background-color: #191919;
     color: white;
   }
 
-  button:hover {
-    filter: brightness(1.1);
-    opacity: 1
+  .title,
+  .titleBar {
+    background-color: #191919;
   }
 
-  button:active {
-    opacity: .8;
-    filter: none;
+  .contentDiv::-webkit-scrollbar-thumb {
+    background-color: #999;
   }
 
-  input[type="text"],
-  input[type="number"] {
-    border: 1px solid #232323;
-    border-bottom: 2px solid #3b3b3b;
-    background-color: #494949;
-    color: white;
+  .fakeLink {
+    color: #5bb8ff;
   }
 
-  input[type="text"]:hover,
-  input[type="number"]:hover {
-    filter: brightness(1.1);
-    opacity: 1
+  a {
+    color: #5bb8ff;
+    text-decoration: none;
   }
 
-  input[type="text"]:focus,
-  input[type="number"]:focus {
-    border-bottom: 2px solid #5bb8ff;
-    filter: none;
+  .goUp {
+    background-color: #191919;
   }
 }

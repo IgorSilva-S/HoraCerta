@@ -191,6 +191,10 @@
           <label for="royalTheme">Royal - Great Vibes</label>
         </div>
         <div>
+          <input type="radio" name="theme" id="aeroTheme">
+          <label for="aeroTheme">Windows 7 - Aero (Modern)</label>
+        </div>
+        <div>
           <input type="radio" name="theme" id="customTheme">
           <label for="customTheme">Tema customizável</label>
         </div>
@@ -206,7 +210,7 @@
           <input type="text" name="" id="gfontsUrl">
         </div>
         <div class="itemsPlus">
-          <label for="gfontsUrl">Nome da fonte do Google Fonts</label>
+          <label for="gfontsUrl">Nome da fonte</label>
           <input type="text" name="" id="gfontsName">
         </div>
         <div class="itemsPlus">
@@ -305,7 +309,7 @@
    
         <div class="itemsPlus">
           Alterar o alinhamento automaticamente com o Snap
-          <input type="checkbox" name="" id="alignSnap" class="switchRadio">
+          <input type="checkbox" name="" id="alignSnap" class="switchRadio" checked>
         </div>
       </div>
 
@@ -332,6 +336,48 @@
       </div>
     </div>
 
+    <div class="appSBlock" id="widgetSButton">
+      <div class="block-icon-title">
+        <fluent-icon iconsize="24">&#xE74C;</fluent-icon>
+        <div>
+          <p>Widget</p>
+          <p textType="caption">Altere configurações relacionadas à janela do Widget</p>
+        </div>
+        <fluent-icon iconsize="16" class="alertExpose" id="exposeWidgetSection">&#xE70D;</fluent-icon>
+      </div>
+    </div>
+    <div class="appSubBlock" id="widgetSection">
+
+
+      <div class="subBlockItem">
+        Iniciar movimentação avançada
+        <button id="openAdvancedMove">Iniciar</button>
+      </div>
+
+      <div class="subBlockItemSel">
+        <p textType="bodyStrong">Função do botão de movimento</p>
+        <div>
+          <input type="radio" name="moveType" id="defaultMove" checked>
+          <label for="defaultMove">Movimentação como janela</label>
+        </div>
+        <div>
+          <input type="radio" name="moveType" id="advancedModeWidget">
+          <label for="advancedModeWidget">Movimentação avançada</label>
+        </div>
+        <div>
+          <input type="radio" name="moveType" id="simpleMove">
+          <label for="simpleMove">Movimentação geral</label>
+        </div>
+
+      </div>
+
+      <div class="subBlockItem lastItem">
+        Usar posição customizada no Snap
+        <input type="checkbox" name="" id="customSnap" class="switchRadio" checked>
+      </div>
+
+    </div>
+
     <div class="appSBlock" id="aboutSButton">
       <div class="block-icon-title">
         <fluent-icon iconsize="24">&#xE946;</fluent-icon>
@@ -347,10 +393,6 @@
       <div class="subBlockItem">
         <p>Versão</p>
         <p>2.0</p>
-      </div>
-
-      <div class="subBlockItem">
-        <p>Projeto modo desenvolvedor (aperte Ctrl + Shift + I para abrir o DevTools), não é permitido a redistribuição dessa versão</p>
       </div>
 
       <div class="subBlockItem lastItem">

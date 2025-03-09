@@ -1,7 +1,7 @@
 const { app, BrowserWindow, screen, Tray, Notification, ipcMain, shell } = require('electron');
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
-let tray, settingsOpened = false, pinned = false, pinnedTransparent = false, isBlur = false
+let tray, settingsOpened = false, pinned = false, pinnedTransparent = false, isBlur = false, adMoveOpened = false
 const isDevelopment = true
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -162,6 +162,35 @@ const createWindow = () => {
     mainWindow.setPosition(x, deskY)
   })
 
+  ipcMain.on('openAdvancedMove', () => {
+    if (!adMoveOpened) {
+      createAdvancedMoveWindow()
+      adMoveOpened = true
+    }
+  })
+
+  ipcMain.on('openClockHelp', () => {
+    createHelpWindow('helpPages/clockHelp.html')
+  })
+
+  ipcMain.on('openSnap', () => {
+    mainWindow.webContents.send('openSnap')
+  })
+
+  ipcMain.on('widgetFullMove', () => {
+    mainWindow.webContents.send('fullMove')
+  })
+
+  ipcMain.on('widgetDefaultMove', () => {
+    mainWindow.webContents.send('defaultMove')
+  })
+
+  ipcMain.on('windowPosition', (e, p) => {
+    let posiX = parseInt(p.posiX)
+    let posiY = parseInt(p.posiY)
+    mainWindow.setPosition(posiX, posiY)
+  })
+
   mainWindow.webContents.on('before-input-event', (event, input) => {
     if (input.control && input.shift && input.key.toLowerCase() === 'i' && !isDevelopment) {
       event.preventDefault()
@@ -242,7 +271,7 @@ const createHelpWindow = (file) => {
       nodeIntegration: true,
       contextIsolation: false,
     },
-    icon: path.join(__dirname, 'icon/favicon.ico')
+    icon: path.join(__dirname, 'icon/favicon.ico'),
   });
 
   // and load the index.html of the app.
@@ -257,6 +286,58 @@ const createHelpWindow = (file) => {
   ipcMain.on('openGoogleFonts', () => {
     shell.openExternal("https://fonts.google.com");
   })
+}
+
+const createAdvancedMoveWindow = () => {
+
+  const { width } = screen.getPrimaryDisplay().bounds;
+
+  const windowWidth = 700;
+
+  const x = Math.round((width - windowWidth) / 2);
+
+  // Create the browser window.
+  let mainWindow = new BrowserWindow({
+    width: windowWidth,
+    height: 60,
+    titleBarStyle: 'hidden',
+    transparent: 'true',
+    x: x,
+    y: 0,
+    minimizable: false,
+    frame: false,
+    skipTaskbar: true,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
+    resizable: false,
+    icon: path.join(__dirname, 'icon/favicon.ico')
+  });
+
+  mainWindow.setAlwaysOnTop(true)
+
+  // and load the index.html of the app.
+  mainWindow.loadFile(path.join(__dirname, 'advancedMove.html'));
+
+  mainWindow.webContents.on('before-input-event', (event, input) => {
+    if (input.control && input.shift && input.key.toLowerCase() === 'i' && !isDevelopment) {
+      event.preventDefault()
+    }
+  })
+
+  ipcMain.on('closeAdvancedMove', () => {
+    if (mainWindow) {
+      mainWindow.close()
+      mainWindow = null
+      adMoveOpened = false
+    }
+  })
+
+  mainWindow.on('close', () => {
+    mainWindow = null
+  })
+
 }
 
 // This method will be called when Electron has finished

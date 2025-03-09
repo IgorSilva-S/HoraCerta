@@ -19,7 +19,7 @@
 
 /*Windows 10 - Metro UI*/
 .mUI .hour {
-    font-size: 140px;
+    font-size: 150px;
     font-family: 'Segoe UI';
     font-weight: 300;
 }
@@ -154,7 +154,7 @@
 
 .wiiM .line,
 .wiiM .lineInverted {
-    width: 100%;
+    width: 80%;
     height: 3px;
     background-color: #34c2ec;
     box-shadow: 0 0 10px 1px #34c2ec;
@@ -180,8 +180,10 @@
 .wiiM .date {
     color: #717071;
     background-color: #d0d3da;
-    width: 100%;
+    width: 80%;
     border-radius: 0 0 8px 8px;
+    font-family: 'Segoe UI';
+    font-size: 24px;
 }
 
 /*Sonic 3 & Knuckles*/
@@ -365,6 +367,49 @@
     .royal .hour.inverted,
     .royal .date.inverted {
         filter: drop-shadow(0px 0px 10px black);
+    }
+}
+
+/*Aero theme*/
+.aero .hour {
+    background-image: linear-gradient(to bottom, black 50%, #000e31 50%);
+    background-clip: text;
+    color: transparent
+}
+
+.aero .date {
+    color: #000e31;
+}
+
+.aero .hour.inverted {
+    background-image: linear-gradient(to bottom, white 50%, #c2e2fa 50%);
+    background-clip: text;
+    color: transparent
+}
+
+.aero .date.inverted {
+    color: #c2e2fa;
+}
+
+@media (prefers-color-scheme: dark) {
+    .aero .hour {
+        background-image: linear-gradient(to bottom, white 50%, #c2e2fa 50%);
+        background-clip: text;
+        color: transparent
+    }
+
+    .aero .date {
+        color: #c2e2fa;
+    }
+
+    .aero .hour.inverted {
+        background-image: linear-gradient(to bottom, black 50%, #000e31 50%);
+        background-clip: text;
+        color: transparent
+    }
+    
+    .aero .date.inverted {
+        color: #000e31;
     }
 }
 
