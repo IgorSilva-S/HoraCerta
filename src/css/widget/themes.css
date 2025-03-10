@@ -21,14 +21,14 @@
 .mUI .hour {
     font-size: 150px;
     font-family: 'Segoe UI';
-    font-weight: 300;
+    font-weight: lighter;
 }
 
 .mUI .date {
     font-size: 45px;
     line-height: 36px;
     font-family: 'Segoe UI';
-    font-weight: 300;
+    font-weight: lighter;
 }
 
 .mUI .buttonArea,
@@ -372,44 +372,94 @@
 
 /*Aero theme*/
 .aero .hour {
-    background-image: linear-gradient(to bottom, black 50%, #000e31 50%);
+    background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #000e31 , #001d66 62%, #000e31 65%);
     background-clip: text;
-    color: transparent
+    background-size: 120%;
+    background-position: center;
+    color: transparent;
+    font-family: 'Segoe UI';
+    font-weight: normal;
 }
 
 .aero .date {
     color: #000e31;
+    font-family: 'Segoe UI';
+    font-weight: normal;
 }
 
 .aero .hour.inverted {
-    background-image: linear-gradient(to bottom, white 50%, #c2e2fa 50%);
+    background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #e0f2ff , #bae1ff 62%, #e0f2ff 65%);
     background-clip: text;
     color: transparent
 }
 
 .aero .date.inverted {
-    color: #c2e2fa;
+    color: #e0f2ff;
+}
+
+
+.aero .buttonArea {
+    background-image: linear-gradient(to bottom,  #c2e2fa 30%, #7ec4fa 30%, #c2e2fa);
+    background-color: transparent;
+    border: 1px solid white;
+    outline: 1px solid rgb(0, 44, 82);
+    border-radius: 1px;
+    transition-duration: .2s;
+}
+
+.aero .buttonArea:hover {
+    box-shadow: 0 0 6px 3px #7ec4fa;
+}
+
+.aero .closeWindow {
+    background-image: linear-gradient(to bottom,  #fac2c2 30%, #ff5c5c 30%, #fac2c2);
+    background-color: transparent;
+    border: 1px solid white;
+    outline: 1px solid rgb(82, 0, 0);
+    border-radius: 1px;
+    transition-duration: .2s;
+    transition-timing-function: linear;
+}
+
+.aero .closeWindow:hover {
+    box-shadow: 0 0 6px 3px #ff5c5c;
 }
 
 @media (prefers-color-scheme: dark) {
     .aero .hour {
-        background-image: linear-gradient(to bottom, white 50%, #c2e2fa 50%);
+        background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #e0f2ff , #bae1ff 62%, #e0f2ff 65%);
         background-clip: text;
         color: transparent
     }
 
     .aero .date {
-        color: #c2e2fa;
+        color: #e0f2ff;
     }
 
     .aero .hour.inverted {
-        background-image: linear-gradient(to bottom, black 50%, #000e31 50%);
+        background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #000e31 , #393939 62%, #000e31 65%);
         background-clip: text;
         color: transparent
     }
     
     .aero .date.inverted {
         color: #000e31;
+    }
+
+    .aero .closeWindow {
+        background-image: linear-gradient(to bottom,  #4e3d3d 30%, #501c1c 30%, #4e3d3d);
+        background-color: transparent;
+        border: 1px solid black;
+        outline: 1px solid rgb(255, 107, 107);
+        border-radius: 1px;
+    }
+
+    .aero .buttonArea {
+        background-image: linear-gradient(to bottom,  #47545e 30%, #2b4355 30%, #47545e);
+        background-color: transparent;
+        border: 1px solid black;
+        outline: 1px solid rgb(126, 195, 255);
+        border-radius: 1px;
     }
 }
 
