@@ -2,7 +2,7 @@ const { app, BrowserWindow, screen, Tray, Notification, ipcMain, shell } = requi
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
 let tray, settingsOpened = false, pinned = false, pinnedTransparent = false, isBlur = false, adMoveOpened = false
-const isDevelopment = true
+const isDevelopment = false
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
