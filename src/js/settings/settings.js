@@ -240,8 +240,13 @@ document.getElementById('shadesOfBlue').addEventListener('click', () => {
     appTheme()
 })
 
-document.getElementById('nonColor').addEventListener('click', () => {
-    localStorage.setItem('appTheme', 'nonColor')
+document.getElementById('fluentTheme').addEventListener('click', () => {
+    localStorage.setItem('appTheme', 'fluentTheme')
+    appTheme()
+})
+
+document.getElementById('metroTheme').addEventListener('click', () => {
+    localStorage.setItem('appTheme', 'metroTheme')
     appTheme()
 })
 

@@ -173,6 +173,10 @@ const createWindow = () => {
     createHelpWindow('helpPages/clockHelp.html')
   })
 
+  ipcMain.on('openGFHelp', () => {
+    createHelpWindow('helpPages/googleFonts.html')
+  })
+
   ipcMain.on('openSnap', () => {
     mainWindow.webContents.send('openSnap')
   })
@@ -231,10 +235,6 @@ const createSettingsWindow = () => {
       mainWindow.focus()
       mainWindow.restore()
     }
-  })
-
-  ipcMain.on('openGFHelp', () => {
-    createHelpWindow('helpPages/googleFonts.html')
   })
 
   ipcMain.on('openGitHub', () => {
@@ -371,8 +371,19 @@ try {
   require('electron-reloader')(module);
 } catch { }
 
-const exeName = path.basename(process.execPath)
-app.setLoginItemSettings({
-  openAtLogin: true,
-  path: exeName,
-})
+const AutoLaunch = require('auto-launch');
+const appAutoLauncher = new AutoLaunch({
+  name: 'Hora Certa',
+  path: app.getPath('exe'),
+});
+
+appAutoLauncher.isEnabled().then((isEnabled) => {
+  if (!isEnabled) {
+    appAutoLauncher.enable();
+  }
+}).catch((err) => {
+  console.error(err);
+});
+
+const { updateElectronApp } = require('update-electron-app')
+updateElectronApp()

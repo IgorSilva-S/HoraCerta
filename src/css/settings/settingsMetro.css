@@ -1,0 +1,400 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    box-sizing: border-box;
+    user-select: none;
+    background-color: #fff;
+    margin-top: 60px;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: 'Segoe MDL2 Assets';
+    src: url(../../font/SegoeMDL2Assets.ttf);
+}
+
+fluent-icon {
+    font-family: 'Segoe MDL2 Assets' !important;
+}
+
+.titleBar {
+  width: 100vw;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-app-region: drag;
+  background-color: #fff;
+  z-index: 999;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  gap: 10px;
+  padding-left: 15px;
+  font-family: 'Segoe UI';
+  font-size: 12px;
+}
+
+.appIcon {
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../../icon/android-chrome-512x512.png);
+}
+
+.title {
+  width: 100vw;
+  height: 140px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 30px;
+  font-weight: lighter;
+}
+
+[textType="titleLarge"] {
+    font-family: 'Segoe UI' !important;
+    font-weight: lighter !important;
+}
+
+.contentDiv {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(100dvh - 140px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 10px 70px 30px 70px;
+}
+
+.contentDiv::-webkit-scrollbar {
+  width: 3px;
+}
+
+.contentDiv::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 120px;
+}
+
+.appBlock,
+.appSBlock,
+.appCBlock {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 20px 10px;
+    background-color: #fff;
+    position: relative;
+    transition-duration: .2s;
+    padding-right: 50px;
+    font-family: 'Segoe UI'
+  }
+
+  .block-icon-title {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 10px;
+  }
+  
+  .alertExpose {
+    position: absolute;
+    right: 20px;
+    display: none;
+  }
+  
+  .openExpose {
+    rotate: 180deg;
+    display: none;
+  }
+  
+  .appSubBlock {
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  .subBlockItem {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: none;
+    font-family: 'Segoe UI';
+    font-size: 14px;
+  }
+
+  .subBlockItemSel {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #fff;
+    border-bottom: none;
+    font-family: 'Segoe UI';
+    font-size: 14px;
+  }
+
+  .subBlockItemSel div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .subBlockItemSel .itemsPlus {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .subBlockItemSel .itemsPlus input[type=color] {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+  }
+
+  .subBlockItemSel .confirmBlock {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  
+  .switchRadio {
+    width: 50px;
+    height: 23px;
+    appearance: none;
+    border-radius: 120px;
+    background-color: transparent;
+    position: relative;
+    transition-duration: .2s;
+    box-sizing: border-box;
+    border: 1px solid #bbb;
+  }
+
+
+  .switchRadio::after {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background-color: #bbb;
+    border-radius: 120px;
+    content: '';
+    top: 3px;
+    left: 4px;
+    transition-duration: .1s;
+    transition-timing-function: linear;
+  }
+
+  .switchRadio:checked {
+    background-color: #0078d4;
+    border-color: #0078d4;
+  }
+
+  .switchRadio:checked::after {
+    left: 28px;
+    background-color: white;
+  }
+
+  input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+    border: 1px solid #bbb;
+    border-radius: 120px;
+    transition-duration: .1s;
+    transition-timing-function: linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input[type="radio"]::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 120px;
+    background-color: black;
+    transition-duration: .1s;
+    transition-timing-function: linear;
+    scale: 0;
+  }
+
+  input[type="radio"]:hover {
+    border: 1px solid #0078d4;
+  }
+
+  input[type="radio"]:checked {
+    border: 1px solid #0078d4;
+  }
+
+  input[type="radio"]:checked::after {
+    scale: 1;
+  }
+
+  button[type="primary"] {
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #006abb;
+    color: white;
+    font-family: 'Segoe UI';
+    box-sizing: border-box;
+  }
+
+  button {
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #ccc;
+    color: black;
+    font-family: 'Segoe UI';
+  }
+
+  button:hover {
+    opacity: .8;
+  }
+
+  button:active {
+    opacity: 1;
+    filter: brightness(.9)
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    padding: 6px 10px;
+    border: 2px solid #eaeaea;
+    box-sizing: border-box;
+    font-family:  'Segoe UI';
+    font-size: 14px;
+  }
+
+  input[type="text"]:hover,
+  input[type="number"]:hover {
+    opacity: .8;
+  }
+
+  input[type="text"]:focus,
+  input[type="number"]:focus {
+    outline: none;
+    background-color: #fff;
+    opacity: 1;
+    border: 2px solid #0078d4;
+  }
+
+  .colorLabel {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #eaeaea
+  }
+
+  .colorLabel:hover {
+    border: 2px solid #0078d4
+  }
+
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
+
+    .title,
+    .titleBar {
+      background-color: black;
+    }
+
+    .contentDiv::-webkit-scrollbar-thumb {
+      background-color: #999;
+    }
+
+    .appBlock, .appSBlock, .appCBlock {
+      background-color: black;
+      transition-duration: .2s;
+    }
+  
+
+    .subBlockItem,
+    .subBlockItemSel {
+      background-color: black;
+    }
+
+  button {
+    border-top-color: #3b3b3b;
+    border-bottom-color: #232323;
+    background-color: #494949;
+    color: white;
+  }
+
+  button:hover {
+    filter: brightness(1.1);
+    opacity: 1
+  }
+
+  button:active {
+    opacity: .8;
+    filter: none;
+  }
+
+  input[type="radio"]::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 120px;
+    background-color: white;
+    transition-duration: .1s;
+    transition-timing-function: linear;
+    scale: 0;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    border-color: #222;
+    background-color: #050505;
+    color: white;
+  }
+
+  input[type="text"]:hover,
+  input[type="number"]:hover {
+    filter: brightness(1.1);
+    opacity: 1
+  }
+
+  input[type="text"]:focus,
+  input[type="number"]:focus {
+    background-color: black;
+  }
+
+  .colorLabel {
+    border: 2px solid #222
+  }
+}

@@ -3,8 +3,10 @@ function appTheme() {
     let appTheme = localStorage.getItem('appTheme')
     if (appTheme == 'SOB' || appTheme == undefined) {
         document.getElementById('appTheme').href = 'css/settings/settings.css'
-    } else if (appTheme = 'nonColor') {
+    } else if (appTheme == 'fluentTheme') {
         document.getElementById('appTheme').href = 'css/settings/settingsDC.css'
+    } else if (appTheme == 'metroTheme') {
+        document.getElementById('appTheme').href = 'css/settings/settingsMetro.css'
     }
 }
 
@@ -127,8 +129,10 @@ try {
 let appThemeSelected = localStorage.getItem('appTheme')
 if (appThemeSelected == 'SOB' || appThemeSelected == undefined) {
     document.getElementById('shadesOfBlue').checked = true
-} else if (appThemeSelected = 'nonColor') {
-    document.getElementById('nonColor').checked = true
+} else if (appThemeSelected == 'fluentTheme') {
+    document.getElementById('fluentTheme').checked = true
+} else if (appThemeSelected == 'metroTheme') {
+    document.getElementById('metroTheme').checked = true
 }
 
 //Alignment

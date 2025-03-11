@@ -1,0 +1,242 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+  user-select: none;
+  background-color: #fff;
+  margin-top: 60px;
+  overflow: hidden;
+}
+
+.titleBar {
+  width: 100vw;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-app-region: drag;
+  background-color: #fff;
+  z-index: 999;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  gap: 10px;
+  padding-left: 15px;
+  font-family: 'Segoe UI';
+  font-size: 12px;
+}
+
+.appIcon {
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../../icon/android-chrome-512x512.png);
+}
+
+.title {
+  width: 100vw;
+  height: 140px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f9f9f9;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 30px;
+}
+
+.title.subtitle {
+  top: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+[textType="titleLarge"],
+[textType="subtitle"] {
+  font-family: 'Segoe UI' !important;
+  font-weight: lighter !important;
+}
+
+
+.contentDiv {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(100dvh - 140px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 10px 20px 30px 20px;
+}
+
+.contentDiv.subtitle {
+  height: calc(100dvh - 160px);
+}
+
+.contentDiv::-webkit-scrollbar {
+  width: 3px;
+}
+
+.contentDiv::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 120px;
+}
+
+.fakeLink {
+  color: #0078d4;
+  cursor: pointer;
+}
+
+a {
+  color: #0078d4;
+  text-decoration: none;
+}
+
+.goUp {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  border-radius: 100%;
+  background-color: #fff;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ol, ul {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.codeDiv {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #000;
+  padding: 5px;
+  padding-top: 30px;
+  padding-left: 10px;
+  font-family: 'Cascadia Code';
+  margin: 5px 0;
+  position: relative;
+  user-select: text;
+  border: 1px solid #777;
+  color: white;
+}
+
+.codeDiv::selection {
+  background-color: white;
+  color: black;
+}
+
+.codeDiv .TOC {
+  position: absolute;
+  height: 25px;
+  top: 0;
+  left: 0;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  border-bottom-right-radius: 4px;
+}
+
+.TOC.css {
+  background-color: #639;
+  color: white;
+}
+
+.classColor {
+  color: #f9cb85;
+}
+
+.classColor::selection {
+  background-color: white;
+  color: #06347a;
+}
+
+.commandColor {
+  color: #cb99c3;
+}
+
+.commandColor::selection {
+  background-color: white;
+  color: #34663c;
+}
+
+.compColor {
+  color: #488ef0;
+}
+
+.compColor::selection {
+  background-color: white;
+  color: #b7710f;
+}
+
+.codeLinkColor {
+  color: #a6da89
+}
+
+.codeLinkColor::selection {
+  background-color: white;
+  color: #592576;
+}
+
+.codeBracketColor {
+  color: #e68ba8;
+}
+
+.codeBracketColor::selection {
+  color: #197457;
+  background-color: white;
+}
+
+.codeDiv br::selection {
+  background-color: #000;
+}
+
+/*Code font*/
+@font-face {
+  font-family: 'Cascadia Code';
+  src: url(../../font/CascadiaCode.ttf);
+}
+
+.buttonsAlign {
+  width: 100%;
+  display: flex;
+  padding: 5px;
+  box-sizing: border-box;
+  gap: 15px;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000;
+    color: white;
+  }
+
+  .title,
+  .titleBar {
+    background-color: #000;
+  }
+
+  .contentDiv::-webkit-scrollbar-thumb {
+    background-color: #999;
+  }
+
+  .goUp {
+    background-color: #000;
+  }
+}

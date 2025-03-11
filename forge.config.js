@@ -12,7 +12,8 @@ module.exports = {
       name: '@electron-forge/maker-squirrel',
       config: {
         asar: true,
-        icon: "src/icon/favicon.ico"
+        iconUrl: "src/icon/favicon.ico",
+        setupIcon: "src/icon/setup/favicon.ico"
       },
     },
     {
@@ -45,4 +46,16 @@ module.exports = {
       [FuseV1Options.OnlyLoadAppFromAsar]: true,
     }),
   ],
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'IgorSilva-S',
+          name: 'Hora Certa'
+        },
+        prerelease: false
+      }
+    }
+  ]
 };

@@ -36,10 +36,13 @@ body {
 .hour.loading {
   width: 60%;
   height: 120px;
-  background-color: #fff3;
+  background-color: #fff3 !important;
+  background-clip: initial !important;
+  background-image: linear-gradient(to right, #fff0, #fff0) !important;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
+  margin-bottom: 5px;
 }
 
 .hour.loading::before,
@@ -54,19 +57,25 @@ body {
   animation: loadingAnim 1.6s linear infinite;
 }
 
+.hour.loading::after,
+.date.loading::after {
+  width: 0% !important;
+  height: 0% !important;
+}
+
 #date {
   transition-duration: .3s;
   text-align: center;
 }
 
 .date.loading {
-  width: 60%;
+  width: 60% !important;
   height: 38px;
-  background-color: #fff3;
-  border-radius: 8px;
+  background-color: #fff3 !important;
+  border-radius: 8px !important;
   overflow: hidden;
   position: relative;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 @keyframes loadingAnim {
