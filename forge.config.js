@@ -12,7 +12,8 @@ module.exports = {
       name: '@electron-forge/maker-squirrel',
       config: {
         asar: true,
-        iconUrl: "https://src/icon/favicon.ico"
+        iconUrl: "https://raw.githubusercontent.com/IgorSilva-S/HoraCerta/refs/heads/main/src/icon/favicon.ico",
+        setupIcon: "https://raw.githubusercontent.com/IgorSilva-S/HoraCerta/refs/heads/main/src/icon/setup/favicon.ico"
       },
     },
     {
