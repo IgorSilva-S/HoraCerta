@@ -11,9 +11,11 @@ module.exports = {
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        asar: true,
+        name: 'HoraCerta.HoraCerta',
         iconUrl: "https://raw.githubusercontent.com/IgorSilva-S/HoraCerta/refs/heads/main/src/icon/favicon.ico",
-        setupIcon: "https://raw.githubusercontent.com/IgorSilva-S/HoraCerta/refs/heads/main/src/icon/setup/favicon.ico"
+        setupIcon: "./src/icon/setup/favicon.ico",
+        setupExe: 'Instalador Hora Certa (2.0).exe',
+        loadingGif: './src/images/loading.gif',
       },
     },
     {
