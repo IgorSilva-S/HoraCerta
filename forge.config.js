@@ -4,18 +4,28 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 module.exports = {
   packagerConfig: {
     asar: true,
-    icon: "src/icon/favicon.ico"
+    icon: "./src/icon/favicon.ico",
+    win32metadata: {
+      FileDescription: "Sempre esteja com o horário certo com o widget Hora Certa",
+      OriginalFilename: "horacerta.exe",
+      ProductName: "Hora Certa"
+    }
   },
   rebuildConfig: {},
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        name: 'HoraCerta.HoraCerta',
+        name: 'HoraCerta',
         iconUrl: "https://raw.githubusercontent.com/IgorSilva-S/HoraCerta/refs/heads/main/src/icon/favicon.ico",
         setupIcon: "./src/icon/setup/favicon.ico",
         setupExe: 'Instalador Hora Certa (2.0).exe',
         loadingGif: './src/images/loading.gif',
+        appId: "com.horacerta.widget",
+        productName: "Hora Certa",
+        win: {
+          icon: "./src/icon/favicon.ico"
+        }
       },
     },
     {

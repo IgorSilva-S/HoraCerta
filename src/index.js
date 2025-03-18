@@ -2,12 +2,15 @@ const { app, BrowserWindow, screen, Tray, Notification, ipcMain, shell } = requi
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
 let tray, settingsOpened = false, pinned = false, pinnedTransparent = false, isBlur = false, adMoveOpened = false
-const isDevelopment = false
+const isDevelopment = true
+const { PARAMS, VALUE,  MicaBrowserWindow, IS_WINDOWS_11, WIN10 } = require('mica-electron');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
   app.quit();
 }
+
+app.setAppUserModelId('com.horacerta.widget');
 
 const createWindow = () => {
   const { width, height } = screen.getPrimaryDisplay().bounds;
@@ -20,6 +23,7 @@ const createWindow = () => {
 
   // Create the browser window.
   const mainWindow = new BrowserWindow({
+    title: 'Hora Certa',
     width: windowWidth,
     height: windowHeight,
     titleBarStyle: 'hidden',
@@ -116,19 +120,32 @@ const createWindow = () => {
     mainWindow.setAlwaysOnTop(true)
     mainWindow.setIgnoreMouseEvents(true)
     pinnedTransparent = true
-    new Notification({ title: "Widget fixado e ignorado", body: "O widget foi fixado na tela e começou a ignorar eventos do mouse, para desativar essa função, clique no icone do aplicativo na bandeja do sistema" }).show()
+    new Notification({ 
+      appId: 'Hora Certa',
+      title: "Widget fixado e ignorado", 
+      body: "O widget foi fixado na tela e começou a ignorar eventos do mouse, para desativar essa função, clique no icone do aplicativo na bandeja do sistema"
+     }).show()
   })
 
   ipcMain.on('alertLocal', () => {
-    new Notification({ title: "Horário dessincronizado por erro", body: "Houve um erro de sincronização do relógio e o horário está sincronizado com o PC local. Confira a sua conexão com à internet" }).show()
+    new Notification({ 
+      title: "Horário dessincronizado por erro", 
+      body: "Houve um erro de sincronização do relógio e o horário está sincronizado com o PC local. Confira a sua conexão com à internet"
+     }).show()
   })
 
   ipcMain.on('alertNoTime', () => {
-    new Notification({ title: "Horário dessincronizado por erro", body: "Houve um erro de sincronização do relógio, por configuração, o horário não estará disponível até reconectar. Confira a sua conexão com à internet" }).show()
+    new Notification({ 
+      title: "Horário dessincronizado por erro", 
+      body: "Houve um erro de sincronização do relógio, por configuração, o horário não estará disponível até reconectar. Confira a sua conexão com à internet"
+     }).show()
   })
 
   ipcMain.on('alertOnline', () => {
-    new Notification({ title: "Horário ressincronizado", body: "O relógio conseguiu se conectar à internet e, foi feita a sinconização com o servidor com sucesso" }).show()
+    new Notification({ 
+      title: "Horário ressincronizado", 
+      body: "O relógio conseguiu se conectar à internet e, foi feita a sinconização com o servidor com sucesso"
+     }).show()
   })
 
   ipcMain.on('posiStart', () => {
@@ -177,6 +194,10 @@ const createWindow = () => {
     createHelpWindow('helpPages/googleFonts.html')
   })
 
+  ipcMain.on('openGitHub', () => {
+    shell.openExternal("https://github.com/IgorSilva-S/HoraCerta");
+  })
+
   ipcMain.on('openSnap', () => {
     mainWindow.webContents.send('openSnap')
   })
@@ -194,6 +215,7 @@ const createWindow = () => {
     let posiY = parseInt(p.posiY)
     mainWindow.setPosition(posiX, posiY)
   })
+  
 
   mainWindow.webContents.on('before-input-event', (event, input) => {
     if (input.control && input.shift && input.key.toLowerCase() === 'i' && !isDevelopment) {
@@ -235,10 +257,6 @@ const createSettingsWindow = () => {
       mainWindow.focus()
       mainWindow.restore()
     }
-  })
-
-  ipcMain.on('openGitHub', () => {
-    shell.openExternal("https://github.com/IgorSilva-S/HoraCerta");
   })
 
   mainWindow.on('close', () => {

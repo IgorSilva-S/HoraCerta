@@ -62,7 +62,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   box-sizing: border-box;
-  padding: 10px 70px 30px 70px;
+  padding: 10px 150px 30px 150px;
 }
 
 .contentDiv::-webkit-scrollbar {
@@ -485,5 +485,11 @@ body {
   
   .colorLabel:hover {
     outline: 1px solid #5bb8ff;
+  }
+}
+
+@media (max-width: 700px) {
+  .contentDiv {
+    padding: 10px 60px 30px 60px;
   }
 }

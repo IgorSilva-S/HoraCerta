@@ -1,6 +1,7 @@
 {
   "name": "horacerta",
   "productName": "Hora Certa",
+  "appId": "com.horacerta.widget",
   "version": "2.0.0",
   "description": "Sempre esteja com o horário certo com o widget Hora Certa",
   "main": "src/index.js",
@@ -36,6 +37,7 @@
   "dependencies": {
     "auto-launch": "^5.0.6",
     "electron-squirrel-startup": "^1.0.1",
+    "mica-electron": "^1.5.16",
     "update-electron-app": "^3.1.1"
   },
   "repository": {
