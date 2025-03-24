@@ -71,7 +71,8 @@ if (offMode) {
 
 //GMT
 let gmt = localStorage.getItem('gmt')
-if (gmt == '-03:00' || gmt == undefined) {
+document.getElementById('gmt').value = gmt
+/*if (gmt == '-03:00' || gmt == undefined) {
     document.getElementById('BRT').checked = true
 } else if (gmt == '-02:00') {
     document.getElementById('FNT').checked = true
@@ -79,7 +80,7 @@ if (gmt == '-03:00' || gmt == undefined) {
     document.getElementById('AMT').checked = true
 } else if (gmt == '-05:00') {
     document.getElementById('ACT').checked = true
-}
+}*/
 
 //Theme
 let themeSelected = localStorage.getItem('theme')
@@ -198,6 +199,11 @@ setInterval(() => {
 let notUseCustSnap = localStorage.getItem('notUseCustSnap')
 if (notUseCustSnap) {
     document.getElementById('customSnap').checked = false
+}
+
+let notAutoBoot = localStorage.getItem('notAutoBoot')
+if (notAutoBoot) {
+    document.getElementById('autoBoot').checked = false
 }
 
 let moveType = localStorage.getItem('moveType')

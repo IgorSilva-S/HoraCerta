@@ -357,6 +357,16 @@
     box-shadow: 0 0 10px orange;
 }
 
+.royal .buttonArea {
+    border: 1px solid #d0d0d0;
+    box-shadow: 0 0 10px #d0d0d0;
+}
+
+.royal .closeWindow {
+    border: 1px solid #dd0000;
+    box-shadow: 0 0 10px #dd0000;
+}
+
 @media (prefers-color-scheme: dark) {
 
     .royal .hour,
@@ -368,11 +378,16 @@
     .royal .date.inverted {
         filter: drop-shadow(0px 0px 10px black);
     }
+
+    .royal .buttonArea {
+        border: 1px solid #272727;
+        box-shadow: 0 0 10px #272727;
+    }
 }
 
 /*Aero theme*/
 .aero .hour {
-    background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #000e31 , #001d66 62%, #000e31 65%);
+    background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #000e31bb , #001d66bb 62%, #000e31bb 65%);
     background-clip: text;
     background-size: 120%;
     background-position: center;
@@ -388,7 +403,7 @@
 }
 
 .aero .hour.inverted {
-    background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #e0f2ff , #bae1ff 62%, #e0f2ff 65%);
+    background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #e0f2ffbb , #bae1ffbb 62%, #e0f2ffbb 65%);
     background-clip: text;
     color: transparent
 }
@@ -427,7 +442,7 @@
 
 @media (prefers-color-scheme: dark) {
     .aero .hour {
-        background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #e0f2ff , #bae1ff 62%, #e0f2ff 65%);
+        background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #e0f2ffbb , #bae1ffbb 62%, #e0f2ffbb 65%);
         background-clip: text;
         color: transparent
     }
@@ -437,7 +452,7 @@
     }
 
     .aero .hour.inverted {
-        background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #000e31 , #393939 62%, #000e31 65%);
+        background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #000e31bb , #393939bb 62%, #000e31bb 65%);
         background-clip: text;
         color: transparent
     }

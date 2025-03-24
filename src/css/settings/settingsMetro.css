@@ -283,7 +283,7 @@ fluent-icon {
     border: none;
     padding: 5px 10px;
     font-size: 14px;
-    background-color: #006abb;
+    background-color: #0078d4;
     color: white;
     font-family: 'Segoe UI';
     box-sizing: border-box;
@@ -339,6 +339,43 @@ fluent-icon {
     border: 2px solid #0078d4
   }
 
+  .promptContainer {
+    background-color: #0009;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .prompt {
+    background-color: white;
+    width: 60vw;
+    height: 40vh;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 30px;
+    transition-duration: .2s;
+  }
+
+  .buttonOptions {
+    width: 100%;
+    height: 25%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+    background-color: white;
+  }
 
 @media (prefers-color-scheme: dark) {
     body {
@@ -414,6 +451,11 @@ fluent-icon {
 
   .colorLabel {
     border: 2px solid #222
+  }
+
+  .prompt,
+  .buttonOptions {
+    background-color: black;
   }
 }
 

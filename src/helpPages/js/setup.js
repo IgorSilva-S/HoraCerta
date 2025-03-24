@@ -18,4 +18,4 @@ setInterval(() => {
         appSelTheme = newAppTheme
         appTheme()
     }
-}, 10);
+}, 1);

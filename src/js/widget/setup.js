@@ -75,3 +75,18 @@ if (moveButtonFunc == undefined) {
     document.getElementById('moveButton').classList.remove('moveArea')
     moveButtonType = 'simple'
 }
+
+let developer = localStorage.getItem('developer')
+if (developer) {
+    ipcRenderer.send('enableDevelopmentVar')
+}
+
+let notAutoBoot = localStorage.getItem('notAutoBoot')
+if (notAutoBoot) {
+    ipcRenderer.send('disableAutoBoot')
+}
+
+let gmtChecker = localStorage.getItem('gmt')
+if (gmtChecker == undefined) {
+    localStorage.setItem('gmt', '-3')
+}

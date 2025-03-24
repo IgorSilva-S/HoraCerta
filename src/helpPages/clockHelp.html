@@ -1,109 +1,156 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajuda Hora Certa</title>
-    <link rel="stylesheet" href="css/default.css" id="appTheme">
-    <link rel="stylesheet" href="../font/segoeFont.css">
-    <link rel="shortcut icon" href="../icon/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajuda Hora Certa</title>
+  <link rel="stylesheet" href="css/placeholder.css" id="appTheme">
+  <link rel="stylesheet" href="../font/segoeFont.css">
+  <link rel="shortcut icon" href="../icon/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
-    <div class="titleBar">
-        <div class="appIcon"></div>
-        Hora Certa
-      </div>
-      <div class="title subtitle">
-        <h1 textType="titleLarge">Ajuda</h1>
-        <h2 textType="subtitle">Widget e botões</h2>
-      </div>
-      <div class="contentDiv subtitle" textType="body">
-        <h3 textType="subtitle" id="intro">Introdução</h3>
-        O Widget Hora Certa foi desenvolvido para trazer a nostalgia dos Gadgets do Windows 7, com uma interface simples, intuitiva e de fácil utilização. No entanto, se surgir alguma dúvida sobre o funcionamento ou a finalidade de cada botão, esta página está aqui para ajudar você.
-        <br><br>
-        <h3 textType="subtitle">Acesso rápido por ícones</h3>
-        <div class="buttonsAlign">
-          <a href="#closeButton">
-            <fluent-icon iconSize="20">&#xE8BB;</fluent-icon>
-          </a>
-          <a href="#minimizeButton">
-            <fluent-icon iconSize="20">&#xE921;</fluent-icon>
-          </a>
-          <a href="#moveButton">
-            <fluent-icon iconSize="20">&#xE7C2;</fluent-icon>
-          </a>
-          <a href="#moreButton">
-            <fluent-icon iconSize="20">&#xE712;</fluent-icon>
-          </a>
-          <a href="#pinButton">
-            <fluent-icon iconSize="20">&#xE718;</fluent-icon>
-          </a>
-          <a href="#pinIButton">
-            <fluent-icon iconSize="20">&#xE727;</fluent-icon>
-          </a>
-          <a href="#snapButton">
-            <fluent-icon iconSize="20">&#xECA5;</fluent-icon>
-          </a>
-          <a href="#settingsButton">
-            <fluent-icon iconSize="20">&#xE713;</fluent-icon>
-          </a>
-          <a href="#colorButton">
-            <fluent-icon iconSize="20">&#xE8AB;</fluent-icon>
-          </a>
-          <a href="#helpButton">
-            <fluent-icon iconSize="20">&#xE897;</fluent-icon>
-          </a>
-        </div>
-        <h3 textType="subtitle">Botões Principais</h3>
-        <h4 textType="bodyStrong" id="closeButton">Fechar - <fluent-icon style="font-size: 12px;">&#xE8BB;</fluent-icon></h4>
-        O botão de fechar é identificado por um ícone estilizado, representando um 'X'. Ele se destaca pela cor vermelha vibrante, tornando sua função imediatamente reconhecível. Ao ser clicado, o botão encerra o funcionamento do widget, além de fechar quaisquer janelas extras associadas, como as de configurações, ajuda e movimentação avançada.
-        <br><br>
-        <h4 textType="bodyStrong" id="minimizeButton">Minimizar - <fluent-icon style="font-size: 12px;">&#xE921;</fluent-icon></h4>
-        O botão de minimizar é identificado por um ícone representado por um traço horizontal. Sua função é reduzir o Widget para a barra de tarefas, garantindo que ele continue acessível, mas fora do caminho principal na tela. É ideal para organizar sua área de trabalho enquanto mantém o Widget ao alcance.
-        <br><br>
-        <h4 textType="bodyStrong" id="moveButton">Mover - <fluent-icon style="font-size: 12px;">&#xE7C2;</fluent-icon></h4>
-        A seção de movimentar é representada por um ícone no formato de cruz direcional. Essa seção oferece três modos de movimentação:
-        <ol>
-          <li>Arraste como janela: Permite que o usuário mova o Widget pela tela de maneira intuitiva, como se fosse uma janela tradicional.</li>
-          <li>Modo de movimentação avançada: Ativa opções adicionais para personalizar ou ajustar a posição do Widget com maior precisão.</li>
-          <li>Movimentação total: Transforma o Widget inteiro em uma área clicável e arrastável. Ao ativar esse modo, é possível mover o Widget com um simples clique e arraste, e para desativá-lo basta clicar novamente na seção de movimentação.</li>
-        </ol>
-        Essa funcionalidade foi projetada para oferecer flexibilidade e praticidade, atendendo diferentes estilos de uso e preferências. Por padrão, a função da seção é arrastar como janela, para mudar a função, <span class="fakeLink" id="openSettings">abra as Configurações</span> do Widget
-        <br><br>
-        <h4 textType="bodyStrong" id="moreButton">Mais - <fluent-icon style="font-size: 12px;">&#xE712;</fluent-icon></h4>
-        O botão de três pontos serve como um controlador para exibir ou ocultar os botões secundários do Widget. Ao clicar nele, os botões aparecem, oferecendo acesso rápido a funcionalidades extras. Da mesma forma, ao clicar novamente, os botões desaparecem, deixando a interface mais limpa e organizada. Esse botão é ideal para manter o equilíbrio entre praticidade e estética.
-        <br><br>
-        <h3 textType="subtitle">Botões Secundários</h3>
-        <h4 textType="bodyStrong" id="pinButton">Fixar - <fluent-icon style="font-size: 12px;">&#xE718;</fluent-icon></h4>
-        O botão de fixar janela é representado por um ícone no formato de alfinete. Sua funcionalidade permite alternar entre fixar ou desafixar a janela do Widget. Quando ativado, a janela permanece fixa acima dos outros aplicativos, garantindo visibilidade constante. Ao clicar novamente, o botão desafixa a janela, permitindo que ela seja sobreposta por outros aplicativos, conforme sua preferência.
-        <br><br>
-        <h4 textType="bodyStrong" id="pinIButton">Fixar e ignorar eventos - <fluent-icon style="font-size: 12px;">&#xE727;</fluent-icon></h4>
-        O botão de fixar janela é representado por um ícone no formato de janela transparente. Ele permite fixar a janela do Widget na tela. Quando fixado, o Widget permanece visível acima dos outros aplicativos, mas com um diferencial: ele ignora as interações do mouse, permitindo que o usuário interaja livremente com os elementos que estão atrás do Widget e emite uma notificação e adiciona um icone na bandeja de aplicativos. Ao clicar no icone na bandeja, a fixação é desativada, e o Widget volta ao comportamento padrão, podendo ser sobreposto por outros aplicativos.
-        <br><br>
-        <h4 textType="bodyStrong" id="snapButton">Snap - <fluent-icon style="font-size: 12px;">&#xECA5;</fluent-icon></h4>
-        O botão de abrir a barra de posição é identificado pelo ícone 'Tiles'. Ao ser clicado, ele exibe uma barra lateral que oferece opções práticas de posicionamento do Widget na tela. Essas opções permitem ajustar automaticamente o alinhamento e a posição do Widget de forma personalizada. Além disso, as configurações escolhidas são salvas, garantindo que o Widget mantenha a mesma posição e alinhamento quando for iniciado novamente.
-        <br>
-        Observação: Essa funcionalidade pode ser usada a qualquer instante com o atalho Ctrl + S
-        <br><br>
-        <h4 textType="bodyStrong" id="settingsButton">Configurações - <fluent-icon style="font-size: 12px;">&#xE713;</fluent-icon></h4>
-        O botão de abrir as configurações é representado por um ícone no formato de engrenagem. Sua função é gerenciar o acesso às configurações do Widget. Ao clicar no botão, caso a janela de configurações ainda não esteja aberta, ela será exibida. Porém, se já estiver aberta, o botão foca automaticamente na janela e a maximiza para facilitar o uso. Na janela de configurações, é possível ajustar todas as funcionalidades do Widget, organizadas de forma prática nos seguintes temas: Hora, Data, Internet e Rede, Fuso Horário, Tema, Alinhamento e Widget.
-        <br><br>
-        <h4 textType="bodyStrong" id="colorButton">Alterar cor - <fluent-icon style="font-size: 12px;">&#xE8AB;</fluent-icon></h4>
-        O botão de trocar a cor é representado por um ícone com duas setas apontando em sentidos opostos. Sua função é alternar a cor da fonte do Widget de acordo com o tema ativo. Ao clicar no botão, a cor da fonte muda para branco, caso o tema seja claro, ou para preto, caso o tema seja escuro. Um novo clique reverte a alteração, retornando à cor original do tema.
-        <br>
-        Observação: Essa funcionalidade pode ser usada a qualquer instante com o atalho Ctrl + C
-        <br><br>
-        <h4 textType="bodyStrong" id="helpButton">Ajuda - <fluent-icon style="font-size: 12px;">&#xE897;</fluent-icon></h4>
-        O botão de ajuda é representado por um ícone que identifica claramente sua função e está sempre acessível para suporte. Ao ser clicado, ele abre a janela de ajuda que você está utilizando neste momento para ler informações detalhadas sobre os botões e funcionalidades do Widget. Essa janela fornece orientações claras e detalhadas para que o usuário possa explorar e aproveitar ao máximo todos os recursos disponíveis.
-    </div>
-
-    <a href="#intro" class="goUp">
-      <fluent-icon iconSize="20">&#xE74A;</fluent-icon>
+  <div class="titleBar">
+    <a href="index.html" class="goHomeButton">
+      <fluent-icon iconSize="16">&#xE80F;</fluent-icon>
     </a>
-    
+    <div class="appIcon"></div>
+    Hora Certa
+  </div>
+  <div class="title subtitle">
+    <h1 textType="titleLarge">Ajuda</h1>
+    <h2 textType="subtitle">Widget e botões</h2>
+  </div>
+  <div class="contentDiv subtitle" textType="body">
+    <h3 textType="subtitle" id="intro">Introdução</h3>
+    O Widget Hora Certa foi desenvolvido para ser semalhante aos Gadgets do Windows 7, com uma interface simples,
+    intuitiva e de fácil utilização. No entanto, se surgir alguma dúvida sobre o funcionamento ou a finalidade de cada
+    botão, esta página está aqui para ajudar você.
+    <br><br>
+    <h3 textType="subtitle">Acesso rápido por ícones</h3>
+    <div class="buttonsAlign">
+      <a href="#closeButton">
+        <fluent-icon iconSize="20">&#xE8BB;</fluent-icon>
+      </a>
+      <a href="#minimizeButton">
+        <fluent-icon iconSize="20">&#xE921;</fluent-icon>
+      </a>
+      <a href="#moveButton">
+        <fluent-icon iconSize="20">&#xE7C2;</fluent-icon>
+      </a>
+      <a href="#moreButton">
+        <fluent-icon iconSize="20">&#xE712;</fluent-icon>
+      </a>
+      <a href="#pinButton">
+        <fluent-icon iconSize="20">&#xE718;</fluent-icon>
+      </a>
+      <a href="#pinIButton">
+        <fluent-icon iconSize="20">&#xE727;</fluent-icon>
+      </a>
+      <a href="#snapButton">
+        <fluent-icon iconSize="20">&#xECA5;</fluent-icon>
+      </a>
+      <a href="#settingsButton">
+        <fluent-icon iconSize="20">&#xE713;</fluent-icon>
+      </a>
+      <a href="#colorButton">
+        <fluent-icon iconSize="20">&#xE8AB;</fluent-icon>
+      </a>
+      <a href="#helpButton">
+        <fluent-icon iconSize="20">&#xE897;</fluent-icon>
+      </a>
+    </div>
+    <h3 textType="subtitle">Botões Principais</h3>
+    <h4 textType="bodyStrong" id="closeButton">Fechar - <fluent-icon style="font-size: 12px;">&#xE8BB;</fluent-icon>
+    </h4>
+    O botão de fechar é identificado por um ícone estilizado, representando um 'X'. Ele se destaca pela cor vermelha
+    vibrante, tornando sua função imediatamente reconhecível. Ao ser clicado, o botão encerra o funcionamento do widget,
+    além de fechar quaisquer janelas extras associadas, como as de configurações, ajuda e movimentação avançada.
+    <br><br>
+    <h4 textType="bodyStrong" id="minimizeButton">Minimizar - <fluent-icon
+        style="font-size: 12px;">&#xE921;</fluent-icon></h4>
+    O botão de minimizar é identificado por um ícone representado por um traço horizontal. Sua função é reduzir o Widget
+    para a barra de tarefas, garantindo que ele continue acessível, mas fora do caminho principal na tela. É ideal para
+    organizar sua área de trabalho enquanto mantém o Widget ao alcance.
+    <br><br>
+    <h4 textType="bodyStrong" id="moveButton">Mover - <fluent-icon style="font-size: 12px;">&#xE7C2;</fluent-icon></h4>
+    A seção de movimentar é representada por um ícone no formato de cruz direcional. Essa seção oferece três modos de
+    movimentação:
+    <ol>
+      <li>Arraste como janela: Permite que o usuário mova o Widget pela tela de maneira intuitiva, como se fosse uma
+        janela tradicional.</li>
+      <li>Modo de movimentação avançada: Ativa opções adicionais para personalizar ou ajustar a posição do Widget com
+        maior precisão.</li>
+      <li>Movimentação total: Transforma o Widget inteiro em uma área clicável e arrastável. Ao ativar esse modo, é
+        possível mover o Widget com um simples clique e arraste, e para desativá-lo basta clicar novamente na seção de
+        movimentação.</li>
+    </ol>
+    Essa funcionalidade foi projetada para oferecer flexibilidade e praticidade, atendendo diferentes estilos de uso e
+    preferências. Por padrão, a função da seção é arrastar como janela, para mudar a função, <span class="fakeLink"
+      id="openSettings">abra as Configurações</span> do Widget
+    <br><br>
+    <h4 textType="bodyStrong" id="moreButton">Mais - <fluent-icon style="font-size: 12px;">&#xE712;</fluent-icon></h4>
+    O botão de três pontos serve como um controlador para exibir ou ocultar os botões secundários do Widget. Ao clicar
+    nele, os botões aparecem, oferecendo acesso rápido a funcionalidades extras. Da mesma forma, ao clicar novamente, os
+    botões desaparecem, deixando a interface mais limpa e organizada. Esse botão é ideal para manter o equilíbrio entre
+    praticidade e estética.
+    <br><br>
+    <h3 textType="subtitle">Botões Secundários</h3>
+    <h4 textType="bodyStrong" id="pinButton">Fixar - <fluent-icon style="font-size: 12px;">&#xE718;</fluent-icon></h4>
+    O botão de fixar janela é representado por um ícone no formato de alfinete. Sua funcionalidade permite alternar
+    entre fixar ou desafixar a janela do Widget. Quando ativado, a janela permanece fixa acima dos outros aplicativos,
+    garantindo visibilidade constante. Ao clicar novamente, o botão desafixa a janela, permitindo que ela seja
+    sobreposta por outros aplicativos, conforme sua preferência.
+    <br><br>
+    <h4 textType="bodyStrong" id="pinIButton">Fixar e ignorar eventos - <fluent-icon
+        style="font-size: 12px;">&#xE727;</fluent-icon></h4>
+    O botão de fixar janela é representado por um ícone no formato de janela transparente. Ele permite fixar a janela do
+    Widget na tela. Quando fixado, o Widget permanece visível acima dos outros aplicativos, mas com um diferencial: ele
+    ignora as interações do mouse, permitindo que o usuário interaja livremente com os elementos que estão atrás do
+    Widget e emite uma notificação e adiciona um icone na bandeja de aplicativos. Ao clicar no icone na bandeja, a
+    fixação é desativada, e o Widget volta ao comportamento padrão, podendo ser sobreposto por outros aplicativos.
+    <br><br>
+    <h4 textType="bodyStrong" id="snapButton">Snap - <fluent-icon style="font-size: 12px;">&#xECA5;</fluent-icon></h4>
+    O botão de abrir a barra de posição é identificado pelo ícone 'Tiles'. Ao ser clicado, ele exibe uma barra lateral
+    que oferece opções práticas de posicionamento do Widget na tela. Essas opções permitem ajustar automaticamente o
+    alinhamento e a posição do Widget de forma personalizada. Além disso, as configurações escolhidas são salvas,
+    garantindo que o Widget mantenha a mesma posição e alinhamento quando for iniciado novamente.
+    <br>
+    Observação: Essa funcionalidade pode ser usada a qualquer instante com o atalho Ctrl + S
+    <br><br>
+    <h4 textType="bodyStrong" id="settingsButton">Configurações - <fluent-icon
+        style="font-size: 12px;">&#xE713;</fluent-icon></h4>
+    O botão de abrir as configurações é representado por um ícone no formato de engrenagem. Sua função é gerenciar o
+    acesso às configurações do Widget. Ao clicar no botão, caso a janela de configurações ainda não esteja aberta, ela
+    será exibida. Porém, se já estiver aberta, o botão foca automaticamente na janela e a maximiza para facilitar o uso.
+    Na janela de configurações, é possível ajustar todas as funcionalidades do Widget, organizadas de forma prática nos
+    seguintes temas: Hora, Data, Internet e Rede, Fuso Horário, Tema, Alinhamento e Widget.
+    <br><br>
+    <h4 textType="bodyStrong" id="colorButton">Alterar cor - <fluent-icon
+        style="font-size: 12px;">&#xE8AB;</fluent-icon></h4>
+    O botão de trocar a cor é representado por um ícone com duas setas apontando em sentidos opostos. Sua função é
+    alternar a cor da fonte do Widget de acordo com o tema ativo. Ao clicar no botão, a cor da fonte muda para branco,
+    caso o tema seja claro, ou para preto, caso o tema seja escuro. Um novo clique reverte a alteração, retornando à cor
+    original do tema.
+    <br>
+    Observação: Essa funcionalidade pode ser usada a qualquer instante com o atalho Ctrl + C
+    <br><br>
+    <h4 textType="bodyStrong" id="helpButton">Ajuda - <fluent-icon style="font-size: 12px;">&#xE897;</fluent-icon></h4>
+    O botão de ajuda é representado por um ícone que identifica claramente sua função e está sempre acessível para
+    suporte. Ao ser clicado, ele abre a janela de ajuda que você está utilizando neste momento para ler informações
+    detalhadas sobre os botões e funcionalidades do Widget. Essa janela fornece orientações claras e detalhadas para que
+    o usuário possa explorar e aproveitar ao máximo todos os recursos disponíveis.
+  </div>
 
-      <script src="js/setup.js"></script>
-      <script src="js/openWeb.js"></script>
-      <script src="js/openApp.js"></script>
+  <a href="#intro" class="goUp">
+    <fluent-icon iconSize="20">&#xE74A;</fluent-icon>
+  </a>
+
+
+  <script src="js/setup.js"></script>
+  <script src="js/openWeb.js"></script>
+  <script src="js/openApp.js"></script>
 </body>
-</html> 
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajuda Hora Certa</title>
+  <link rel="stylesheet" href="css/placeholder.css" id="appTheme">
+  <link rel="stylesheet" href="../font/segoeFont.css">
+  <link rel="shortcut icon" href="../icon/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <div class="titleBar">
+    <a href="index.html" class="goHomeButton">
+      <fluent-icon iconSize="16">&#xE80F;</fluent-icon>
+    </a>
+    <div class="appIcon"></div>
+    Hora Certa
+  </div>
+  <div class="title subtitle">
+    <h1 textType="titleLarge">Ajuda</h1>
+    <h2 textType="subtitle">Internet e sincronização</h2>
+  </div>
+  <div class="contentDiv subtitle" textType="body">
+    <h3 textType="subtitle" id="intro">Introdução</h3>
+    O Widget se conecta automaticamente a internet para sincronizar com o horário correto, porém, alguns erros podem ocorrer nessa sincronização. Nessa página, vamos tentar resolver o seu problema.
+    <br><br>
+    <h3 textType="subtitle">Confirme sua conexão com a internet</h3>
+    O erro principal pode ser causado pela falta de conexão do seu computador com a internet, verifique se o mesmo está conectado com a internet pela barra de tarefas ou <a href="ms-settings:network">nas Configurações do Windows</a>.
+    <br>
+    Caso ele esteja conectado a internet, vale testar a conexão com outros sites como o <span class="fakeLink" id="openGF">Google Fonts</span>.
+    <br><br>
+    <h3 textType="subtitle">Conexão com proxy</h3>
+    Em computadores ou redes que exigem a conexão com autenticação proxy não é possível fazer a conexão do Widget com a internet no momento, em futuras atualizações, esse impasse será resolvido.
+    <br><br>
+    <h3 textType="subtitle">Configuração de uso local</h3>
+    As vezes, o Widget pode estar conseguindo se conectar com a internet, mas não está apresentando o horário correto, isso pode ser devido a uma configuração errada nas configurações do mesmo. Para confirmar se é esse o seu problema, <span class="fakeLink" id="openSettings">abra as configurações do Widget</span>, vá na seção Internet e rede e descheque a opção "Usar horário local ao invés de sincronizar com a internet" e veja se o problema foi resolvido.
+    <br><br>
+    <h3 textType="subtitle">Teste de internet</h3>
+    Caso você queira testar a conexão com o servidor, você pode testar clicando no botão abaixo, e, você terá um retorno do que está acontecendo.
+    <br><br>
+    <button type="primary" id="startConnectionTest">Testar conexão</button>
+    <br><br>
+    <div id="loadingContainer" style="display: none;">
+        <segoe-boot style="font-size: 20px;" id="loadingInternet">&#xE100;</segoe-boot>
+        <br>
+    </div>
+    <pre id="connectionTest" class="codeDiv noTOC" style="display: none;">
+    </pre>
+  </div>
+
+  <a href="#intro" class="goUp">
+    <fluent-icon iconSize="20">&#xE74A;</fluent-icon>
+  </a>
+
+
+  <script src="js/setup.js"></script>
+  <script src="js/openWeb.js"></script>
+  <script src="js/openApp.js"></script>
+  <script src="js/connectionTest.js"></script>
+</body>
+
+</html>

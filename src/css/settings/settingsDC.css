@@ -366,6 +366,45 @@ body {
     outline: 1px solid #0078d4
   }
 
+  .promptContainer {
+    background-color: #0009;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    transition-duration: .2s;
+  }
+
+  .prompt {
+    border-radius: 8px;
+    background-color: #fdfdfd;
+    width: 60vw;
+    height: 40vh;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 30px;
+  }
+
+  .buttonOptions {
+    width: 100%;
+    height: 25%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #cecece;
+    background-color: #eaeaea;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+  }
 
 @media (prefers-color-scheme: dark) {
     body {
@@ -486,6 +525,15 @@ body {
 
   .colorLabel:hover {
     outline: 1px solid #5bb8ff
+  }
+
+  .prompt {
+    background-color: #323232;
+  }
+
+  .buttonOptions {
+    border-top: 1px solid #212121;
+    background-color: #232323;
   }
 }
 

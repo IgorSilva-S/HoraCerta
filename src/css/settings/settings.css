@@ -366,6 +366,56 @@ body {
     outline: 1px solid #0078d4
   }
 
+  .promptContainer {
+    background-color: #0009;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .prompt {
+    border-radius: 8px;
+    background-color: aliceblue;
+    width: 60vw;
+    height: 40vh;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 30px;
+    transition-duration: .2s;
+    transition-timing-function: ease-out;
+    animation: openPrompt .2s ease-out;
+  }
+
+  @keyframes openPrompt {
+    from {
+      opacity: 0;
+    } to {
+      opacity: 1;
+    }
+  }
+
+  .buttonOptions {
+    width: 100%;
+    height: 25%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #bcc8d3;
+    background-color: #dceaf7;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 12px;
+  }
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #000512;
@@ -485,6 +535,15 @@ body {
   
   .colorLabel:hover {
     outline: 1px solid #5bb8ff;
+  }
+
+  .prompt {
+    background-color: #000920;
+  }
+
+  .buttonOptions {
+    border-top: 1px solid #000403;
+    background-color: #000514;
   }
 }
 

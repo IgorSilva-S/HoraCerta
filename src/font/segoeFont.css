@@ -103,8 +103,12 @@ fluent-icon[iconsize="64"] {
     font-weight: 600;
 }
 
-/*[textType="watch"] {
-    font-size: 120px;
-    font-family: 'Segoe UI Variable';
-    font-weight: 600;
-}*/
+/*Extra - Boot*/
+@font-face {
+    font-family: 'Segoe UI Boot';
+    src: url(./segoeBoot.ttf);
+}
+
+segoe-boot {
+    font-family: 'Segoe UI Boot';
+}

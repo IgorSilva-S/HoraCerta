@@ -6,7 +6,6 @@ module.exports = {
     asar: true,
     icon: "./src/icon/favicon.ico",
     win32metadata: {
-      FileDescription: "Sempre esteja com o horário certo com o widget Hora Certa",
       OriginalFilename: "horacerta.exe",
       ProductName: "Hora Certa"
     }

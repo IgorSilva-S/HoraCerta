@@ -103,7 +103,10 @@ document.getElementById('offlineMode').addEventListener('click', () => {
 })
 
 /*GMT Settings*/
-document.getElementById('BRT').addEventListener('click', () => {
+document.getElementById('gmt').addEventListener('change', () => {
+    localStorage.setItem('gmt', document.getElementById('gmt').value)
+})
+/*document.getElementById('BRT').addEventListener('click', () => {
     localStorage.setItem('gmt', '-03:00')
 })
 
@@ -117,7 +120,7 @@ document.getElementById('AMT').addEventListener('click', () => {
 
 document.getElementById('ACT').addEventListener('click', () => {
     localStorage.setItem('gmt', '-05:00')
-})
+})*/
 
 /*Theme Settings*/
 document.getElementById('w11theme').addEventListener('click', () => {
@@ -317,6 +320,21 @@ document.getElementById('simpleMove').addEventListener('click', () => {
     localStorage.setItem('moveType', 'simple')
 })
 
+// document.getElementById('uninstallWidget').addEventListener('click', () => {
+//     document.getElementById('promptTitle').innerText = 'Desinstalar Hora Certa'
+//     document.getElementById('promptInfo').innerText = 'Tem certeza de que quer desinstalar o Hora Certa? Os dados e customizações serão perdidos. Essa é uma ação sem volta!'
+//     document.getElementById('promptSec').innerText = 'Desinstalar'
+//     document.getElementById('promptFirst').innerText = 'Cancelar'
+//     document.getElementById('promptCont').style.display = 'flex'
+//     typePrompt = 'uninstall'
+// })
+
+
+
+document.getElementById('removeAutoBoot').addEventListener('click', () => {
+    ipcRenderer.send('removeBootEntry')
+})
+
 document.getElementById('customSnap').addEventListener('click', () => {
     let isChecked = document.getElementById('customSnap').checked
     if (!isChecked) {
@@ -326,7 +344,79 @@ document.getElementById('customSnap').addEventListener('click', () => {
     }
 })
 
+document.getElementById('autoBoot').addEventListener('click', () => {
+    let isChecked = document.getElementById('autoBoot').checked
+    if (!isChecked) {
+        localStorage.setItem('notAutoBoot', true)
+        ipcRenderer.send('disableAutoBoot')
+    } else {
+        localStorage.removeItem('notAutoBoot')
+        ipcRenderer.send('enableAutoBoot')
+    }
+})
+
 /*About settings*/
+let numberClicked = 0
+document.getElementById('versionNumber').addEventListener('click', () => {
+    if (numberClicked < 11) {
+        numberClicked++
+    } else {
+        ipcRenderer.send('enableDevelopmentVar')
+        localStorage.setItem('developer', true)
+    }
+})
+
 document.getElementById('openGitHub').addEventListener('click', () => {
     ipcRenderer.send('openGitHub')
+})
+
+/*Prompt*/
+let typePrompt = 'closeAll'
+
+document.getElementById('promptSec').addEventListener('click', () => {
+    if (typePrompt == 'closeAll') {
+        document.getElementById('prompt').style.opacity = '0'
+        setTimeout(() => {
+            document.getElementById('prompt').removeAttribute('style')
+            document.getElementById('promptCont').style.display = 'none'
+        }, 200);
+    } else if (typePrompt == 'uninstall') {
+        const loadingSpinner = document.getElementById("loadingSpinner");
+
+        const uniStart = parseInt("E100", 16);
+        const uniEnd = parseInt("E176", 16);
+        let uniActual = uniStart;
+
+        function loadingSpinnerAnim() {
+            if (uniActual <= uniEnd) {
+                loadingSpinner.innerHTML = `&#x${uniActual.toString(16).toUpperCase()};`;
+                uniActual++;
+            } else {
+                uniActual = uniStart;
+            }
+        }
+
+        setInterval(loadingSpinnerAnim, 33)
+        loadingSpinner.style.display = 'block'
+        document.getElementById('promptTitle').innerText = 'Desinstalando Hora Certa'
+        document.getElementById('promptInfo').style.display = 'none'
+        document.getElementById('buttonOptions').style.display = 'none'
+        ipcRenderer.send('startUninstall')
+    }
+})
+
+document.getElementById('promptFirst').addEventListener('click', () => {
+    if (typePrompt == 'closeAll') {
+        document.getElementById('prompt').style.opacity = '0'
+        setTimeout(() => {
+            document.getElementById('prompt').removeAttribute('style')
+            document.getElementById('promptCont').style.display = 'none'
+        }, 200);
+    } else if (typePrompt == 'uninstall') {
+        document.getElementById('prompt').style.opacity = '0'
+        setTimeout(() => {
+            document.getElementById('prompt').removeAttribute('style')
+            document.getElementById('promptCont').style.display = 'none'
+        }, 200);
+    }
 })

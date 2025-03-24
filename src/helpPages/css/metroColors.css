@@ -11,6 +11,11 @@ body {
   overflow: hidden;
 }
 
+@font-face {
+  font-family: 'Segoe MDL2 Assets';
+  src: url(../../font/SegoeMDL2Assets.ttf);
+}
+
 .titleBar {
   width: 100vw;
   height: 50px;
@@ -135,6 +140,11 @@ ol, ul {
   color: white;
 }
 
+.codeDiv.noTOC {
+  padding-top: 5px;
+  overflow: auto;
+}
+
 .codeDiv::selection {
   background-color: white;
   color: black;
@@ -221,6 +231,102 @@ ol, ul {
   gap: 15px;
 }
 
+.contentDiv.blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.block {
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 20px 10px;
+  color: black;
+  font-family: 'Segoe UI Variable';
+}
+
+.block fluent-icon {
+  font-family: 'Segoe MDL2 Assets' !important;
+}
+
+.block:hover {
+  background-color: #7779;
+}
+
+.block-icon-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-left: 10px;
+}
+
+input[type="search"] {
+  padding: 6px 10px;
+  border: 2px solid #eaeaea;
+  box-sizing: border-box;
+  font-family:  'Segoe UI';
+  font-size: 14px;
+  width: 90vw;
+  margin-bottom: 10px;
+}
+
+input[type="search"]:hover {
+  opacity: .8;
+}
+
+input[type="search"]:focus {
+  outline: none;
+  background-color: #fff;
+  opacity: 1;
+  border: 2px solid #0078d4;
+}
+
+.goHomeButton {
+  padding: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  transition-duration: .2s;
+  -webkit-app-region: no-drag;
+  color: black;
+  font-family: 'Segoe MDL2 Assets' !important;
+}
+
+.goHomeButton:hover {
+  background-color: #19191922;
+}
+
+button[type="primary"] {
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #0078d4;
+  color: white;
+  font-family: 'Segoe UI';
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #ccc;
+  color: black;
+  font-family: 'Segoe UI';
+}
+
+button:hover {
+  opacity: .8;
+}
+
+button:active {
+  opacity: 1;
+  filter: brightness(.9)
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #000;
@@ -238,5 +344,54 @@ ol, ul {
 
   .goUp {
     background-color: #000;
+  }
+
+  
+  .block {
+    color: white;
+  }
+
+  .block:hover {
+    background-color: #aaa9;
+  }
+
+  input[type="search"] {
+    border-color: #222;
+    background-color: #050505;
+    color: white;
+  }
+
+  input[type="search"]:hover {
+    filter: brightness(1.1);
+    opacity: 1
+  }
+
+  input[type="search"]:focus {
+    background-color: black;
+  }
+
+  .goHomeButton {
+    color: white;
+  }
+
+  .goHomeButton:hover {
+    background-color: #fff2;
+  }
+
+  button {
+    border-top-color: #3b3b3b;
+    border-bottom-color: #232323;
+    background-color: #494949;
+    color: white;
+  }
+
+  button:hover {
+    filter: brightness(1.1);
+    opacity: 1
+  }
+
+  button:active {
+    opacity: .8;
+    filter: none;
   }
 }

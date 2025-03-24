@@ -1,0 +1,11 @@
+html {
+    background-color: white;
+    color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: black;
+        color: black;
+    }
+}
