@@ -387,7 +387,7 @@
 
 /*Aero theme*/
 .aero .hour {
-    background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #000e31bb , #001d66bb 62%, #000e31bb 65%);
+    background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #393939bb , #393939bb 62%, #393939bb 65%);
     background-clip: text;
     background-size: 120%;
     background-position: center;
@@ -397,13 +397,13 @@
 }
 
 .aero .date {
-    color: #000e31;
+    color: #393939;
     font-family: 'Segoe UI';
     font-weight: normal;
 }
 
 .aero .hour.inverted {
-    background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #e0f2ffbb , #bae1ffbb 62%, #e0f2ffbb 65%);
+    background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #e0f2ffbb , #e0f2ffbb 62%, #e0f2ffbb 65%);
     background-clip: text;
     color: transparent
 }
@@ -442,7 +442,7 @@
 
 @media (prefers-color-scheme: dark) {
     .aero .hour {
-        background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #e0f2ffbb , #bae1ffbb 62%, #e0f2ffbb 65%);
+        background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #e0f2ffbb , #e0f2ffbb 62%, #e0f2ffbb 65%);
         background-clip: text;
         color: transparent
     }
@@ -452,13 +452,13 @@
     }
 
     .aero .hour.inverted {
-        background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #000e31bb , #393939bb 62%, #000e31bb 65%);
+        background-image: url(../../images/textures/aeroGlass.png), linear-gradient(to bottom, #393939bb , #393939bb 62%, #393939bb 65%);
         background-clip: text;
         color: transparent
     }
     
     .aero .date.inverted {
-        color: #000e31;
+        color: #393939;
     }
 
     .aero .closeWindow {
