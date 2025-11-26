@@ -163,10 +163,10 @@ document.getElementById('royalTheme').addEventListener('click', () => {
     document.getElementById('customThemeSection').style.display = 'none'
 })
 
-document.getElementById('aeroTheme').addEventListener('click', () => {
-    localStorage.setItem('theme', 'aero')
-    document.getElementById('customThemeSection').style.display = 'none'
-})
+// document.getElementById('aeroTheme').addEventListener('click', () => {
+//     localStorage.setItem('theme', 'aero')
+//     document.getElementById('customThemeSection').style.display = 'none'
+// })
 
 document.getElementById('customTheme').addEventListener('click', () => {
     localStorage.setItem('theme', 'custom')

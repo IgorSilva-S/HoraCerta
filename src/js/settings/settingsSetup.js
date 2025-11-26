@@ -2,7 +2,7 @@
 function appTheme() {
     let appTheme = localStorage.getItem('appTheme')
     if (appTheme == 'SOB' || appTheme == undefined) {
-        document.getElementById('appTheme').href = 'css/settings/settings.css'
+        document.getElementById('appTheme').href = 'css/settings/settingsOUI.css'
     } else if (appTheme == 'fluentTheme') {
         document.getElementById('appTheme').href = 'css/settings/settingsDC.css'
     } else if (appTheme == 'metroTheme') {

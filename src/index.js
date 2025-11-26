@@ -2,7 +2,7 @@ const { app, BrowserWindow, screen, Tray, Notification, ipcMain, shell } = requi
 const path = require('node:path');
 const started = require('electron-squirrel-startup');
 let tray, settingsOpened = false, pinned = false, pinnedTransparent = false, isBlur = false, adMoveOpened = false
-let isDevelopment = false
+let isDevelopment = true
 const exec = require('child_process').exec;
 const handleSquirrelEvent = require('./squirrelEvents');
 

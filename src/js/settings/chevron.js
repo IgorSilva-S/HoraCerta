@@ -1,3 +1,4 @@
+let bRadius = '4px 4px 0 0'
 // Hour
 let isHourChevronOpened = false
 document.getElementById('hourSButton').addEventListener('click', () => {
