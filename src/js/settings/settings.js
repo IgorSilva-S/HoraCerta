@@ -253,6 +253,21 @@ document.getElementById('metroTheme').addEventListener('click', () => {
     appTheme()
 })
 
+document.getElementById('useSysBackdrop').addEventListener('change', (e) => {
+    if (e.target.checked) {
+        document.getElementById('micaEffect').innerHTML = `
+            body, .titleBar, .title {
+                background-color: #0000 !important;
+            }
+        `
+
+        localStorage.setItem('settingsSysBackdrop', true)
+    } else {
+        document.getElementById('micaEffect').innerHTML = ''
+        localStorage.setItem('settingsSysBackdrop', false)
+    }
+})
+
 /*Alignment settings*/
 document.getElementById('cnt').addEventListener('click', () => {
     localStorage.setItem('align', 'cnt')

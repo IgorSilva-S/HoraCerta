@@ -273,6 +273,7 @@ const createWindow = () => {
         symbolColor: '#74b1be',
         height: 40
       },
+      backgroundMaterial: 'mica',
       autoHideMenuBar: 'true',
       webPreferences: {
         nodeIntegration: true,
@@ -324,6 +325,7 @@ const createWindow = () => {
         nodeIntegration: true,
         contextIsolation: false,
       },
+      backgroundMaterial: 'mica',
       icon: path.join(__dirname, 'icon/favicon.ico'),
       resizable: false,
       maximizable: false

@@ -11,6 +11,10 @@ body {
     overflow: hidden;
 }
 
+body, .title, .title {
+  transition: background .2s;
+}
+
 @font-face {
     font-family: 'Segoe MDL2 Assets';
     src: url(../../font/SegoeMDL2Assets.ttf);
@@ -27,7 +31,6 @@ fluent-icon {
   top: 0;
   left: 0;
   -webkit-app-region: drag;
-  background-color: #fff;
   z-index: 999;
   display: flex;
   justify-content: flex-start;
@@ -53,7 +56,6 @@ fluent-icon {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #fff;
   z-index: 10;
   display: flex;
   justify-content: flex-start;
@@ -381,11 +383,6 @@ fluent-icon {
     body {
         background-color: black;
         color: white;
-    }
-
-    .title,
-    .titleBar {
-      background-color: black;
     }
 
     .contentDiv::-webkit-scrollbar-thumb {

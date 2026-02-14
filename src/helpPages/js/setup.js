@@ -13,6 +13,20 @@ function appTheme() {
 appTheme()
 
 setInterval(() => {
+    if (localStorage.getItem('settingsSysBackdrop') == 'true') {
+        document.getElementById('micaEffect').innerHTML = `
+            body, .titleBar, .title {
+                background-color: #0000 !important;
+            }
+        `
+
+    } else {
+        document.getElementById('micaEffect').innerHTML = ''
+        localStorage.setItem('settingsSysBackdrop', false)
+    }
+}, 2);
+
+setInterval(() => {
     let newAppTheme = localStorage.getItem('appTheme')
     if (newAppTheme != appSelTheme) {
         appSelTheme = newAppTheme

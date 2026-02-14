@@ -5,12 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Configurações Hora Certa</title>
-  <link rel="stylesheet" href="css/settings/settingsOUI.css" id="appTheme">
+  <link rel="stylesheet" href="css/settings/settings.css" id="appTheme">
   <link rel="stylesheet" href="font/segoeFont.css">
   <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
+  <style id="micaEffect">
+
+  </style>
   <div class="titleBar">
     <div class="appIcon"></div>
     Hora Certa
@@ -198,7 +201,7 @@
           <label for="customTheme">Tema customizável</label>
         </div>
       </div>
-    <div class="subBlockItemSel" id="customThemeSection" style="display: none;">
+      <div class="subBlockItemSel" id="customThemeSection" style="display: none;">
         <p textType="bodyStrong">Opcões do tema customizável</p>
         <div class="itemsPlus">
           Saiba como pegar as informações do Google Fonts
@@ -252,7 +255,7 @@
           <button type="primary" id="saveCustomTheme">Salvar alterações</button>
         </div>
       </div>
-      <div class="subBlockItemSel lastItem">
+      <div class="subBlockItemSel">
         <p textType="bodyStrong">Tema do aplicativo</p>
         <div>
           <input type="radio" name="appTheme" id="shadesOfBlue" checked>
@@ -267,6 +270,10 @@
           <label for="metroTheme">Metro UI</label>
         </div>
       </div>
+      <div class="subBlockItem lastItem">
+        <label for="useSysBackdrop">Usar efeito de janela do sistema</label>
+        <input type="checkbox" name="" id="useSysBackdrop" class="switchRadio">
+      </div>
     </div>
 
     <div class="appSBlock" id="alignSButton">
@@ -274,7 +281,8 @@
         <fluent-icon iconsize="24">&#xE8E3;</fluent-icon>
         <div>
           <p>Alinhamento</p>
-          <p textType="caption">Modifique o alinhamento do relógio e dos botões para condizer com a posição do Widget</p>
+          <p textType="caption">Modifique o alinhamento do relógio e dos botões para condizer com a posição do Widget
+          </p>
         </div>
         <fluent-icon iconsize="16" class="alertExpose" id="exposeAlignSection">&#xE70D;</fluent-icon>
       </div>
@@ -309,7 +317,7 @@
           <label for="balign">Fundo</label>
         </div>
 
-   
+
         <div class="itemsPlus">
           Alterar o alinhamento automaticamente com o Snap
           <input type="checkbox" name="" id="alignSnap" class="switchRadio" checked>
@@ -378,18 +386,31 @@
         <input type="checkbox" name="" id="customSnap" class="switchRadio" checked>
       </div>
 
+      <div class="subBlockItemSel">
+        <p textType="bodyStrong">Estilo de backdrop</p>
+        <p textType="caption">Funciona apenas em Windows 11 22H2 ou superior</p>
+        <div>
+          <input type="radio" name="backdropStyle" id="notBackdrop" checked>
+          <label for="notBackdrop">Nenhum</label>
+        </div>
+        <div>
+          <input type="radio" name="backdropStyle" id="micaBackdrop">
+          <label for="micaBackdrop">Mica</label>
+        </div>
+      </div>
+
       <div class="subBlockItem">
         Iniciar automaticamente com o sistema
         <input type="checkbox" name="" id="autoBoot" class="switchRadio" checked>
       </div>
-      
+
       <div class="subBlockItem lastItem">
         <div>
           <p>Remover iniciamento automático do Widget</p>
         </div>
         <button id="removeAutoBoot">Remover</button>
       </div>
-      
+
 
     </div>
 

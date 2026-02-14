@@ -2,7 +2,7 @@
 function appTheme() {
     let appTheme = localStorage.getItem('appTheme')
     if (appTheme == 'SOB' || appTheme == undefined) {
-        document.getElementById('appTheme').href = 'css/settings/settingsOUI.css'
+        document.getElementById('appTheme').href = 'css/settings/settings.css'
     } else if (appTheme == 'fluentTheme') {
         document.getElementById('appTheme').href = 'css/settings/settingsDC.css'
     } else if (appTheme == 'metroTheme') {
@@ -134,6 +134,15 @@ if (appThemeSelected == 'SOB' || appThemeSelected == undefined) {
     document.getElementById('fluentTheme').checked = true
 } else if (appThemeSelected == 'metroTheme') {
     document.getElementById('metroTheme').checked = true
+}
+
+if (localStorage.getItem('settingsSysBackdrop') == 'true') {
+    document.getElementById('micaEffect').innerHTML = `
+            body, .titleBar, .title {
+                background-color: #0000 !important;
+            }
+        `
+    document.getElementById('useSysBackdrop').click()
 }
 
 //Alignment

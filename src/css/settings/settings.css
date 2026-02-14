@@ -11,6 +11,10 @@ body {
     overflow: hidden;
 }
 
+body, .title, .title {
+  transition: background .2s;
+}
+
 .titleBar {
   width: 100vw;
   height: 50px;
@@ -18,7 +22,6 @@ body {
   top: 0;
   left: 0;
   -webkit-app-region: drag;
-  background-color: #e6f3fd;
   z-index: 999;
   display: flex;
   justify-content: flex-start;
@@ -44,7 +47,6 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #e6f3fd;
   z-index: 10;
   display: flex;
   justify-content: flex-start;
@@ -420,11 +422,6 @@ body {
     body {
         background-color: #000512;
         color: white;
-    }
-
-    .title,
-    .titleBar {
-      background-color: #000512;
     }
 
     .contentDiv::-webkit-scrollbar-thumb {
