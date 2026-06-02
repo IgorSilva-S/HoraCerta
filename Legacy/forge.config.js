@@ -4,12 +4,28 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 module.exports = {
   packagerConfig: {
     asar: true,
+    icon: "./src/icon/favicon.ico",
+    win32metadata: {
+      OriginalFilename: "horacerta.exe",
+      ProductName: "Hora Certa"
+    }
   },
   rebuildConfig: {},
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        name: 'HoraCerta',
+        iconUrl: "https://raw.githubusercontent.com/IgorSilva-S/HoraCerta/refs/heads/main/src/icon/favicon.ico",
+        setupIcon: "./src/icon/setup/favicon.ico",
+        setupExe: 'Instalador Hora Certa (2.0).exe',
+        loadingGif: './src/images/loading.gif',
+        appId: "com.horacerta.widget",
+        productName: "Hora Certa",
+        win: {
+          icon: "./src/icon/favicon.ico"
+        }
+      },
     },
     {
       name: '@electron-forge/maker-zip',
@@ -41,4 +57,16 @@ module.exports = {
       [FuseV1Options.OnlyLoadAppFromAsar]: true,
     }),
   ],
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'IgorSilva-S',
+          name: 'Hora Certa'
+        },
+        prerelease: false
+      }
+    }
+  ]
 };
