@@ -1,8 +1,57 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
-    sans-serif;
-  margin: auto;
-  max-width: 38rem;
-  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100dvw;
+  height: 100dvh;
+  gap: 5px;
+  background-color: #fff;
+}
+
+.hourView {
+  font-size: 120px;
+}
+
+.hourView.stack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  line-height: 100%;
+}
+
+.lineSeparator {
+  width: 60dvw;
+  height: 2px;
+  background-color: #000;
+  margin: 10px 0;
+}
+
+.dayView {
+  font-size: 26px;
+  max-width: 100dvw;
+  overflow-wrap: break-word;
+}
+
+.extraInfos {
+  font-size: 18px;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #fff;
+    background-color: #000;
+  }
+
+  .lineSeparator {
+    background-color: #fff;
+  }
 }

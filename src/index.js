@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, screen, Tray, Notification, ipcMain, shell } = require('electron');
 const path = require('node:path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -7,20 +7,34 @@ if (require('electron-squirrel-startup')) {
 }
 
 const createWindow = () => {
+  const { width, height } = screen.getPrimaryDisplay().bounds;
+
+  const windowWidth = 500;
+  const windowHeight = 300;
+
+  const x = Math.round((width - windowWidth) / 2);
+  const yDiv = Math.round(height / 14);
+
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    title: 'Hora Certa',
+    width: windowWidth,
+    height: windowHeight,
+    x: x,
+    y: yDiv,
+    transparent: 'true',
+    autoHideMenuBar: 'true',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
+    transparent: 'true',
   });
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
@@ -49,3 +63,6 @@ app.on('window-all-closed', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+try {
+  require('electron-reloader')(module);
+} catch { }
