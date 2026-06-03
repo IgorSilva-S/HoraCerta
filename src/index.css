@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Segoe UI Variable";
+  src: url(./fonts/SegoeUIVariable.ttf);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -13,11 +18,41 @@ body {
   width: 100dvw;
   height: 100dvh;
   gap: 5px;
-  background-color: #fff;
+  font-family: "Segoe UI Variable";
 }
+
+/* Background behind */
+
+.background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100dvw;
+  height: 100dvh;
+  border-radius: 8px;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  /* background-image: url('https://th.bing.com/th/id/R.8a9d7219bd1d9927bc753129dfedb70d?rik=nXPhjy6ajfIbDg&pid=ImgRaw&r=0'); */
+}
+
+/* Hour View */
 
 .hourView {
   font-size: 120px;
+  font-weight: 600;
+}
+
+.hourView.loading {
+  width: 284px;
+  height: 159px;
+  border-radius: 8px;
+  background-color: #fff3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .hourView.stack {
@@ -28,6 +63,8 @@ body {
   line-height: 100%;
 }
 
+/* Line */
+
 .lineSeparator {
   width: 60dvw;
   height: 2px;
@@ -35,23 +72,143 @@ body {
   margin: 10px 0;
 }
 
+/* Day View */
+
 .dayView {
   font-size: 26px;
   max-width: 100dvw;
   overflow-wrap: break-word;
+  font-weight: 600;
 }
+
+.dayView.loading {
+  height: 35px;
+  width: 340px;
+  border-radius: 8px;
+  background-color: #fff3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hour and Day View*/
+
+.hourView.useGradient,
+.dayView.useGradient {
+  background-clip: text;
+  color: transparent !important;
+}
+
+.hourView.loading::after,
+.dayView.loading::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 100%;
+  background-image: linear-gradient(to right, transparent, #fff3);
+  left: -40px;
+  animation: loadingAnim 1.3s linear infinite;
+}
+
+@keyframes loadingAnim {
+  from {
+    left: -40px;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+/* Extra Infos */
 
 .extraInfos {
   font-size: 18px;
 }
 
+/* Icons */
+body:hover .iconsAlign {
+  opacity: 1;
+}
+
+.iconsAlign {
+  width: 20px;
+  height: 100dvh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition-delay: .3s;
+  transition-duration: .2s;
+  opacity: 0;
+}
+
+.iconsAlign:hover {
+  width: auto;
+  opacity: 1;
+  background-color: #fff;
+}
+
+.iconsAlign button {
+  border-radius: 4px;
+  height: 20px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  gap: 10px;
+  background-color: transparent;
+  font-size: 14px;
+}
+
+.iconsAlign button::after {
+  content: attr(function);
+  font-size: 12px;
+  display: none;
+}
+
+.iconsAlign:hover button {
+  justify-content: flex-start;
+  padding: 15px 20px;
+}
+
+.iconsAlign:hover button::after {
+  display: block;
+}
+
+.iconsAlign button:hover {
+  background-color: #fff;
+}
+
+.subIconsAlign {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Dark mode */
+
 @media (prefers-color-scheme: dark) {
   body {
     color: #fff;
-    background-color: #000;
+
   }
 
   .lineSeparator {
     background-color: #fff;
+  }
+
+  .iconsAlign button {
+    color: #fff
+  }
+
+  .iconsAlign:hover {
+    background-color: #000;
   }
 }

@@ -1,13 +1,38 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Hora Certa - Widget</title>
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
-    <span class="hourView">12:00</span>
-    <div class="lineSeparator"></div>
-    <span class="dayView">Domingo, 01 de janeiro de 1970</span>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hora Certa - Widget</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="./fonts/segoeFont.css">
+</head>
+
+<body>
+  <div class="background"></div>
+  <span class="hourView loading" id="watchHour"></span>
+  <div class="lineSeparator" id="lineSeparator"></div>
+  <span class="dayView loading" id="watchDay"></span>
+
+  <div class="iconsAlign">
+    <button function="Fechar">
+      <fluent-icon>&#xE8BB;</fluent-icon>
+    </button>
+    <button function="Minimizar">
+      <fluent-icon>&#xE921;</fluent-icon>
+    </button>
+    <button class="moveButton">M</button>
+    <button>
+      <fluent-icon>&#xE712;</fluent-icon>
+    </button>
+    <div class="subIconsAlign">
+      <button function="Config.">
+        <fluent-icon>&#xE713;</fluent-icon>
+      </button>
+    </div>
+  </div>
+
+  <script src="scripts/widget/clockFunction.js"></script>
+</body>
+
 </html>

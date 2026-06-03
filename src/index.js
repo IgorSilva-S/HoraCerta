@@ -22,12 +22,12 @@ const createWindow = () => {
     height: windowHeight,
     x: x,
     y: yDiv,
-    transparent: 'true',
+    titleBarStyle: "hidden",
     autoHideMenuBar: 'true',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
-    transparent: 'true',
+    transparent: 'true'
   });
 
   // and load the index.html of the app.
