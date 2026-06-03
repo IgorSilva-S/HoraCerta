@@ -15,21 +15,37 @@
   <span class="dayView loading" id="watchDay"></span>
 
   <div class="iconsAlign">
-    <button function="Fechar">
+    <button function="Fechar" class="closeButton">
       <fluent-icon>&#xE8BB;</fluent-icon>
     </button>
     <button function="Minimizar">
       <fluent-icon>&#xE921;</fluent-icon>
     </button>
-    <button class="moveButton">M</button>
-    <button>
+    <button class="moveButton" onclick="document.getElementById('moveArea').style.display = 'flex'" function="Mover">
+      <fluent-icon>&#xE7C2;</fluent-icon>
+    </button>
+    <button function="Outros">
       <fluent-icon>&#xE712;</fluent-icon>
     </button>
-    <div class="subIconsAlign">
+    <div class="subIconsAlign" id="extraIcons">
       <button function="Config.">
         <fluent-icon>&#xE713;</fluent-icon>
       </button>
+      <button function="Posicionar">
+        <fluent-icon>&#xECA5;</fluent-icon>
+      </button>
+      <button function="Alterar cores">
+        <fluent-icon>&#xE8AB;</fluent-icon>
+      </button>
+      <button function="Ajuda">
+        <fluent-icon>&#xE897;</fluent-icon>
+      </button>
     </div>
+  </div>
+
+  <div class="movingWindow" id="moveArea">
+    <H1>Movimentando</H1>
+    <button onclick="document.getElementById('moveArea').removeAttribute('style')">Parar de movimentar</button>
   </div>
 
   <script src="scripts/widget/clockFunction.js"></script>

@@ -6,6 +6,7 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: "Segoe UI Variable";
 }
 
 body {
@@ -136,6 +137,8 @@ body:hover .iconsAlign {
 .iconsAlign {
   width: 20px;
   height: 100dvh;
+  box-sizing: border-box;
+  padding: 10px;
   position: fixed;
   right: 0;
   top: 0;
@@ -145,12 +148,24 @@ body:hover .iconsAlign {
   transition-delay: .3s;
   transition-duration: .2s;
   opacity: 0;
+  overflow: hidden;
+}
+
+.iconsAlign::-webkit-scrollbar {
+  width: 3px;
+}
+
+.iconsAlign::-webkit-scrollbar-thumb {
+  background-color: #003399;
 }
 
 .iconsAlign:hover {
-  width: auto;
+  width: 30%;
   opacity: 1;
-  background-color: #fff;
+  background-color: #f0f0f0;
+  border-radius: 8px 0px 0px 8px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .iconsAlign button {
@@ -164,17 +179,18 @@ body:hover .iconsAlign {
   gap: 10px;
   background-color: transparent;
   font-size: 14px;
+  transition-duration: .2s;
 }
 
 .iconsAlign button::after {
   content: attr(function);
-  font-size: 12px;
+  font-size: 13px;
   display: none;
 }
 
 .iconsAlign:hover button {
   justify-content: flex-start;
-  padding: 15px 20px;
+  padding: 15px;
 }
 
 .iconsAlign:hover button::after {
@@ -182,7 +198,12 @@ body:hover .iconsAlign {
 }
 
 .iconsAlign button:hover {
-  background-color: #fff;
+  background-color: #19191922;
+}
+
+.iconsAlign .closeButton:hover {
+  background-color: #f00a;
+  color: #fff;
 }
 
 .subIconsAlign {
@@ -190,6 +211,28 @@ body:hover .iconsAlign {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+/* Moving Window Popup*/
+
+.movingWindow {
+  width: 100dvw;
+  height: 100dvh;
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 8px;
+  -webkit-app-region: drag;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.movingWindow button {
+  -webkit-app-region: no-drag;
 }
 
 /* Dark mode */
@@ -209,6 +252,14 @@ body:hover .iconsAlign {
   }
 
   .iconsAlign:hover {
-    background-color: #000;
+    background-color: #191919;
+  }
+
+  .iconsAlign button:hover {
+    background-color: #fff3;
+  }
+
+  .movingWindow {
+    background-color: #191919cc;
   }
 }
